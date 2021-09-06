@@ -1,7 +1,21 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
+import { GetStaticProps } from 'next';
 
-const Home: NextPage = () => {
+import { getAllArticles } from '../utils/mdx';
+
+interface Post {
+  frontmatter: {
+    [key: string]: string;
+  };
+  slug: string;
+}
+interface Props {
+  posts: Post[];
+}
+
+const Home: NextPage<Props> = ({ posts }) => {
   return (
     <div>
       <Head>
@@ -11,9 +25,27 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <h1>Welcome to my page</h1>
+        <ul>
+          {posts.map(({ slug, frontmatter }) => {
+            return (
+              <li key={slug}>
+                <Link href={`/posts/${slug}`}>{frontmatter.title}</Link>
+                <blockquote>{frontmatter.description}</blockquote>
+              </li>
+            );
+          })}
+        </ul>
       </main>
     </div>
   );
+};
+
+export const getStaticProps: GetStaticProps = () => {
+  const posts = getAllArticles({ sorted: true });
+
+  return {
+    props: { posts },
+  };
 };
 
 export default Home;
