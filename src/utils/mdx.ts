@@ -3,7 +3,7 @@ import { join } from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import matter from 'gray-matter';
 
-import { isAfter, isBefore } from '../utils/date';
+import { isAfter, isBefore } from './date';
 
 const ROOT = process.cwd();
 const POSTS_DIRECTORY = join(process.cwd(), 'data', 'posts');
