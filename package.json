@@ -10,8 +10,12 @@
     "update": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.6.9",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
     "date-fns": "^2.25.0",
     "esbuild": "^0.12.25",
+    "framer-motion": "^4",
     "gray-matter": "^4.0.3",
     "mdx-bundler": "^6.0.2",
     "next": "11.1.2",
