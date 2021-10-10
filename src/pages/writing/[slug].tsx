@@ -1,50 +1,49 @@
 import { useMemo, FC } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
-import Link from 'next/link';
 
-import { getAllArticles, getSingleArticle } from '../../utils/mdx';
-
+import Link from '@/components/link';
+import components from '@/components/article/components';
+import { getAllArticles, getSingleArticle, Frontmatter } from '@/utils/mdx';
 interface Props {
   post: {
-    frontmatter: {
-      [key: string]: any;
-    };
+    frontmatter: Frontmatter;
     code: string;
     previousArticle: {
-      frontmatter: {
-        [key: string]: any;
-      };
+      frontmatter: Frontmatter;
       slug: string;
     };
     nextArticle: {
-      frontmatter: {
-        [key: string]: any;
-      };
+      frontmatter: Frontmatter;
       slug: string;
     };
   };
 }
 
 const Post: FC<Props> = ({ post }) => {
-  const { code, frontmatter, nextArticle, previousArticle } = post;
+  const { code, nextArticle, previousArticle, frontmatter } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <div>
-      <h1>{frontmatter.title}</h1>
-      <Component />
+    <main>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
+      <article>
+        <Component components={components} />
+      </article>
       {nextArticle && (
-        <Link href={`/posts/${nextArticle.slug}`}>
+        <Link href={`/writing/${nextArticle.slug}`}>
           {nextArticle.frontmatter.title}
         </Link>
       )}
       {previousArticle && (
-        <Link href={`/posts/${previousArticle.slug}`}>
+        <Link href={`/writing/${previousArticle.slug}`}>
           {previousArticle.frontmatter.title}
         </Link>
       )}
-    </div>
+    </main>
   );
 };
 
