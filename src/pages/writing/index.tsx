@@ -22,7 +22,7 @@ interface Props {
 const HeroTitle: FC = ({ children }) => {
   return (
     <Flex
-      as='section'
+      as='header'
       w='100%'
       justifyContent='center'
       alignItems='center'

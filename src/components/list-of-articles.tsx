@@ -11,7 +11,7 @@ interface Props {
 const ListOfArticles: FC<Props> = ({ articles }) => {
   return (
     <Box
-      as='section'
+      as='main'
       w={[300, 400, 500, 1000]}
       m={['2rem auto', '0 1rem', '0 auto']}
       h='100%'

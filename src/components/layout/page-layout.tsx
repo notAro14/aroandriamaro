@@ -6,8 +6,7 @@ import Footer from '@/components/footer';
 import NavigationBar from '@/components/navigation-bar';
 
 const PageLayout: FC = ({ children }) => {
-  const [isMobile] = useMediaQuery('(max-width: 650px)');
-  console.log({ isMobile });
+  const [isMobile] = useMediaQuery('(max-width: 600px)');
   return (
     <>
       {isMobile ? (
@@ -15,12 +14,10 @@ const PageLayout: FC = ({ children }) => {
           position='fixed'
           right='10px'
           fontSize='xl'
-          // color='whiteAlpha.500'
           color='yellow.300'
           top='10px'
           border='solid 2px'
           borderColor='whiteAlpha.500'
-          // borderColor='yellow.300'
           rounded='full'
           p='5px'
         >

@@ -17,7 +17,12 @@ interface SocialButtonProps extends LinkProps {
 
 const SocialButton: FC<SocialButtonProps> = ({ children, label, href }) => {
   return (
-    <Tooltip label={label} bg='yellow.300' color='blackAlpha.700'>
+    <Tooltip
+      placement='top'
+      label={label}
+      bg='yellow.300'
+      color='blackAlpha.700'
+    >
       <Link
         rounded='full'
         w={6}

@@ -43,7 +43,13 @@ const NavigationBar: FC = () => {
         </ListItem>
         <ListItem>
           <ListIcon color='yellow.300' fontSize='lg' as={CgProfile} />
-          <Link href='/about'>about me</Link>
+          <Link
+            textDecoration='line-through'
+            //href='/about'
+            href='/#'
+          >
+            about me
+          </Link>
         </ListItem>
       </Flex>
     </Flex>

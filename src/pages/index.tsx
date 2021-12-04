@@ -1,9 +1,18 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { Flex, VStack, Box } from '@chakra-ui/layout';
+import {
+  Text,
+  IconButton,
+  Heading,
+  Tooltip,
+  VisuallyHidden,
+} from '@chakra-ui/react';
+import { GiSpeaker } from 'react-icons/gi';
 
-import { H1 } from '@/components/headings';
 import Link from '@/components/link';
+import Emoji from '@/components/emoji';
+import Footer from '@/components/footer';
 
 const Home: NextPage = () => {
   return (
@@ -18,17 +27,83 @@ const Home: NextPage = () => {
         justifyContent='center'
         m='0 auto'
         direction='column'
-        h='100vh'
+        h='calc(100vh - 50px)'
+        as='main'
       >
-        <Box>
-          <H1>Aro Andriamaro</H1>
-          <VStack spacing='15px' alignItems='flex-start'>
-            <Link href='/writing'>Writing</Link>
-            <Link href='/projects'>Projects</Link>
-            <Link href='/about'>About Me</Link>
+        <Box as='article'>
+          <Flex mb='1' as='header' alignItems='center'>
+            <Heading color='yellow.300' as='h1' size='xl'>
+              Aro Andriamaro
+            </Heading>
+            <Tooltip
+              label='Listen pronunciation'
+              placement='top'
+              bg='yellow.300'
+              color='blackAlpha.700'
+            >
+              <IconButton
+                aria-label='speaker'
+                rounded='full'
+                fontSize='3xl'
+                ml='2'
+                variant='outline'
+                colorScheme='teal'
+                icon={
+                  <>
+                    <VisuallyHidden>Listen pronunciation</VisuallyHidden>
+                    <GiSpeaker />
+                  </>
+                }
+              />
+            </Tooltip>
+          </Flex>
+          <Text mb='10' as='p' fontSize='xl' color='gray.400'>
+            Software developer
+          </Text>
+          <VStack spacing='6' alignItems='flex-start'>
+            <Link
+              display='flex'
+              alignItems='center'
+              minWidth='125px'
+              textTransform='uppercase'
+              pb='2'
+              href='/writing'
+              fontSize='xl'
+            >
+              <Emoji mr='4' ariaLabel='pencil' symbol='✏️' /> Writing
+            </Link>
+            <Link
+              fontSize='xl'
+              display='flex'
+              alignItems='center'
+              minWidth='125px'
+              textTransform='uppercase'
+              href='#'
+              //href='/projects'
+              textDecoration='line-through'
+              pb='2'
+            >
+              <Emoji mr='4' ariaLabel='rocket' symbol='🚀' /> Projects- COMING
+              SOON
+            </Link>
+            <Link
+              pb='2'
+              fontSize='xl'
+              display='flex'
+              alignItems='center'
+              minWidth='125px'
+              textTransform='uppercase'
+              textDecoration='line-through'
+              //href='/about'
+              href='#'
+            >
+              <Emoji mr='4' ariaLabel='developer' symbol='🧑🏾‍💻' /> About Me -
+              COMING SOON
+            </Link>
           </VStack>
         </Box>
       </Flex>
+      <Footer />
     </>
   );
 };
