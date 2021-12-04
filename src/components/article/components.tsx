@@ -1,6 +1,6 @@
 import Link from '@/components/link';
 
-import { H1, H2, H3, H4 } from '@/components/headings';
+import { H1, H2, H3, H4 } from '@/components/article/headings';
 import Code from '@/components/codeblock/code';
 
 const components = {

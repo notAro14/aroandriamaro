@@ -3,6 +3,7 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
+import { Box } from '@chakra-ui/react';
 
 import Link from '@/components/link';
 import components from '@/components/article/components';
@@ -26,13 +27,13 @@ const Post: FC<Props> = ({ post }) => {
   const { code, nextArticle, previousArticle, frontmatter } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <main>
+    <Box as='main' minH='100vh' w='100vw'>
       <Head>
         <title>{frontmatter.title}</title>
       </Head>
-      <article>
+      <Box p='4' w={['100%', 400, 500, 1000]} m='auto' as='article'>
         <Component components={components} />
-      </article>
+      </Box>
       {nextArticle && (
         <Link href={`/writing/${nextArticle.slug}`}>
           {nextArticle.frontmatter.title}
@@ -43,7 +44,7 @@ const Post: FC<Props> = ({ post }) => {
           {previousArticle.frontmatter.title}
         </Link>
       )}
-    </main>
+    </Box>
   );
 };
 
