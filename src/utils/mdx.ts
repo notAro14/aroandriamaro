@@ -13,6 +13,12 @@ export interface Frontmatter {
   title: string;
   description: string;
   date: string;
+  emoji: string;
+}
+
+export interface Article {
+  frontmatter: Frontmatter;
+  slug: string;
 }
 
 export const readFileContent = (filename: string) =>
@@ -76,8 +82,8 @@ export const getAllArticles = ({ sorted }: { sorted: boolean }) => {
       slug: filenameWithoutExtension,
     };
   });
-  const articlesSortedDesc = [...articlesUnsorted].sort(
-    (articleA, articleB) => {
+  if (sorted) {
+    return articlesUnsorted.sort((articleA, articleB) => {
       const { date: dateA } = articleA.frontmatter as Frontmatter;
       const { date: dateB } = articleB.frontmatter as Frontmatter;
       if (isBefore(dateA, dateB)) {
@@ -87,9 +93,9 @@ export const getAllArticles = ({ sorted }: { sorted: boolean }) => {
         return -1;
       }
       return 0;
-    }
-  );
-  return sorted ? articlesSortedDesc : articlesUnsorted;
+    });
+  }
+  return articlesUnsorted;
 };
 
 export const getSingleArticle = async (slug: string) => {
