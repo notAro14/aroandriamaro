@@ -14,6 +14,9 @@ const ArticlePreview: FC<Article> = ({ slug, frontmatter }) => (
       href={`/writing/${slug}`}
       letterSpacing={2}
       fontWeight={400}
+      _focus={{
+        outline: 0,
+      }}
     >
       {frontmatter.title}
     </Link>

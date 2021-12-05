@@ -1,16 +1,14 @@
 ---
 title: Component composition
-description: Quick tip to improve React component
+description: Quick tip to improve a React component
 date: '2021-10-01'
 ---
 
 One simple way to improve your components in React is to use [composition](https://reactjs.org/docs/composition-vs-inheritance.html). This is a very simple pattern but yet not used that much by developers who just begun their React journey.
 
-Basically, composition means using the _children_ prop. With composition, you can improve **readability, modularity** and **flexibility**.
+Basically, composition means using the _children_ prop. With composition, you can improve _readability_, _modularity_ and _flexibility_.
 
 ## List component
-
-### The problem
 
 Let's take a very simple example of a component that renders a list of items.
 
@@ -39,6 +37,8 @@ const App: FC = () => {
   return <List items={['John', 'Jane']} />;
 };
 ```
+
+### The problem
 
 The problem here is that it does not give much flexibility to the consumers (other developers) of our _List_ component.
 
@@ -140,6 +140,8 @@ const App: FC = () => {
 ```
 
 ## Other practical examples
+
+Below are some quick examples which illustrate the concept of composition.
 
 ### Button
 

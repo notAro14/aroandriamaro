@@ -65,6 +65,9 @@ const Home: NextPage = () => {
               display='flex'
               alignItems='center'
               minWidth='125px'
+              _focus={{
+                outline: 0,
+              }}
               textTransform='uppercase'
               pb='2'
               href='/writing'
@@ -74,6 +77,9 @@ const Home: NextPage = () => {
             </Link>
             <Link
               fontSize='xl'
+              _focus={{
+                outline: 0,
+              }}
               display='flex'
               alignItems='center'
               minWidth='125px'
@@ -90,6 +96,9 @@ const Home: NextPage = () => {
               pb='2'
               fontSize='xl'
               display='flex'
+              _focus={{
+                outline: 0,
+              }}
               alignItems='center'
               minWidth='125px'
               textTransform='uppercase'
