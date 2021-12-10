@@ -1,22 +1,17 @@
-import '@fontsource/merriweather';
-import '@fontsource/inter';
-
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
 import { MDXEmbedProvider } from 'mdx-embed';
+import { ThemeProvider } from 'theme-ui';
 
+import '../styles/globals.css';
 import { theme } from '@/styles/theme';
-import AppLayout from '@/components/layout/app-layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
+    <ThemeProvider theme={theme}>
       <MDXEmbedProvider>
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
+        <Component {...pageProps} />
       </MDXEmbedProvider>
-    </ChakraProvider>
+    </ThemeProvider>
   );
 }
 export default MyApp;

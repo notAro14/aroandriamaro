@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import { Box, BoxProps } from '@chakra-ui/react';
 
-interface Props extends BoxProps {
+interface Props {
   ariaLabel: string;
   symbol: string;
 }
 
-const Emoji: FC<Props> = ({ ariaLabel, symbol, ...restOfBoxProps }) => (
-  <Box as='span' role='img' aria-label={ariaLabel} {...restOfBoxProps}>
+const Emoji: FC<Props> = ({ ariaLabel, symbol }) => (
+  <span role='img' aria-label={ariaLabel}>
     {symbol}
-  </Box>
+  </span>
 );
 
 export default Emoji;
