@@ -1,17 +1,109 @@
+/** @jsxImportSource theme-ui */
 import { useMemo, FC } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
-import { Box, Flex } from '@chakra-ui/react';
-import { BsArrowRightShort, BsArrowLeftShort } from 'react-icons/bs';
-import { Heading, Text } from '@chakra-ui/react';
+import { MDXEmbedProvider } from 'mdx-embed';
+import { Heading, Link, Text, Flex } from 'theme-ui';
 
-import Link from '@/components/link';
-import components from '@/components/article/components';
+import SyntaxHighlighter from '@/components/code';
+
+const components = {
+  code: SyntaxHighlighter,
+  h1: (props: any) => (
+    <Heading
+      as='h1'
+      color='primary'
+      mt='4'
+      mb='-4'
+      sx={{
+        fontSize: ['2xl', '6xl'],
+        textTransform: 'uppercase',
+      }}
+      {...props}
+    />
+  ),
+  h2: (props: any) => (
+    <Heading
+      as='h2'
+      color='primary'
+      mt='4'
+      mb={-5}
+      sx={{
+        fontSize: ['2xl', '5xl'],
+      }}
+      {...props}
+    />
+  ),
+  h3: (props: any) => (
+    <Heading
+      as='h3'
+      color='primary'
+      mt='4'
+      mb={-5}
+      sx={{
+        fontSize: ['lg', '2xl'],
+      }}
+      {...props}
+    />
+  ),
+  h4: (props: any) => (
+    <Heading as='h4' color='primary' mt='4' mb={-5} {...props} />
+  ),
+  h5: (props: any) => (
+    <Heading as='h5' color='primary' mt='4' mb={-5} {...props} />
+  ),
+  h6: (props: any) => (
+    <Heading as='h6' color='primary' mt='4' mb={-5} {...props} />
+  ),
+  p: (props: any) => (
+    <Text
+      as='p'
+      color='text'
+      my={[5, 4]}
+      sx={{
+        fontSize: ['lg', 'xl'],
+        lineHeight: [1.9, 1.75, 1.5],
+      }}
+      {...props}
+    />
+  ),
+  em: (props: any) => (
+    <Text
+      as='em'
+      color='gray'
+      sx={{
+        fontWeight: 'extra',
+      }}
+      {...props}
+    />
+  ),
+  a: (props: any) => (
+    <Link
+      color='accent'
+      sx={{
+        ':visited': {
+          color: 'dark-accent',
+        },
+      }}
+      {...props}
+    />
+  ),
+  ul: (props: any) => (
+    <Flex
+      as='ul'
+      sx={{
+        flexDirection: 'column',
+        gap: 2,
+        pl: 6,
+      }}
+      {...props}
+    />
+  ),
+};
+
 import { getAllArticles, getSingleArticle, Frontmatter } from '@/utils/mdx';
-import Emoji from '@/components/emoji';
-import Footer from '@/components/footer';
 interface Props {
   post: {
     frontmatter: Frontmatter;
@@ -28,80 +120,17 @@ interface Props {
 }
 
 const Post: FC<Props> = ({ post }) => {
-  const { code, nextArticle, previousArticle, frontmatter } = post;
+  const { code, frontmatter } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <>
-      <Box as='main'>
-        <Head>
-          <title>{frontmatter.title}</title>
-        </Head>
-        <Box
-          p='4'
-          minH='calc(100vh - 100px)'
-          w={['100%', 400, 500, 1000]}
-          m='auto'
-          as='article'
-        >
-          <Heading
-            my='4'
-            as='h1'
-            color='pink.400'
-            borderBottom='1px solid'
-            borderBottomColor='pink.400'
-            pb='4'
-          >
-            {frontmatter.title}
-          </Heading>
-          <Flex fontSize='lg'>
-            <Emoji ariaLabel='calendar' symbol='📅' />{' '}
-            <Text ml='2' color='grey'>
-              {frontmatter.date}
-            </Text>
-          </Flex>
-          <Component components={components} />
-        </Box>
-        <Flex
-          as='nav'
-          //borderTop='1px solid white'
-          height='100px'
-          alignItems='center'
-          justifyContent={
-            nextArticle && !previousArticle ? 'flex-end' : 'space-between'
-          }
-          w={['100%', 400, 500, 1000]}
-          m='auto'
-          my='4'
-          p='4'
-        >
-          {previousArticle && (
-            <Link
-              display='flex'
-              alignItems='center'
-              _focus={{
-                outline: 0,
-              }}
-              href={`/writing/${previousArticle.slug}`}
-            >
-              <BsArrowLeftShort /> {previousArticle.frontmatter.title}
-            </Link>
-          )}
-          {nextArticle && (
-            <Link
-              display='flex'
-              _focus={{
-                outline: 0,
-              }}
-              alignItems='center'
-              href={`/writing/${nextArticle.slug}`}
-            >
-              {nextArticle.frontmatter.title} <BsArrowRightShort />
-            </Link>
-          )}
-        </Flex>
-      </Box>
-      <Footer />
-    </>
+    <article>
+      <Head>
+        <title>{frontmatter.title}</title>
+      </Head>
+      <MDXEmbedProvider>
+        <Component components={components} />
+      </MDXEmbedProvider>
+    </article>
   );
 };
 

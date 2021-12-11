@@ -1,22 +1,26 @@
-import '@fontsource/merriweather';
-import '@fontsource/inter';
-
+/** @jsxImportSource theme-ui */
 import type { AppProps } from 'next/app';
-import { ChakraProvider } from '@chakra-ui/react';
-import { MDXEmbedProvider } from 'mdx-embed';
+import { ThemeProvider } from 'theme-ui';
 
+import '../styles/reset.css';
+import '../styles/shadow.css';
 import { theme } from '@/styles/theme';
-import AppLayout from '@/components/layout/app-layout';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <MDXEmbedProvider>
-        <AppLayout>
-          <Component {...pageProps} />
-        </AppLayout>
-      </MDXEmbedProvider>
-    </ChakraProvider>
+    <ThemeProvider theme={theme}>
+      <section
+        sx={{
+          fontFamily: 'body',
+          minHeight: '100%',
+          width: ['100%', '768px', '1000px'],
+          m: 'auto',
+          p: '1rem',
+        }}
+      >
+        <Component {...pageProps} />
+      </section>
+    </ThemeProvider>
   );
 }
 export default MyApp;
