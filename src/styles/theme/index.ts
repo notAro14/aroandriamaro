@@ -17,7 +17,7 @@ export const theme: Theme = {
   radii: {
     sm: '2px',
     md: '6px',
-    xl: '15px',
+    lg: '15px',
   },
   shadows: {
     low: 'var(--shadow-elevation-low)',
