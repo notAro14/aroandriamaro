@@ -1,8 +1,16 @@
+/** @jsxImportSource theme-ui */
 import { useMemo, FC } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
+import { MDXEmbedProvider } from 'mdx-embed';
+
+import SyntaxHighlighter from '@/components/code';
+
+const components = {
+  code: SyntaxHighlighter,
+};
 
 import { getAllArticles, getSingleArticle, Frontmatter } from '@/utils/mdx';
 interface Props {
@@ -24,12 +32,14 @@ const Post: FC<Props> = ({ post }) => {
   const { code, frontmatter } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
-    <>
+    <article>
       <Head>
         <title>{frontmatter.title}</title>
       </Head>
-      <Component />
-    </>
+      <MDXEmbedProvider>
+        <Component components={components} />
+      </MDXEmbedProvider>
+    </article>
   );
 };
 

@@ -1,8 +1,24 @@
 /** @jsxImportSource theme-ui */
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
-const Home: NextPage = () => {
+import { getAllArticles, Article } from '@/utils/mdx';
+
+export const getStaticProps = () => {
+  const articles = getAllArticles({ sorted: true });
+  return {
+    props: {
+      articles,
+    },
+  };
+};
+
+interface Props {
+  articles: Article[];
+}
+
+const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Head>
@@ -10,13 +26,21 @@ const Home: NextPage = () => {
         <meta name='description' content="Aro Andriamaro's personal website" />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <p
-        sx={{
-          fontFamily: 'body',
-        }}
-      >
-        Hello world
-      </p>
+      <h1>Aro Andriamaro</h1>
+      <h2>About me</h2>
+      <p>Hi, I&apos;m Aro, a software developer based in Lyon, France.</p>
+      <h2>Blog</h2>
+      <ul>
+        {articles.map((article) => {
+          return (
+            <li key={article.slug}>
+              <Link href={`/writing/${article.slug}`}>
+                {article.frontmatter.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </>
   );
 };
