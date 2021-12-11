@@ -4,6 +4,8 @@ description: Quick tip to improve a React component
 date: '2021-10-01'
 ---
 
+# Component composition
+
 One simple way to improve your components in React is to use [composition](https://reactjs.org/docs/composition-vs-inheritance.html). This is a very simple pattern but yet not used that much by developers who just begun their React journey.
 
 Basically, composition means using the _children_ prop. With composition, you can improve _readability_, _modularity_ and _flexibility_.
@@ -38,8 +40,6 @@ const App: FC = () => {
 };
 ```
 
-### The problem
-
 The problem here is that it does not give much flexibility to the consumers (other developers) of our _List_ component.
 
 Sure, the component is very simple to use: you just have to pass an array of _string_ to render items.
@@ -49,8 +49,6 @@ But what if you wanted to customize the individual item (say you want to add an 
 In a little codebase, this is not a problem in itself. But it can be a source of regression in a large codebase where _List_ is used in many places.
 
 And what if _List_ was enclosed in a library or external package ? Then you don't have access to the internal of the component. Therefore, customization of individual item is not possible.
-
-### The solution
 
 To improve the flexibility of _List_, i-e give developers the power to customize the behavior of our component, we can re-write _List_ with composition in mind.
 
@@ -91,14 +89,12 @@ const List: FC = ({ children }) => {
   return <ul>{children}</ul>;
 };
 
-// ++++++++++
 // ListItem.tsx
 import { FC } from 'react';
 
 const ListItem: FC = ({ children }) => {
   return <li>{children}</li>;
 };
-// ++++++++++
 
 // App.tsx
 const App: FC = () => {
@@ -135,93 +131,6 @@ const App: FC = () => {
         <p>Sparks</p>
       </ListItem>
     </List>
-  );
-};
-```
-
-## Other practical examples
-
-Below are some quick examples which illustrate the concept of composition.
-
-### Button
-
-```tsx
-// ❌ don't do this
-interface ButtonProps {
-  text: string;
-}
-const Button: FC<ButtonProps> = ({ text }) => {
-  return <button>{text}</button>;
-};
-
-const App: FC = () => {
-  return <Button text='Click me' />;
-};
-```
-
-```tsx
-// ✅ do this instead
-const Button: FC = ({ children }) => {
-  return <button>{children}</button>;
-};
-
-const App: FC = () => {
-  return <Button>Click me</Button>;
-};
-```
-
-### Navbar
-
-```tsx
-// ❌ don't do this
-interface Link {
-  href: string;
-  text: string;
-}
-interface NavbarProps {
-  links: Link[];
-}
-const Navbar: FC<NavbarProps> = ({ links }) => {
-  return (
-    <nav>
-      {links.map((link) => (
-        <a key={link.text} href={link.href}>
-          {link.text}
-        </a>
-      ))}
-    </nav>
-  );
-};
-
-const LINKS = [
-  { href: '/home', text: 'Home' },
-  { href: '/signin', text: 'Sign In' },
-];
-
-const App: FC = () => {
-  return <Navbar links={LINKS} />;
-};
-```
-
-```tsx
-// ✅ do this instead
-interface LinkProps {
-  href: string;
-}
-
-const Navbar: FC = ({ children }) => {
-  return <nav>{children}</nav>;
-};
-const Link: FC<LinkProps> = ({ href, children }) => {
-  return <a href={href}>{children}</a>;
-};
-
-const App: FC = () => {
-  return (
-    <Navbar>
-      <Link href='/home'>Home</Link>
-      <Link href='/signin'>Sign In</Link>
-    </Navbar>
   );
 };
 ```

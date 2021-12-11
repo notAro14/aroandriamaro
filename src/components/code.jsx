@@ -1,6 +1,57 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/okaidia';
+import theme from 'prism-react-renderer/themes/nightOwl';
 import { Box, Flex } from 'theme-ui';
+
+const Language = ({ children }) => {
+  return (
+    <Box
+      sx={{
+        alignSelf: 'flex-start',
+        color: 'hsl(208 15% 60%)',
+        fontWeight: 'semi',
+        textTransform: 'uppercase',
+        mt: 4,
+        py: 1,
+        px: 2,
+        fontFamily: 'body',
+      }}
+    >
+      {children}
+    </Box>
+  );
+};
+
+const CodeBlockContainer = ({ children }) => {
+  return (
+    <Flex
+      sx={{
+        flexDirection: 'column',
+      }}
+    >
+      {children}
+    </Flex>
+  );
+};
+
+const Code = ({ children, ...props }) => {
+  return (
+    <Box
+      as='pre'
+      sx={{
+        overflow: 'auto',
+        p: 5,
+        mb: 4,
+        fontFamily: 'monospace',
+        fontSize: 'sm',
+        boxShadow: 'medium',
+        borderRadius: 'md',
+      }}
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+};
 
 const SyntaxHighlighter = ({ children, className }) => {
   const code = children.trim();
@@ -10,43 +61,9 @@ const SyntaxHighlighter = ({ children, className }) => {
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={theme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <Flex
-          sx={{
-            flexDirection: 'column',
-          }}
-        >
-          <Box
-            sx={{
-              textTransform: 'uppercase',
-              mt: '1rem',
-              backgroundColor: 'tomato',
-              fontWeight: 900,
-              fontFamily: 'body',
-              ':before': {
-                content: '"<"',
-              },
-              ':after': {
-                content: '">"',
-              },
-            }}
-          >
-            {language}
-          </Box>
-          <Box
-            as='pre'
-            sx={{
-              overflow: 'auto',
-              p: '1.2rem',
-              borderRadius: '15px',
-              mb: '1rem',
-              fontFamily: 'monospace',
-              fontSize: '0.9rem',
-              boxShadow:
-                '2px 4px 4px hsl(0 5% 30% / 0.25), 3px 6px 6px hsl(0 5% 30% / 0.25), 4px 8px 8px hsl(0 5% 30% / 0.25)',
-            }}
-            className={className}
-            style={{ ...style }}
-          >
+        <CodeBlockContainer>
+          <Language>{language}</Language>
+          <Code className={className} style={{ ...style }}>
             {tokens.slice(0, -1).map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
@@ -54,8 +71,8 @@ const SyntaxHighlighter = ({ children, className }) => {
                 ))}
               </div>
             ))}
-          </Box>
-        </Flex>
+          </Code>
+        </CodeBlockContainer>
       )}
     </Highlight>
   );
