@@ -68,7 +68,11 @@ const ArticlePreviewTitle: FC = ({ children }) => {
 };
 
 const ArticlePreviewDescription: FC = ({ children }) => {
-  return <TextWithEllipsis color='background'>{children}</TextWithEllipsis>;
+  return (
+    <TextWithEllipsis maxLineNumber={2} color='background'>
+      {children}
+    </TextWithEllipsis>
+  );
 };
 
 const Home: NextPage<Props> = ({ articles }) => {

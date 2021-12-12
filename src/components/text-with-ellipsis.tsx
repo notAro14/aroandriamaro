@@ -1,14 +1,18 @@
 import { FC } from 'react';
-import Text, { Props } from '@/components/text';
+import Text, { Props as TextProps } from '@/components/text';
 
-const TextWithEllipsis: FC<Props> = ({ sx, ...rest }) => {
+interface Props extends TextProps {
+  maxLineNumber: number;
+}
+
+const TextWithEllipsis: FC<Props> = ({ sx, maxLineNumber, ...rest }) => {
   return (
     <Text
       sx={{
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         display: '-webkit-box',
-        WebkitLineClamp: 2,
+        WebkitLineClamp: maxLineNumber,
         WebkitBoxOrient: 'vertical',
         ...sx,
       }}
