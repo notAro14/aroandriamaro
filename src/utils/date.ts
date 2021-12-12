@@ -1,13 +1,18 @@
-import { formatDistanceToNow, isAfter as _isAfter, isBefore as _isBefore } from 'date-fns';
+import {
+  formatDistanceToNow as _formatDistanceToNow,
+  isAfter as _isAfter,
+  isBefore as _isBefore,
+} from 'date-fns';
 
 const toDate = (dateIso: string | Date): Date =>
   typeof dateIso === 'string' ? new Date(dateIso) : dateIso;
 
 // Date formatting
 export const distanceToNow = (dateIso: string | Date) =>
-  formatDistanceToNow(toDate(dateIso));
+  _formatDistanceToNow(toDate(dateIso));
 
-export const isAfter = (a: string, b: string) => _isAfter(toDate(a), toDate(b))
+export const isAfter = (date: string | Date, dateToCompare: string | Date) =>
+  _isAfter(toDate(date), toDate(dateToCompare));
 
-export const isBefore = (a: string, b: string) => _isBefore(toDate(a), toDate(b))
-
+export const isBefore = (date: string | Date, dateToCompare: string | Date) =>
+  _isBefore(toDate(date), toDate(dateToCompare));
