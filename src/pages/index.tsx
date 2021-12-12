@@ -2,13 +2,16 @@
 import type { NextPage } from 'next';
 import { FC } from 'react';
 import Head from 'next/head';
-import NextLink from 'next/link';
-import { Heading, Text, Box, Flex, Link } from 'theme-ui';
 import { BiHash } from 'react-icons/bi';
 
 import { getAllArticles, Article } from '@/utils/mdx';
+import ArticlePreviewList from '@/components/article-preview-list';
 import Emoji from '@/components/emoji';
+import Text from '@/components/text';
+import Heading from '@/components/heading';
 import { distanceToNow } from '@/utils/date';
+import TextWithEllipsis from '@/components/text-with-ellipsis';
+import ArticlePreview from '@/components/article-preview';
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true });
@@ -23,29 +26,13 @@ interface Props {
   articles: Article[];
 }
 
-const MyHeading: FC = ({ children }) => {
-  return (
-    <Heading
-      as='h2'
-      sx={{
-        fontSize: '3xl',
-        mt: 4,
-        mb: -4,
-      }}
-      color='primary'
-    >
-      {children}
-    </Heading>
-  );
-};
-
 const Logo = () => {
   return (
     <Heading
       as='h1'
       color='accent'
+      size={['3xl', '6xl']}
       sx={{
-        fontSize: ['3xl', '6xl'],
         display: 'flex',
         alignItems: 'center',
         textDecoration: 'underline',
@@ -57,18 +44,31 @@ const Logo = () => {
   );
 };
 
-const MyText: FC = ({ children }) => {
+const ArticlePreviewDate: FC = ({ children }) => {
   return (
-    <Text
-      as='p'
-      sx={{
-        fontSize: 'lg',
-        my: 5,
-      }}
-    >
+    <Text color='gray' size='sm'>
       {children}
     </Text>
   );
+};
+
+const ArticlePreviewTitle: FC = ({ children }) => {
+  return (
+    <Heading
+      as='h3'
+      color='background'
+      sx={{
+        textTransform: 'uppercase',
+        fontWeight: 'extra',
+      }}
+    >
+      {children}
+    </Heading>
+  );
+};
+
+const ArticlePreviewDescription: FC = ({ children }) => {
+  return <TextWithEllipsis color='background'>{children}</TextWithEllipsis>;
 };
 
 const Home: NextPage<Props> = ({ articles }) => {
@@ -80,89 +80,36 @@ const Home: NextPage<Props> = ({ articles }) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Logo />
-      <MyHeading>
+      <Heading size='3xl' mt={4} mb={-4}>
         <Emoji symbol='💻' ariaLabel='laptop' /> About me
-      </MyHeading>
-      <MyText>
+      </Heading>
+      <Text my={5}>
         Hi, I&apos;m Aro, a software developer based in Lyon, France.
-      </MyText>
-      <MyHeading>
+      </Text>
+      <Heading size='3xl' mt={4} mb={-4}>
         <Emoji ariaLabel='pencil' symbol='✏️' /> Blog
-      </MyHeading>
-      <MyText>I write some stuff about web development (mostly).</MyText>
-      <Flex
-        as='ul'
-        sx={{
-          listStyleType: 'none',
-          flexDirection: 'column',
-          gap: 6,
-          p: 0,
-        }}
-      >
+      </Heading>
+      <Text my={5}>I write some stuff about web development (mostly).</Text>
+      <ArticlePreviewList>
         {articles.map((article) => {
           return (
-            <Box
-              as='li'
-              sx={{
-                boxShadow: 'medium',
-                py: 2,
-                px: 4,
-                borderRadius: 'md',
-                backgroundColor: 'text',
-                color: 'background',
-                textDecoration: 'none',
-                fontWeight: 'semi',
-                width: ['100%', '75%', '50%'],
-              }}
+            <ArticlePreview
+              articleUrl={`/writing/${article.slug}`}
               key={article.slug}
             >
-              <Flex
-                as='article'
-                sx={{
-                  flexDirection: 'column',
-                  gap: 2,
-                }}
-              >
-                <Box as='header'>
-                  <Text
-                    color='gray'
-                    sx={{
-                      fontSize: 'sm',
-                    }}
-                  >
-                    {distanceToNow(article.frontmatter.date) + ' ago'}
-                  </Text>
-                  <Heading
-                    as='h3'
-                    color='background'
-                    sx={{
-                      textTransform: 'uppercase',
-                      fontWeight: 'extra',
-                    }}
-                  >
-                    {article.frontmatter.title}
-                  </Heading>
-                  <Text
-                    sx={{
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      display: '-webkit-box',
-                      lineClamp: 2,
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                    }}
-                  >
-                    {article.frontmatter.description}
-                  </Text>
-                </Box>
-                <NextLink href={`/writing/${article.slug}`} passHref>
-                  <Link>Read more</Link>
-                </NextLink>
-              </Flex>
-            </Box>
+              <ArticlePreviewDate>
+                {`${distanceToNow(article.frontmatter.date)} ago`}
+              </ArticlePreviewDate>
+              <ArticlePreviewTitle>
+                {article.frontmatter.title}
+              </ArticlePreviewTitle>
+              <ArticlePreviewDescription>
+                {article.frontmatter.description}
+              </ArticlePreviewDescription>
+            </ArticlePreview>
           );
         })}
-      </Flex>
+      </ArticlePreviewList>
     </>
   );
 };
