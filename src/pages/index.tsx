@@ -1,17 +1,14 @@
-/** @jsxImportSource theme-ui */
-import type { NextPage } from 'next';
-import { FC } from 'react';
+import type { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
-import { BiHash } from 'react-icons/bi';
+import NextLink from 'next/link';
 
-import { getAllArticles, Article } from '@/utils/mdx';
-import ArticlePreviewList from '@/components/article-preview-list';
-import Emoji from '@/components/emoji';
-import Text from '@/components/text';
-import Heading from '@/components/heading';
-import { distanceToNow } from '@/utils/date';
-import TextWithEllipsis from '@/components/text-with-ellipsis';
-import ArticlePreview from '@/components/article-preview';
+import { getAllArticles } from 'utils/mdx';
+// components
+import Box from 'shared/box';
+import Heading from 'shared/heading';
+import Link from 'shared/link';
+import PageLayout from 'layout/page-layout';
+import Text from 'shared/text';
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true });
@@ -22,98 +19,34 @@ export const getStaticProps = () => {
   };
 };
 
-interface Props {
-  articles: Article[];
-}
-
-const Logo = () => {
-  return (
-    <Heading
-      as='h1'
-      color='accent'
-      size={['3xl', '6xl']}
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        textDecoration: 'underline',
-        my: 5,
-      }}
-    >
-      <BiHash /> aroandriamaro.com
-    </Heading>
-  );
-};
-
-const ArticlePreviewDate: FC = ({ children }) => {
-  return (
-    <Text color='gray' size='sm'>
-      {children}
-    </Text>
-  );
-};
-
-const ArticlePreviewTitle: FC = ({ children }) => {
-  return (
-    <Heading
-      as='h3'
-      color='background'
-      sx={{
-        textTransform: 'uppercase',
-        fontWeight: 'extra',
-      }}
-    >
-      {children}
-    </Heading>
-  );
-};
-
-const ArticlePreviewDescription: FC = ({ children }) => {
-  return (
-    <TextWithEllipsis maxLineNumber={2} color='background'>
-      {children}
-    </TextWithEllipsis>
-  );
-};
-
-const Home: NextPage<Props> = ({ articles }) => {
+const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { articles } = props;
   return (
     <>
       <Head>
-        <title>Aro Andriamaro | Frontend developer</title>
+        <title>Aro Andriamaro | Blog</title>
         <meta name='description' content="Aro Andriamaro's personal website" />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Logo />
-      <Heading size='3xl' mt={4} mb={-4}>
-        <Emoji symbol='💻' ariaLabel='laptop' /> About me
-      </Heading>
-      <Text my={5}>
-        Hi, I&apos;m Aro, a software developer based in Lyon, France.
-      </Text>
-      <Heading size='3xl' mt={4} mb={-4}>
-        <Emoji ariaLabel='pencil' symbol='✏️' /> Blog
-      </Heading>
-      <Text my={5}>I write some stuff about web development (mostly).</Text>
-      <ArticlePreviewList>
-        {articles.map((article) => {
-          return (
-            <ArticlePreview
-              articleUrl={`/writing/${article.slug}`}
-              key={article.slug}
-            >
-              <ArticlePreviewDate>
-                {`${distanceToNow(article.frontmatter.date)} ago`}
-              </ArticlePreviewDate>
-              <ArticlePreviewTitle>
-                {article.frontmatter.title}
-              </ArticlePreviewTitle>
-              <ArticlePreviewDescription>
-                {article.frontmatter.description}
-              </ArticlePreviewDescription>
-            </ArticlePreview>
-          );
-        })}
-      </ArticlePreviewList>
+
+      <PageLayout>
+        <Heading mb={4} fontSize='3xl'>
+          Blog
+        </Heading>
+        {articles.map(({ frontmatter: { title, description }, slug }) => (
+          <Box key={slug} as='article'>
+            <Heading mb={1} fontSize='xl'>
+              {title}
+            </Heading>
+            <Text mb={3} fontSize={['md', 'lg']}>
+              {description}
+            </Text>
+            <NextLink href={`/writing/${slug}`} passHref>
+              <Link>Read more</Link>
+            </NextLink>
+          </Box>
+        ))}
+      </PageLayout>
     </>
   );
 };

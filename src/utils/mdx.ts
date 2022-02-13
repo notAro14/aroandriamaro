@@ -78,7 +78,7 @@ export const getAllArticles = ({ sorted }: { sorted: boolean }) => {
     const filenameWithoutExtension = filename.replace(/.mdx?$/, '');
     const { data: frontmatter } = matter(fileContent);
     return {
-      frontmatter,
+      frontmatter: frontmatter as Frontmatter,
       slug: filenameWithoutExtension,
     };
   });

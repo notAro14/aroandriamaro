@@ -1,51 +1,38 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
-import { Box, Flex } from 'theme-ui';
+import Box from 'shared/box';
+import Flex from 'shared/flex';
 
 const Language = ({ children }) => {
   return (
-    <Box
-      sx={{
-        alignSelf: 'flex-start',
-        color: 'hsl(208 15% 60%)',
-        fontWeight: 'semi',
-        textTransform: 'uppercase',
-        mt: 4,
-        py: 1,
-        px: 2,
-        fontFamily: 'body',
-      }}
-    >
-      {children}
-    </Box>
-  );
-};
-
-const CodeBlockContainer = ({ children }) => {
-  return (
     <Flex
-      sx={{
-        flexDirection: 'column',
-      }}
+      alignSelf='flex-start'
+      color='tint'
+      textTransform='uppercase'
+      mt={4}
+      py={1}
+      px={2}
+      fontFamily='code'
     >
       {children}
     </Flex>
   );
 };
 
+const CodeBlockContainer = ({ children }) => {
+  return <Flex flexDirection='column'>{children}</Flex>;
+};
+
 const Code = ({ children, ...props }) => {
   return (
     <Box
       as='pre'
-      sx={{
-        overflow: 'auto',
-        p: 5,
-        mb: 4,
-        fontFamily: 'monospace',
-        fontSize: 'sm',
-        boxShadow: 'medium',
-        borderRadius: 'md',
-      }}
+      overflow='auto'
+      p={5}
+      mb={4}
+      fontFamily='code'
+      fontSize='sm'
+      borderRadius='md'
       {...props}
     >
       {children}
