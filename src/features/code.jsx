@@ -31,7 +31,7 @@ const Code = ({ children, ...props }) => {
       p={5}
       mb={4}
       fontFamily='code'
-      fontSize='sm'
+      fontSize={['md', 'lg']}
       borderRadius='md'
       {...props}
     >
