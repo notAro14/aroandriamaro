@@ -22,6 +22,8 @@ export type SystemStyleProps = BorderProps &
   TypographyProps & {
     gap?: string | number;
     textTransform?: TextTransform;
+    textDecoration?: string;
+    textDecorationColor?: string;
     sx?: SystemStyleObject;
   };
 

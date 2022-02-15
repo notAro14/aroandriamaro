@@ -32,6 +32,10 @@ export const getSystemStyleProps = (...args: styleFn[]) =>
       },
       textTransform: true,
       textDecoration: true,
+      textDecorationColor: {
+        property: 'textDecorationColor',
+        scale: 'colors',
+      },
     }),
     ...args
   );

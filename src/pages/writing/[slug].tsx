@@ -6,13 +6,16 @@ import { ParsedUrlQuery } from 'querystring';
 import { MDXEmbedProvider } from 'mdx-embed';
 import NextLink from 'next/link';
 
-import SyntaxHighlighter from 'features/code';
-import { getAllArticles, getSingleArticle, Frontmatter } from 'utils/mdx';
+import { format } from 'utils/date';
+import { getAllArticles, getSingleArticle } from 'utils/mdx';
+
 import Flex from 'shared/flex';
 import Heading from 'shared/heading';
 import Link from 'shared/link';
-import Text from 'shared/text';
 import PageLayout from 'layout/page-layout';
+import SyntaxHighlighter from 'features/code';
+import Text from 'shared/text';
+import Emoji from 'features/emoji';
 
 const components = {
   code: SyntaxHighlighter,
@@ -52,22 +55,11 @@ const components = {
 };
 
 interface Props {
-  post: {
-    frontmatter: Frontmatter;
-    code: string;
-    previousArticle: {
-      frontmatter: Frontmatter;
-      slug: string;
-    };
-    nextArticle: {
-      frontmatter: Frontmatter;
-      slug: string;
-    };
-  };
+  post: Awaited<ReturnType<typeof getSingleArticle>>;
 }
 
 const Post: FC<Props> = ({ post }) => {
-  const { code, frontmatter } = post;
+  const { code, frontmatter, timeToRead } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <>
@@ -76,6 +68,20 @@ const Post: FC<Props> = ({ post }) => {
       </Head>
 
       <PageLayout>
+        <Flex
+          as='p'
+          display='flex'
+          gap={3}
+          color='text'
+          fontSize={['md', 'lg']}
+          fontFamily='text'
+        >
+          <Emoji symbol='📅' ariaLabel='calendar' />
+          {`${format(frontmatter.date, 'MMMM do')}, ${format(
+            frontmatter.date,
+            'yyyy'
+          )} - ${timeToRead.text}`}
+        </Flex>
         <MDXEmbedProvider>
           <Component components={components} />
         </MDXEmbedProvider>

@@ -8,8 +8,8 @@ const colors = {
 };
 
 const fonts = {
-  text: '"Merriweather", serif',
-  heading: '"Lato", sans-serif',
+  heading: '"Merriweather", serif',
+  text: '"Lato", sans-serif',
   code: '"IBM Plex Mono", monospace',
 };
 

@@ -2,6 +2,7 @@ import fs from 'fs';
 import { join } from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import matter from 'gray-matter';
+import readingTime from 'reading-time';
 
 import { isAfter, isBefore } from './date';
 
@@ -109,7 +110,8 @@ export const getSingleArticle = async (slug: string) => {
 
   const { frontmatter, code } = await getCompiledMDX(fileContent);
   return {
-    frontmatter,
+    frontmatter: frontmatter as Frontmatter,
+    timeToRead: readingTime(fileContent),
     code,
     previousArticle: previousArticle || null,
     nextArticle: nextArticle || null,
