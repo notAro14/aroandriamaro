@@ -17,11 +17,13 @@ import PageLayout from 'layout/page-layout';
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
-    <Heading as='h1' mt={4} mb={-4} fontSize='2xl' {...props} />
+    <Heading as='h1' mt={4} mb={-4} fontSize={['2xl', '3xl']} {...props} />
   ),
-  h2: (props: any) => <Heading mt={4} mb={-5} fontSize='xl' {...props} />,
+  h2: (props: any) => (
+    <Heading mt={4} mb={-5} fontSize={['xl', '2xl']} {...props} />
+  ),
   h3: (props: any) => (
-    <Heading as='h3' mt={4} mb={-5} fontSize='lg' {...props} />
+    <Heading as='h3' mt={4} mb={-5} fontSize={['lg', 'xl']} {...props} />
   ),
   p: (props: any) => (
     <Text my={5} fontSize={['md', 'lg']} lineHeight='2' {...props} />
