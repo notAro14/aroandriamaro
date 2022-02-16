@@ -21,7 +21,7 @@ const PageLayout: FC<PageLayoutProps> = ({ children, as = 'section' }) => {
       <Box
         p={4}
         as='main'
-        minHeight='calc(100% - 100px)'
+        minHeight='calc(100% - 125px)'
         width={['100%', '100%', '1000px']}
         m='auto'
         flex='1'
