@@ -24,9 +24,15 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
-        <title>Aro Andriamaro | Blog</title>
-        <meta name='description' content="Aro Andriamaro's personal website" />
-        <link rel='icon' href='/favicon.ico' />
+        <title>Aro Andriamaro</title>
+        <meta
+          name='description'
+          content='Blog about tech and web developement. It focuses on React and frontend development.'
+        />
+        <meta
+          name='keywords'
+          content='Javascript, Typescript, React, Next, CSS, Frameworks'
+        />
       </Head>
 
       <PageLayout>

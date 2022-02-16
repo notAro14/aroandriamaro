@@ -21,9 +21,12 @@ const About: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Aro Andriamaro | About</title>
-        <meta name='description' content="Aro Andriamaro's personal website" />
-        <link rel='icon' href='/favicon.ico' />
+        <title>About Aro Andriamaro</title>
+        <meta name='description' content='Get to know Aro Andriamaro' />
+        <meta
+          name='keywords'
+          content='about, aro, aroniaina, aro andriamaro, aroniaina andriamaro'
+        />
       </Head>
 
       <PageLayout as='main'>
