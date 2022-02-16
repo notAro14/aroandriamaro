@@ -3,7 +3,6 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
-import { MDXEmbedProvider } from 'mdx-embed';
 import NextLink from 'next/link';
 
 import { format } from 'utils/date';
@@ -87,9 +86,7 @@ const Post: FC<Props> = ({ post }) => {
             'yyyy'
           )} - ${timeToRead.text}`}
         </Flex>
-        <MDXEmbedProvider>
-          <Component components={components} />
-        </MDXEmbedProvider>
+        <Component components={components} />
       </PageLayout>
     </>
   );
