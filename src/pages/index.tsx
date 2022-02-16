@@ -24,9 +24,15 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
-        <title>Aro Andriamaro | Blog</title>
-        <meta name='description' content="Aro Andriamaro's personal website" />
-        <link rel='icon' href='/favicon.ico' />
+        <title>Aro Andriamaro</title>
+        <meta
+          name='description'
+          content='Blog about tech and web developement. It focuses on React and frontend development.'
+        />
+        <meta
+          name='keywords'
+          content='Javascript, Typescript, React, Next, CSS, Frameworks'
+        />
       </Head>
 
       <PageLayout>
@@ -35,14 +41,18 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Heading>
         {articles.map(({ frontmatter: { title, description }, slug }) => (
           <Box key={slug} as='article'>
-            <Heading mb={1} fontSize='xl'>
-              {title}
-            </Heading>
-            <Text mb={3} fontSize={['md', 'lg']}>
-              {description}
-            </Text>
             <NextLink href={`/writing/${slug}`} passHref>
-              <Link>Read more</Link>
+              <Link fontSize='inherit' textDecoration='none' color='inherit'>
+                <Heading mb={1} fontSize='xl'>
+                  {title}
+                </Heading>
+                <Text mb={3} fontSize={['md', 'lg']}>
+                  {description}
+                </Text>
+                <Text color='tint' textDecoration='underline' fontSize='md'>
+                  Read more
+                </Text>
+              </Link>
             </NextLink>
           </Box>
         ))}

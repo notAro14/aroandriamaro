@@ -65,6 +65,11 @@ const Post: FC<Props> = ({ post }) => {
     <>
       <Head>
         <title>{frontmatter.title}</title>
+        <meta name='description' content={frontmatter.description} />
+        <meta
+          name='keywords'
+          content='javascript, typescript, react, react.js, next, next.js'
+        />
       </Head>
 
       <PageLayout>
