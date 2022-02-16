@@ -15,9 +15,12 @@ const Header: FC = () => {
       alignItems='center'
       justifyContent='space-between'
       height={50}
-      py={6}
       px={4}
-      mb={4}
+      width={['100%', '100%', '1000px']}
+      mx='auto'
+      position='sticky'
+      top={0}
+      backgroundColor='background'
     >
       <NextLink href='/' passHref>
         <Link

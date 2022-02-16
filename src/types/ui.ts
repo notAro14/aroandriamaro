@@ -20,7 +20,7 @@ export type SystemStyleProps = BorderProps &
   SpaceProps &
   ShadowProps &
   TypographyProps & {
-    gap?: string | number;
+    gap?: string | number | string[] | number[];
     textTransform?: TextTransform;
     textDecoration?: string;
     textDecorationColor?: string;

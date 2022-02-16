@@ -26,37 +26,39 @@ const SOCIAL_LINKS = [
 
 const Footer: FC = () => {
   return (
-    <Flex
-      as='footer'
-      p={2}
-      height={75}
-      alignItems='center'
-      flexDirection={['column', 'row']}
-      justifyContent='space-around'
-      backgroundColor='text'
-      color='background'
-    >
-      <Text fontSize='sm' color='background'>
-        Made by Aro Andriamaro &copy;{new Date().getFullYear()}
-      </Text>
-      <Flex as='ul' gap={6}>
-        {SOCIAL_LINKS.map(({ Component, name, href }) => {
-          return (
-            <Flex key={name} as='li' alignItems='center' gap={2}>
-              <Component />
-              <NextLink href={href} passHref>
-                <Link
-                  textDecoration='none'
-                  fontFamily='text'
-                  fontSize='sm'
-                  color='background'
-                >
-                  {name}
-                </Link>
-              </NextLink>
-            </Flex>
-          );
-        })}
+    <Flex as='footer' height={75} backgroundColor='text' color='background'>
+      <Flex
+        as='div'
+        px={4}
+        alignItems='center'
+        flexDirection={['column', 'row']}
+        justifyContent={['center', 'space-between']}
+        gap={[2, 0]}
+        width={['100%', '100%', '1000px']}
+        mx='auto'
+      >
+        <Text fontSize='sm' color='background'>
+          Made by Aro Andriamaro &copy;{new Date().getFullYear()}
+        </Text>
+        <Flex as='ul' gap={6}>
+          {SOCIAL_LINKS.map(({ Component, name, href }) => {
+            return (
+              <Flex key={name} as='li' alignItems='center' gap={2}>
+                <Component />
+                <NextLink href={href} passHref>
+                  <Link
+                    textDecoration='none'
+                    fontFamily='text'
+                    fontSize='sm'
+                    color='background'
+                  >
+                    {name}
+                  </Link>
+                </NextLink>
+              </Flex>
+            );
+          })}
+        </Flex>
       </Flex>
     </Flex>
   );
