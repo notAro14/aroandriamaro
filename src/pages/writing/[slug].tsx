@@ -20,23 +20,57 @@ import Emoji from 'features/emoji';
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
-    <Heading as='h1' mt={4} mb={-4} fontSize={['2xl', '3xl']} {...props} />
+    <Heading
+      color='heading'
+      fontFamily='secondary'
+      as='h1'
+      my={4}
+      fontSize={['2xl', '3xl']}
+      {...props}
+    />
   ),
   h2: (props: any) => (
-    <Heading mt={4} mb={-5} fontSize={['xl', '2xl']} {...props} />
+    <Heading
+      color='heading'
+      fontFamily='secondary'
+      my={4}
+      fontSize={['xl', '2xl']}
+      {...props}
+    />
   ),
   h3: (props: any) => (
-    <Heading as='h3' mt={4} mb={-5} fontSize={['lg', 'xl']} {...props} />
+    <Heading
+      color='heading'
+      fontFamily='secondary'
+      as='h3'
+      my={4}
+      fontSize={['lg', 'xl']}
+      {...props}
+    />
   ),
   p: (props: any) => (
-    <Text my={5} fontSize={['md', 'lg']} lineHeight='2' {...props} />
+    <Text
+      fontFamily='primary'
+      color='text'
+      my={5}
+      fontSize={['md', 'lg']}
+      lineHeight='2'
+      {...props}
+    />
   ),
   em: (props: any) => (
-    <Text as='em' backgroundColor='tint' px={1} color='background' {...props} />
+    <Text
+      fontFamily='primary'
+      as='em'
+      backgroundColor='tint'
+      px={1}
+      color='background'
+      {...props}
+    />
   ),
   a: (props: any) => (
     <NextLink passHref href={props.href}>
-      <Link {...props} />
+      <Link color='tint' fontFamily='primary' {...props} />
     </NextLink>
   ),
   ul: (props: any) => (
@@ -78,7 +112,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         gap={3}
         color='text'
         fontSize={['md', 'lg']}
-        fontFamily='text'
+        fontFamily='primary'
       >
         <Emoji symbol='📅' ariaLabel='calendar' />
         {`${format(frontmatter.date, 'MMMM do')}, ${format(

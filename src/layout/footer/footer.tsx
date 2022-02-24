@@ -26,7 +26,13 @@ const SOCIAL_LINKS = [
 
 const Footer: FC = () => {
   return (
-    <Flex as='footer' height={75} backgroundColor='text' color='background'>
+    <Flex
+      fontFamily='primary'
+      as='footer'
+      height={100}
+      backgroundColor='text'
+      color='background'
+    >
       <Flex
         as='div'
         px={4}
@@ -48,7 +54,7 @@ const Footer: FC = () => {
                 <NextLink href={href} passHref>
                   <Link
                     textDecoration='none'
-                    fontFamily='text'
+                    fontFamily='primary'
                     fontSize='sm'
                     color='background'
                   >

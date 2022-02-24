@@ -2,14 +2,15 @@ import type { Theme } from 'types/ui';
 
 const colors = {
   text: '#D4D8F0',
-  background: '#232946',
+  background: 'hsl(229.7 33.3% 20.6%)',
+  shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
   heading: '#FFFFFE',
   tint: '#EEBBC3',
 };
 
 const fonts = {
-  heading: '"Merriweather", serif',
-  text: '"Lato", sans-serif',
+  secondary: '"Merriweather", serif',
+  primary: '"Lato", sans-serif',
   code: '"IBM Plex Mono", monospace',
 };
 
@@ -41,4 +42,7 @@ export const theme: Theme = {
   radii,
   fontSizes,
   space,
+  shadows: {
+    sm: `0px 2px 4px ${colors.shadow}`,
+  },
 };

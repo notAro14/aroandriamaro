@@ -5,11 +5,6 @@ import { SystemStyleProps } from 'types/ui';
 import { getSystemStyleProps, sx } from 'utils/ui';
 
 const Link = styled('a', { shouldForwardProp })<SystemStyleProps>`
-  ${sx({
-    color: 'tint',
-    fontFamily: 'heading',
-    textDecoration: 'underline',
-  })}
   ${getSystemStyleProps()}
   ${(props) => sx(props.sx)}
 `;

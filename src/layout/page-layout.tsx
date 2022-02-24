@@ -1,33 +1,20 @@
-import { FC, ElementType } from 'react';
+import { FC } from 'react';
 
-import Box from 'shared/box';
+import ContentLayout from 'layout/content-layout';
 import Flex from 'shared/flex';
 import Footer from 'layout/footer';
 import Header from 'layout/header';
 
-interface PageLayoutProps {
-  as?: ElementType;
-}
-
-const PageLayout: FC<PageLayoutProps> = ({ children, as = 'section' }) => {
+const PageLayout: FC = ({ children }) => {
   return (
     <Flex
       flexDirection='column'
-      as={as}
-      minHeight='100%'
+      fontFamily='primary'
       backgroundColor='background'
+      minHeight='100%'
     >
       <Header />
-      <Box
-        p={4}
-        as='main'
-        minHeight='calc(100% - 125px)'
-        width={['100%', '100%', '1000px']}
-        m='auto'
-        flex='1'
-      >
-        {children}
-      </Box>
+      <ContentLayout>{children}</ContentLayout>
       <Footer />
     </Flex>
   );
