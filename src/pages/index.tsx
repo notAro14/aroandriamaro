@@ -20,9 +20,9 @@ export const getStaticProps = () => {
   };
 };
 
-type HomeProps = InferGetStaticPropsType<typeof getStaticProps>;
+type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const Home: NextPageWithLayout<HomeProps> = (props) => {
+const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
   const { articles } = props;
   return (
     <>
@@ -62,6 +62,6 @@ const Home: NextPageWithLayout<HomeProps> = (props) => {
   );
 };
 
-Home.getLayout = (page) => <PageLayout>{page}</PageLayout>;
+IndexPage.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
-export default Home;
+export default IndexPage;
