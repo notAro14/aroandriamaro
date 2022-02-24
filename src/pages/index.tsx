@@ -3,6 +3,7 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 
 import { getAllArticles } from 'utils/mdx';
+import type { NextPageWithLayout } from 'types';
 // components
 import Box from 'shared/box';
 import Heading from 'shared/heading';
@@ -19,7 +20,9 @@ export const getStaticProps = () => {
   };
 };
 
-const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+type HomeProps = InferGetStaticPropsType<typeof getStaticProps>;
+
+const Home: NextPageWithLayout<HomeProps> = (props) => {
   const { articles } = props;
   return (
     <>
@@ -35,30 +38,30 @@ const Home = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
         />
       </Head>
 
-      <PageLayout>
-        <Heading mb={4} fontSize='3xl'>
-          Blog
-        </Heading>
-        {articles.map(({ frontmatter: { title, description }, slug }) => (
-          <Box key={slug} as='article'>
-            <NextLink href={`/writing/${slug}`} passHref>
-              <Link fontSize='inherit' textDecoration='none' color='inherit'>
-                <Heading mb={1} fontSize='xl'>
-                  {title}
-                </Heading>
-                <Text mb={3} fontSize={['md', 'lg']}>
-                  {description}
-                </Text>
-                <Text color='tint' textDecoration='underline' fontSize='md'>
-                  Read more
-                </Text>
-              </Link>
-            </NextLink>
-          </Box>
-        ))}
-      </PageLayout>
+      <Heading mb={4} fontSize='3xl'>
+        Blog
+      </Heading>
+      {articles.map(({ frontmatter: { title, description }, slug }) => (
+        <Box key={slug} as='article'>
+          <NextLink href={`/writing/${slug}`} passHref>
+            <Link fontSize='inherit' textDecoration='none' color='inherit'>
+              <Heading mb={1} fontSize='xl'>
+                {title}
+              </Heading>
+              <Text mb={3} fontSize={['md', 'lg']}>
+                {description}
+              </Text>
+              <Text color='tint' textDecoration='underline' fontSize='md'>
+                Read more
+              </Text>
+            </Link>
+          </NextLink>
+        </Box>
+      ))}
     </>
   );
 };
+
+Home.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
 export default Home;

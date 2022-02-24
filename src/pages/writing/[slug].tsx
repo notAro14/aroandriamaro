@@ -1,4 +1,4 @@
-import { useMemo, FC } from 'react';
+import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
@@ -7,6 +7,7 @@ import NextLink from 'next/link';
 
 import { format } from 'utils/date';
 import { getAllArticles, getSingleArticle } from 'utils/mdx';
+import { NextPageWithLayout } from 'types';
 
 import Flex from 'shared/flex';
 import Heading from 'shared/heading';
@@ -57,7 +58,7 @@ interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>;
 }
 
-const Post: FC<Props> = ({ post }) => {
+const Post: NextPageWithLayout<Props> = ({ post }) => {
   const { code, frontmatter, timeToRead } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
@@ -71,26 +72,26 @@ const Post: FC<Props> = ({ post }) => {
         />
       </Head>
 
-      <PageLayout>
-        <Flex
-          as='p'
-          display='flex'
-          gap={3}
-          color='text'
-          fontSize={['md', 'lg']}
-          fontFamily='text'
-        >
-          <Emoji symbol='📅' ariaLabel='calendar' />
-          {`${format(frontmatter.date, 'MMMM do')}, ${format(
-            frontmatter.date,
-            'yyyy'
-          )} - ${timeToRead.text}`}
-        </Flex>
-        <Component components={components} />
-      </PageLayout>
+      <Flex
+        as='p'
+        display='flex'
+        gap={3}
+        color='text'
+        fontSize={['md', 'lg']}
+        fontFamily='text'
+      >
+        <Emoji symbol='📅' ariaLabel='calendar' />
+        {`${format(frontmatter.date, 'MMMM do')}, ${format(
+          frontmatter.date,
+          'yyyy'
+        )} - ${timeToRead.text}`}
+      </Flex>
+      <Component components={components} />
     </>
   );
 };
+
+Post.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
 interface Params extends ParsedUrlQuery {
   slug: string;
