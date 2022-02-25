@@ -9,9 +9,9 @@ const colors = {
 };
 
 const fonts = {
-  secondary: '"Merriweather", serif',
-  primary: '"Lato", sans-serif',
-  code: '"IBM Plex Mono", monospace',
+  secondary: '"Metropolis", serif',
+  primary: '"Metropolis", sans-serif',
+  code: '"Fira Code", monospace',
 };
 
 const fontSizes = {

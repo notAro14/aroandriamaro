@@ -6,7 +6,7 @@ import { sx } from 'utils/ui';
 const PageParagraph = styled(Text)`
   ${sx({
     color: 'text',
-    fontSize: ['md', 'lg'],
+    fontSize: ['lg', 'xl'],
     my: 4,
   })}
 `;

@@ -6,7 +6,6 @@ import SvgUnderline from './svg-underline';
 
 import Flex from 'shared/flex';
 import Link from 'shared/link';
-import logo from './logo.svg';
 import Image from 'next/image';
 
 const Header: FC = () => {
@@ -41,7 +40,7 @@ const Header: FC = () => {
               height={65}
               width={65}
               alt='Hacker cat'
-              src={logo}
+              src='/logo.png'
             />
           </Link>
         </NextLink>
