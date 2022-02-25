@@ -3,7 +3,9 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
 import SvgUnderline from './svg-underline';
+import logo from './logo.png';
 
+import Box from 'shared/box';
 import Flex from 'shared/flex';
 import Link from 'shared/link';
 import Image from 'next/image';
@@ -35,13 +37,15 @@ const Header: FC = () => {
               textDecoration: 'none',
             }}
           >
-            <Image
-              title='aroandriamaro.com'
-              height={65}
-              width={65}
-              alt='Hacker cat'
-              src='/logo.png'
-            />
+            <Box position='relative' width={50} height={50}>
+              <Image
+                layout='fill'
+                objectFit='contain'
+                title='aroandriamaro.com'
+                alt='Hacker cat'
+                src={logo}
+              />
+            </Box>
           </Link>
         </NextLink>
         <Flex as='ul' gap={4}>
