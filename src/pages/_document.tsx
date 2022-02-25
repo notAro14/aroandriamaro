@@ -6,6 +6,24 @@ class MyDocument extends Document {
       <Html lang='en'>
         <Head>
           <link
+            rel='preload'
+            href='/fonts/metropolis/metropolis.regular.otf'
+            crossOrigin='true'
+            as='font'
+          />
+          <link
+            rel='preload'
+            href='/fonts/metropolis/metropolis.bold.otf'
+            crossOrigin='true'
+            as='font'
+          />
+          <link
+            rel='preload'
+            href='/fonts/fira-code.regular.ttf'
+            as='font'
+            crossOrigin='true'
+          />
+          <link
             rel='apple-touch-icon'
             sizes='180x180'
             href='/apple-touch-icon.png'
