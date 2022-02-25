@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-import ContentLayout from 'layout/content-layout';
+import ContentLayout from 'shared/layout/content-layout';
 import Flex from 'shared/flex';
-import Footer from 'layout/footer';
-import Header from 'layout/header';
+import Footer from 'shared/layout/footer';
+import Header from 'shared/layout/header';
 
 const PageLayout: FC = ({ children }) => {
   return (

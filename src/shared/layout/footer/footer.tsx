@@ -43,7 +43,7 @@ const Footer: FC = () => {
         width={['100%', '100%', '1000px']}
         mx='auto'
       >
-        <Text fontSize='sm' color='background'>
+        <Text color='background'>
           Made by Aro Andriamaro &copy;{new Date().getFullYear()}
         </Text>
         <Flex as='ul' gap={6}>
@@ -55,7 +55,6 @@ const Footer: FC = () => {
                   <Link
                     textDecoration='none'
                     fontFamily='primary'
-                    fontSize='sm'
                     color='background'
                   >
                     {name}

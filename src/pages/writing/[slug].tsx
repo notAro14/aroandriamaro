@@ -12,15 +12,17 @@ import { NextPageWithLayout } from 'types';
 import Flex from 'shared/flex';
 import Heading from 'shared/heading';
 import Link from 'shared/link';
-import PageLayout from 'layout/page-layout';
+import PageLayout from 'shared/layout/page-layout';
 import SyntaxHighlighter from 'features/code';
 import Text from 'shared/text';
 import Emoji from 'features/emoji';
+import PageHeading from 'features/page-heading';
 
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
     <Heading
+      lineHeight='1'
       color='heading'
       fontFamily='secondary'
       as='h1'
@@ -31,6 +33,7 @@ const components = {
   ),
   h2: (props: any) => (
     <Heading
+      lineHeight='1'
       color='heading'
       fontFamily='secondary'
       my={4}
@@ -40,6 +43,7 @@ const components = {
   ),
   h3: (props: any) => (
     <Heading
+      lineHeight='1'
       color='heading'
       fontFamily='secondary'
       as='h3'
@@ -53,14 +57,15 @@ const components = {
       fontFamily='primary'
       color='text'
       my={5}
-      fontSize={['md', 'lg']}
-      lineHeight='2'
+      fontSize={['lg', 'xl']}
+      lineHeight='1.65'
       {...props}
     />
   ),
   em: (props: any) => (
     <Text
       fontFamily='primary'
+      fontSize={['lg', 'xl']}
       as='em'
       backgroundColor='tint'
       px={1}
@@ -70,11 +75,17 @@ const components = {
   ),
   a: (props: any) => (
     <NextLink passHref href={props.href}>
-      <Link color='tint' fontFamily='primary' {...props} />
+      <Link
+        fontSize={['lg', 'xl']}
+        color='tint'
+        fontFamily='primary'
+        {...props}
+      />
     </NextLink>
   ),
   ul: (props: any) => (
     <Flex
+      fontSize={['lg', 'xl']}
       as='ul'
       flexDirection='column'
       sx={{
@@ -120,6 +131,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
           'yyyy'
         )} - ${timeToRead.text}`}
       </Flex>
+      <PageHeading>{frontmatter.title}</PageHeading>
       <Component components={components} />
     </>
   );

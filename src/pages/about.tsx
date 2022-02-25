@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import Box from 'shared/box';
 import Flex from 'shared/flex';
-import PageLayout from 'layout/page-layout';
+import PageLayout from 'shared/layout/page-layout';
 import Text from 'shared/text';
 import { NextPageWithLayout } from 'types';
 import PageHeading from 'features/page-heading';
