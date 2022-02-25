@@ -1,14 +1,13 @@
 import { FC } from 'react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 import SvgUnderline from './svg-underline';
 import logo from './logo.png';
 
-import Box from 'shared/box';
 import Flex from 'shared/flex';
 import Link from 'shared/link';
-import Image from 'next/image';
 
 const Header: FC = () => {
   const { pathname } = useRouter();
@@ -37,15 +36,14 @@ const Header: FC = () => {
               textDecoration: 'none',
             }}
           >
-            <Box position='relative' width={50} height={50}>
-              <Image
-                layout='fill'
-                objectFit='contain'
-                title='aroandriamaro.com'
-                alt='Hacker cat'
-                src={logo}
-              />
-            </Box>
+            <Image
+              width={50}
+              height={50}
+              layout='fixed'
+              title='aroandriamaro.com'
+              alt='Hacker cat'
+              src={logo}
+            />
           </Link>
         </NextLink>
         <Flex as='ul' gap={4}>
