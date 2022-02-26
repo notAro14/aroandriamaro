@@ -32,7 +32,8 @@ const Code = ({ children, ...props }) => {
       mb={4}
       fontFamily='code'
       fontSize='lg'
-      borderRadius='md'
+      borderRadius='lg'
+      boxShadow='sm'
       {...props}
     >
       {children}

@@ -7,6 +7,7 @@ const PageParagraph = styled(Text)`
   ${sx({
     color: 'text',
     fontSize: ['lg', 'xl'],
+    fontWeight: 100,
     my: 4,
   })}
 `;

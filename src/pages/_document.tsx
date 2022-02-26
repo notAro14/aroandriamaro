@@ -7,13 +7,25 @@ class MyDocument extends Document {
         <Head>
           <link
             rel='preload'
-            href='/fonts/metropolis/metropolis.regular.otf'
+            href='/fonts/metropolis/metropolis.thin.otf'
             crossOrigin='true'
             as='font'
           />
           <link
             rel='preload'
-            href='/fonts/metropolis/metropolis.bold.otf'
+            href='/fonts/metropolis/metropolis.medium.otf'
+            crossOrigin='true'
+            as='font'
+          />
+          <link
+            rel='preload'
+            href='/fonts/metropolis/metropolis.black.otf'
+            crossOrigin='true'
+            as='font'
+          />
+          <link
+            rel='preload'
+            href='/fonts/metropolis/metropolis.black-italic.otf'
             crossOrigin='true'
             as='font'
           />

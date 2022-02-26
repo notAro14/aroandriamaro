@@ -42,6 +42,7 @@ const Footer: FC = () => {
         gap={[2, 0]}
         width={['100%', '100%', '1000px']}
         mx='auto'
+        fontWeight={100}
       >
         <Text color='background'>
           Made by Aro Andriamaro &copy;{new Date().getFullYear()}

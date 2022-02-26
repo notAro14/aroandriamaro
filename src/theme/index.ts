@@ -1,4 +1,19 @@
-import type { Theme } from 'types/ui';
+export const modes = {
+  light: {
+    background: '#fff',
+    text: 'hsl(229.7 33.3% 20.6%)',
+    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
+    heading: 'hsl(60, 100%, 9.8%)',
+    tint: 'hsl(306.5, 77.8%, 37.1%)',
+  },
+  dark: {
+    text: 'hsl(231.4, 48.3%, 88.6%)',
+    background: 'hsl(229.7 33.3% 20.6%)',
+    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
+    heading: 'hsl(60, 100%, 99.8%)',
+    tint: '#EEBBC3',
+  },
+};
 
 const colors = {
   text: '#D4D8F0',
@@ -6,6 +21,7 @@ const colors = {
   shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
   heading: '#FFFFFE',
   tint: '#EEBBC3',
+  modes,
 };
 
 const fonts = {
@@ -29,14 +45,14 @@ const fontSizes = {
 const radii = {
   sm: '2px',
   md: '6px',
-  lg: '12px',
+  lg: '20px',
 };
 
 const space = [
   0, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 640, 768,
 ];
 
-export const theme: Theme = {
+export const theme = {
   colors,
   fonts,
   radii,

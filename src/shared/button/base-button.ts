@@ -4,10 +4,10 @@ import shouldForwardProp from '@styled-system/should-forward-prop';
 import { SystemStyleProps } from 'types/ui';
 import { getSystemStyleProps, sx } from 'utils/ui';
 
-const Heading = styled('h2', { shouldForwardProp })<SystemStyleProps>`
+const BaseButton = styled('button', { shouldForwardProp })<SystemStyleProps>`
   line-height: 1;
   ${getSystemStyleProps()}
   ${(props) => sx(props.sx)}
 `;
 
-export default Heading;
+export default BaseButton;

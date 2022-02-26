@@ -7,6 +7,7 @@ const PageHeading = styled(Heading)`
   ${sx({
     color: 'heading',
     fontFamily: 'secondary',
+    fontWeight: 900,
     fontSize: '4xl',
     mb: 4,
   })}

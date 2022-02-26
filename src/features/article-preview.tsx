@@ -25,14 +25,25 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
         textDecoration='none'
         color='inherit'
       >
-        <Box as='article'>
-          <Heading fontFamily='secondary' color='heading' mb={1} fontSize='3xl'>
+        <Box as='article' mb={6}>
+          <Heading
+            fontWeight={500}
+            fontFamily='secondary'
+            color='heading'
+            mb={1}
+            fontSize='3xl'
+          >
             {title}
           </Heading>
-          <Text color='text' mb={3} fontSize={['lg', 'xl']}>
+          <Text color='text' mb={3} fontSize={['lg', 'xl']} fontWeight={100}>
             {description}
           </Text>
-          <Text color='tint' textDecoration='underline' fontSize='lg'>
+          <Text
+            fontWeight={100}
+            color='tint'
+            textDecoration='underline'
+            fontSize='lg'
+          >
             Read more
           </Text>
         </Box>

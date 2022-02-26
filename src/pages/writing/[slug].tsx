@@ -25,6 +25,7 @@ const components = {
       lineHeight='1'
       color='heading'
       fontFamily='secondary'
+      fontWeight={500}
       as='h1'
       my={4}
       fontSize={['2xl', '3xl']}
@@ -35,6 +36,7 @@ const components = {
     <Heading
       lineHeight='1'
       color='heading'
+      fontWeight={500}
       fontFamily='secondary'
       my={4}
       fontSize={['xl', '2xl']}
@@ -46,6 +48,7 @@ const components = {
       lineHeight='1'
       color='heading'
       fontFamily='secondary'
+      fontWeight={500}
       as='h3'
       my={4}
       fontSize={['lg', 'xl']}
@@ -59,6 +62,7 @@ const components = {
       my={5}
       fontSize={['lg', 'xl']}
       lineHeight='1.65'
+      fontWeight={100}
       {...props}
     />
   ),
@@ -67,9 +71,8 @@ const components = {
       fontFamily='primary'
       fontSize={['lg', 'xl']}
       as='em'
-      backgroundColor='tint'
-      px={1}
-      color='background'
+      fontStyle='italic'
+      fontWeight={700}
       {...props}
     />
   ),
@@ -79,6 +82,7 @@ const components = {
         fontSize={['lg', 'xl']}
         color='tint'
         fontFamily='primary'
+        fontWeight={100}
         {...props}
       />
     </NextLink>
@@ -86,6 +90,7 @@ const components = {
   ul: (props: any) => (
     <Flex
       fontSize={['lg', 'xl']}
+      fontWeight={100}
       as='ul'
       flexDirection='column'
       sx={{
@@ -124,6 +129,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         color='text'
         fontSize={['md', 'lg']}
         fontFamily='primary'
+        fontWeight={100}
       >
         <Emoji symbol='📅' ariaLabel='calendar' />
         {`${format(frontmatter.date, 'MMMM do')}, ${format(

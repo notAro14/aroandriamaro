@@ -5,12 +5,16 @@ import Image from 'next/image';
 
 import SvgUnderline from './svg-underline';
 import logo from './logo.png';
+import toggle from './toggle.png';
+import useToggleTheme from 'theme/use-toggle-theme.hook';
 
 import Flex from 'shared/flex';
+import IconButton from 'shared/button/icon-button';
 import Link from 'shared/link';
 
 const Header: FC = () => {
   const { pathname } = useRouter();
+  const toggleTheme = useToggleTheme();
   return (
     <Flex
       as='nav'
@@ -46,13 +50,14 @@ const Header: FC = () => {
             />
           </Link>
         </NextLink>
-        <Flex as='ul' gap={4}>
+        <Flex as='ul' alignItems='center' gap={4}>
           <Flex as='li'>
             <NextLink href='/' passHref>
               <Link
                 fontSize='lg'
                 color='heading'
                 position='relative'
+                fontWeight={100}
                 sx={{
                   textDecoration: 'none',
                   ':hover': {
@@ -71,6 +76,7 @@ const Header: FC = () => {
                 fontSize='lg'
                 color='heading'
                 position='relative'
+                fontWeight={100}
                 sx={{
                   textDecoration: 'none',
                   ':hover': {
@@ -83,6 +89,16 @@ const Header: FC = () => {
               </Link>
             </NextLink>
           </Flex>
+          <IconButton onClick={toggleTheme}>
+            <Image
+              width={25}
+              height={25}
+              layout='fixed'
+              title='Toggle theme'
+              alt='last quarter moon'
+              src={toggle}
+            />
+          </IconButton>
         </Flex>
       </Flex>
     </Flex>

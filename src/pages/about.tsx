@@ -47,10 +47,17 @@ const About: NextPageWithLayout = () => {
       <Box as='ul'>
         {STACK.map(({ label, value }) => (
           <Flex color='text' alignItems='flex-end' gap={4} key={label} as='li'>
-            <Text as='strong' color='tint' fontSize={['md', 'lg']}>
+            <Text
+              fontWeight={100}
+              as='strong'
+              color='tint'
+              fontSize={['md', 'lg']}
+            >
               {label}
             </Text>
-            <Text as='span'>{value}</Text>
+            <Text fontWeight={100} fontStyle='italic' as='span'>
+              {value}
+            </Text>
           </Flex>
         ))}
       </Box>
