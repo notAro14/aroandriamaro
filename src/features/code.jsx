@@ -52,7 +52,7 @@ const SyntaxHighlighter = ({ children, className }) => {
         <CodeBlockContainer>
           <Language>{language}</Language>
           <Code className={className} style={{ ...style }}>
-            {tokens.slice(0, -1).map((line, i) => (
+            {tokens.map((line, i) => (
               <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
                   <span key={key} {...getTokenProps({ token, key })} />
