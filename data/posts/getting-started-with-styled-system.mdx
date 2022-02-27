@@ -1,0 +1,164 @@
+---
+title: Create cohesive and themeable interfaces with styled system
+description: How to leverage styled system to create your own component library and design system
+date: '2022-02-27'
+---
+
+[Styled system](https://styled-system.com/) is a utility library that helps developers build cohesive and themeable interfaces. You may give it a try if you want to
+
+- build custom component libraries
+- support theming in your app
+- implement a design system
+
+## Installation
+
+It is framework agnostic so you must choose a CSS-in-JS library to use with it. Therefore you can also use any UI framework.
+
+In this article, I'll use Emotion, Next and Typescript.
+
+I assume Next and Typescript are already installed, so let's add Emotion and Styled system with those commands
+
+```shell
+# Emotion
+npm i @emotion/react @emotion/styled
+
+# Styled system
+npm i styled-system @styled-system/css @styled-system/shoud-forward-prop
+
+# Styled system types
+npm i -D @types/styled-system @types/styled-system__css @types/styled-system__should-forward-prop
+```
+
+[@styled-system/css](https://github.com/styled-system/styled-system/tree/master/packages/css) and [@styled-system/shoud-forward-prop](https://github.com/styled-system/styled-system/tree/master/packages/should-forward-prop) are optional for now but they will be useful later
+
+## Principles
+
+Styled system gives us the ability to create components which accept style props like so:
+
+```tsx
+<Button
+  textTransform='uppercase'
+  paddingX={4}
+  paddingY={2}
+  backgroundColor='primary'
+  color='background'
+>
+  Click me
+</Button>
+```
+
+As you can see, some props can be CSS incompatible values. Those refers to values we declare in a theme object:
+
+```ts
+const theme = {
+  colors: {
+    primary: 'dodgerblue',
+    text: 'black',
+    background: 'white',
+  },
+  fonts: {
+    heading: 'serif',
+    body: 'sans-serif',
+  },
+  space: [0, 4, 8, 12, 16, 24],
+};
+```
+
+This follows a [theming specification created by System UI](https://system-ui.com/theme/) that styled system adheres to.
+
+Here is an example of a complete theme object I use to style this blog at this time of writing
+
+```ts
+export const modes = {
+  light: {
+    background: 'hsl(0, 0%, 100%)',
+    text: 'hsl(229.7 33.3% 20.6%)',
+    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
+    heading: 'hsl(60, 100%, 9.8%)',
+    tint: 'hsl(306.5, 77.8%, 37.1%)',
+  },
+  dark: {
+    text: 'hsl(231.4, 48.3%, 88.6%)',
+    background: 'hsl(229.7 33.3% 20.6%)',
+    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
+    heading: 'hsl(60, 100%, 99.8%)',
+    tint: 'hsl(350.6, 60%, 83.3%)',
+  },
+};
+
+const colors = {
+  text: 'hsl(231.4, 48.3%, 88.6%)',
+  background: 'hsl(229.7 33.3% 20.6%)',
+  shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
+  heading: 'hsl(60, 100%, 99.8%)',
+  tint: 'hsl(350.6, 60%, 83.3%)',
+  modes,
+};
+
+const fonts = {
+  secondary: '"Metropolis", serif',
+  primary: '"Metropolis", sans-serif',
+  code: '"Fira Code", monospace',
+};
+
+const fontSizes = {
+  xxs: '0.512rem',
+  xs: '0.64rem',
+  sm: '0.8rem',
+  md: '1rem',
+  lg: '1.25rem',
+  xl: '1.563rem',
+  '2xl': '1.953rem',
+  '3xl': '2.441rem',
+  '4xl': '3.052rem',
+};
+
+const radii = {
+  sm: '2px',
+  md: '6px',
+  lg: '20px',
+};
+
+const space = [
+  0, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 640, 768,
+];
+
+export const theme = {
+  colors,
+  fonts,
+  radii,
+  fontSizes,
+  space,
+  shadows: {
+    sm: `0px 2px 4px ${colors.shadow}`,
+  },
+};
+```
+
+This theme can then be accessed in your application thanks to Emotion's _ThemeProvider_
+
+```tsx
+// _app.tsx
+import { ThemeProvider } from '@emotion/react';
+import { AppProps } from 'next/app';
+
+import theme from 'theme';
+
+function CustomApp({ Component, pageProps }): AppProps {
+  return (
+    <ThemeProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+}
+
+export default CustomApp;
+```
+
+## How to create components
+
+Now, let's see how to create components with styled-system. For that, let's create common components used in web app
+
+- Box / Flex component
+- Button component
+- Link component

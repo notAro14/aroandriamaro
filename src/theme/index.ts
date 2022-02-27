@@ -1,6 +1,6 @@
 export const modes = {
   light: {
-    background: '#fff',
+    background: 'hsl(0, 0%, 100%)',
     text: 'hsl(229.7 33.3% 20.6%)',
     shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
     heading: 'hsl(60, 100%, 9.8%)',
@@ -11,16 +11,16 @@ export const modes = {
     background: 'hsl(229.7 33.3% 20.6%)',
     shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
     heading: 'hsl(60, 100%, 99.8%)',
-    tint: '#EEBBC3',
+    tint: 'hsl(350.6, 60%, 83.3%)',
   },
 };
 
 const colors = {
-  text: '#D4D8F0',
+  text: 'hsl(231.4, 48.3%, 88.6%)',
   background: 'hsl(229.7 33.3% 20.6%)',
   shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
-  heading: '#FFFFFE',
-  tint: '#EEBBC3',
+  heading: 'hsl(60, 100%, 99.8%)',
+  tint: 'hsl(350.6, 60%, 83.3%)',
   modes,
 };
 
