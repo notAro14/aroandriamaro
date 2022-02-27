@@ -122,6 +122,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         />
       </Head>
 
+      <PageHeading>{frontmatter.title}</PageHeading>
       <Flex
         as='p'
         display='flex'
@@ -137,7 +138,6 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
           'yyyy'
         )} - ${timeToRead.text}`}
       </Flex>
-      <PageHeading>{frontmatter.title}</PageHeading>
       <Component components={components} />
     </>
   );
