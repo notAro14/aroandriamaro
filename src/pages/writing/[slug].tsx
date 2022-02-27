@@ -122,7 +122,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         />
       </Head>
 
-      <PageHeading>{frontmatter.title}</PageHeading>
+      <PageHeading as='h1'>{frontmatter.title}</PageHeading>
       <Flex
         as='p'
         display='flex'
