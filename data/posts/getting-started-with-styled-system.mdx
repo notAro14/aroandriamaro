@@ -4,6 +4,8 @@ description: How to leverage styled system to create your own component library 
 date: '2022-02-27'
 ---
 
+import Variants from '../components/variants';
+
 [Styled system](https://styled-system.com/) is a utility library that helps developers build cohesive and themeable interfaces. You may give it a try if you want to
 
 - build custom component libraries
@@ -33,19 +35,37 @@ npm i -D @types/styled-system @types/styled-system__css @types/styled-system__sh
 
 ## Principles
 
+Before digging into how we build components with styled system, let's see what we can do with those components.
+
+### Style props
+
 Styled system gives us the ability to create components which accept style props like so:
 
 ```tsx
 <Button
   textTransform='uppercase'
-  paddingX={4}
-  paddingY={2}
-  backgroundColor='primary'
-  color='background'
+  padding='4px 8px'
+  backgroundColor='dodgerblue'
+  color='white'
 >
   Click me
 </Button>
 ```
+
+### Component variants
+
+A variant is a group of style applied to a component via a single keyword.
+
+```tsx
+<Button variant='filled'>Filled</Button>
+<Button variant='outlined'>Outlined</Button>
+```
+
+<Variants />
+
+We can define many variants of a component as we want.
+
+### Theming
 
 As you can see, some props can be CSS incompatible values. Those refers to values we declare in a theme object:
 
@@ -155,9 +175,7 @@ function CustomApp({ Component, pageProps }): AppProps {
 export default CustomApp;
 ```
 
-## How to create components
-
-Now, let's see how to create components with styled-system. For that, let's create common components used in web app
+## Building components with styled system
 
 - Box / Flex component
 - Button component
