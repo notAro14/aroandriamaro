@@ -1,3 +1,3 @@
 # aroandriamaro.com
 
-My personal website / blog
+My personal website / blog on web dev
