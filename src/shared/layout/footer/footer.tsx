@@ -6,7 +6,7 @@ import Flex from 'shared/flex';
 import Link from 'shared/link';
 import Text from 'shared/text';
 
-const SOCIAL_LINKS = [
+export const SOCIAL_LINKS = [
   {
     name: 'Github',
     href: 'https://github.com/notAro14',

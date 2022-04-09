@@ -59,6 +59,7 @@ export const theme = {
   fontSizes,
   space,
   shadows: {
-    sm: `0px 2px 4px ${colors.shadow}`,
+    sm: `0px 1px 1px ${colors.shadow}, 0px 1px 2px ${colors.shadow}, 0px 1px 3px ${colors.shadow}`,
+    md: `2px 4px 6px ${colors.shadow}, 2px 4px 7px ${colors.shadow}`,
   },
 };

@@ -8,7 +8,7 @@ const PageHeading = styled(Heading)`
     color: 'heading',
     fontFamily: 'secondary',
     fontWeight: 900,
-    fontSize: '4xl',
+    fontSize: '3xl',
     mb: 4,
   })}
 `;

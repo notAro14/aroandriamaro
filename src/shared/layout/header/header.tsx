@@ -70,25 +70,7 @@ const Header: FC = () => {
               </Link>
             </NextLink>
           </Flex>
-          <Flex as='li'>
-            <NextLink href='/about' passHref>
-              <Link
-                fontSize='lg'
-                color='heading'
-                position='relative'
-                fontWeight={100}
-                sx={{
-                  textDecoration: 'none',
-                  ':hover': {
-                    color: 'tint',
-                  },
-                }}
-              >
-                About
-                {pathname === '/about' && <SvgUnderline />}
-              </Link>
-            </NextLink>
-          </Flex>
+
           <IconButton onClick={toggleTheme}>
             <Image
               width={25}
