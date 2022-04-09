@@ -5,7 +5,6 @@ import { getAllArticles } from 'utils/mdx';
 import type { NextPageWithLayout } from 'types';
 // components
 import ArticlePreview from 'features/article-preview';
-import PageLayout from 'shared/layout/page-layout';
 import PageHeading from 'features/page-heading';
 import Text from 'shared/text';
 import Emoji from 'features/emoji';
@@ -43,7 +42,7 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
       <Box
         as='header'
         borderBottom='1px solid'
-        borderBottomColor='text'
+        borderBottomColor='border'
         paddingBottom={5}
         marginBottom={5}
       >
@@ -51,11 +50,11 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
           Welcome, Bienvenue, Tongasoa{' '}
           <Emoji symbol='👋🏼' ariaLabel='waving hand' />
         </PageHeading>
-        <Text fontWeight={200} fontSize='lg' color='text' mb={4}>
+        <Text mb={4}>
           Welcome to my blog (yet another dev blog) . My name is Aro, I am a
           Frontend Developer based in Lyon, France.
         </Text>
-        <Text fontWeight={200} fontSize='lg' color='text' mb={4}>
+        <Text mb={4}>
           This blog is my attempt to make the world a better place by sharing my
           modest knowledge in Web development. I write mostly about Frontend dev
           and React.
@@ -67,7 +66,7 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
                 <Link
                   textDecoration='none'
                   fontWeight={200}
-                  color='tint'
+                  color='brand'
                   href={href}
                 >
                   {name}
@@ -92,7 +91,5 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
     </>
   );
 };
-
-IndexPage.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
 export default IndexPage;

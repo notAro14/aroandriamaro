@@ -16,7 +16,7 @@ const SvgUnderline = styled(({ className }: { className?: string }) => (
   top: 100%;
   width: 100%;
   ${sx({
-    stroke: 'tint',
+    stroke: 'brand',
   })}
   path {
     stroke-dasharray: 1;

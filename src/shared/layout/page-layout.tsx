@@ -9,9 +9,15 @@ const PageLayout: FC = ({ children }) => {
   return (
     <Flex
       flexDirection='column'
-      fontFamily='primary'
-      backgroundColor='background'
+      backgroundColor='appBg'
       minHeight='100%'
+      as='section'
+      sx={{
+        transition: 'background-color 200ms ease-in-out',
+        '*': {
+          transition: 'background-color 200ms ease-in-out',
+        },
+      }}
     >
       <Header />
       <ContentLayout>{children}</ContentLayout>

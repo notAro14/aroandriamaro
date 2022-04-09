@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { GitHub, Twitter, Linkedin } from 'react-feather';
+import { FaLinkedinIn, FaTwitter, FaGithub } from 'react-icons/fa';
 
 import Flex from 'shared/flex';
 import Link from 'shared/link';
@@ -9,29 +9,23 @@ export const SOCIAL_LINKS = [
   {
     name: 'Github',
     href: 'https://github.com/notAro14',
-    Component: () => <GitHub size={15} />,
+    Component: () => <FaGithub size={15} />,
   },
   {
     name: 'Twitter',
     href: 'https://twitter.com/notarodev',
-    Component: () => <Twitter size={15} />,
+    Component: () => <FaTwitter size={15} />,
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/mamitiana/',
-    Component: () => <Linkedin size={15} />,
+    Component: () => <FaLinkedinIn size={15} />,
   },
 ];
 
 const Footer: FC = () => {
   return (
-    <Flex
-      fontFamily='primary'
-      as='footer'
-      height={100}
-      backgroundColor='text'
-      color='background'
-    >
+    <Flex as='footer' height={100} backgroundColor='compBg'>
       <Flex
         as='div'
         px={4}
@@ -42,21 +36,38 @@ const Footer: FC = () => {
         width={['100%', '100%', '1000px']}
         mx='auto'
         fontWeight={100}
+        fontSize='sm'
       >
-        <Text fontWeight={200} color='background'>
-          Made by Aro Andriamaro &copy;{new Date().getFullYear()}
+        <Text fontSize='inherit' color='text'>
+          Made by Aro Andriamaro{' '}
+          <Text as='span' fontSize='inherit' color='lo-text'>
+            &copy;{' '}
+          </Text>
+          {new Date().getFullYear()}
         </Text>
         <Flex as='ul' gap={6}>
           {SOCIAL_LINKS.map(({ Component, name, href }) => {
             return (
-              <Flex key={name} as='li' alignItems='center' gap={2}>
+              <Flex
+                key={name}
+                as='li'
+                alignItems='center'
+                gap={2}
+                color='lo-text'
+              >
                 <Component />
                 <Link
                   href={href}
                   textDecoration='none'
-                  fontFamily='primary'
-                  color='background'
+                  fontSize='inherit'
+                  color='text'
                   fontWeight={200}
+                  sx={{
+                    ':hover': {
+                      cursor: 'pointer',
+                      color: 'text',
+                    },
+                  }}
                 >
                   {name}
                 </Link>

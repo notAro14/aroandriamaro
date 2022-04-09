@@ -6,7 +6,6 @@ import { sx } from 'utils/ui';
 const PageHeading = styled(Heading)`
   ${sx({
     color: 'heading',
-    fontFamily: 'secondary',
     fontWeight: 500,
     fontSize: '3xl',
     mb: 4,

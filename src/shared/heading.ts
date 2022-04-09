@@ -5,7 +5,12 @@ import { SystemStyleProps } from 'types/ui';
 import { getSystemStyleProps, sx } from 'utils/ui';
 
 const Heading = styled('h2', { shouldForwardProp })<SystemStyleProps>`
-  line-height: 1;
+  ${sx({
+    lineHeight: '1',
+    fontWeight: 500,
+    color: 'text',
+    fontFamily: 'secondary',
+  })}
   ${getSystemStyleProps()}
   ${(props) => sx(props.sx)}
 `;
