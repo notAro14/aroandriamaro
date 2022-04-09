@@ -53,7 +53,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           <Text
             fontWeight={100}
             color='tint'
-            textDecoration='underline'
+            textDecoration='none'
             fontSize='lg'
           >
             Read more

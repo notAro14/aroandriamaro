@@ -5,11 +5,11 @@ import Image from 'next/image';
 
 import SvgUnderline from './svg-underline';
 import logo from './logo.png';
-import toggle from './toggle.png';
 import useToggleTheme from 'theme/use-toggle-theme.hook';
 
 import Flex from 'shared/flex';
 import IconButton from 'shared/button/icon-button';
+import BaseButton from 'shared/button/base-button';
 import Link from 'shared/link';
 
 const Header: FC = () => {
@@ -71,16 +71,22 @@ const Header: FC = () => {
             </NextLink>
           </Flex>
 
-          <IconButton onClick={toggleTheme}>
-            <Image
-              width={25}
-              height={25}
-              layout='fixed'
-              title='Toggle theme'
-              alt='last quarter moon'
-              src={toggle}
-            />
-          </IconButton>
+          <BaseButton
+            backgroundColor='tint'
+            color='background'
+            borderRadius='sm'
+            border='none'
+            paddingX={2}
+            paddingY={1}
+            onClick={toggleTheme}
+            sx={{
+              ':hover': {
+                cursor: 'pointer',
+              },
+            }}
+          >
+            Toggle theme
+          </BaseButton>
         </Flex>
       </Flex>
     </Flex>

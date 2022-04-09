@@ -11,7 +11,7 @@ export const modes = {
     background: 'hsl(229.7 33.3% 20.6%)',
     shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
     heading: 'hsl(60, 100%, 99.8%)',
-    tint: '#EEBBC3',
+    tint: 'hsl(351deg 60% 83%)',
   },
 };
 
@@ -20,7 +20,7 @@ const colors = {
   background: 'hsl(229.7 33.3% 20.6%)',
   shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
   heading: '#FFFFFE',
-  tint: '#EEBBC3',
+  tint: 'hsl(351deg 60% 83%)',
   modes,
 };
 
