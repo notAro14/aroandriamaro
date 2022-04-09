@@ -5,7 +5,6 @@ import { getAllArticles } from 'utils/mdx';
 import type { NextPageWithLayout } from 'types';
 // components
 import ArticlePreview from 'features/article-preview';
-import PageLayout from 'shared/layout/page-layout';
 import PageHeading from 'features/page-heading';
 import Text from 'shared/text';
 import Emoji from 'features/emoji';
@@ -92,7 +91,5 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
     </>
   );
 };
-
-IndexPage.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
 export default IndexPage;

@@ -9,6 +9,7 @@ import Font from 'shared/font';
 import ToggleThemeProvider from 'theme/toggle-theme-provider';
 
 import type { AppPropsWithLayout } from 'types';
+import PageLayout from 'shared/layout/page-layout';
 
 type ColorMode = keyof typeof modes;
 const ALL_COLOR_MODES = Object.keys(modes);
@@ -53,7 +54,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
   const theme = getTheme(rawTheme, colorMode);
 
-  const getLayout = Component.getLayout ?? ((page) => page);
+  const getLayout =
+    Component.getLayout ?? ((page) => <PageLayout>{page}</PageLayout>);
   return (
     <ThemeProvider theme={theme}>
       <Font />

@@ -11,7 +11,6 @@ import { NextPageWithLayout } from 'types';
 import Flex from 'shared/flex';
 import Heading from 'shared/heading';
 import Link from 'shared/link';
-import PageLayout from 'shared/layout/page-layout';
 import SyntaxHighlighter from 'features/code';
 import Text from 'shared/text';
 import Emoji from 'features/emoji';
@@ -94,8 +93,6 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
     </>
   );
 };
-
-Post.getLayout = (page) => <PageLayout>{page}</PageLayout>;
 
 interface Params extends ParsedUrlQuery {
   slug: string;
