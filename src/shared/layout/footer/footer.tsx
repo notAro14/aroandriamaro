@@ -25,13 +25,7 @@ export const SOCIAL_LINKS = [
 
 const Footer: FC = () => {
   return (
-    <Flex
-      fontFamily='primary'
-      as='footer'
-      height={100}
-      backgroundColor='text'
-      color='background'
-    >
+    <Flex as='footer' height={100} backgroundColor='text' color='background'>
       <Flex
         as='div'
         px={4}
@@ -42,8 +36,9 @@ const Footer: FC = () => {
         width={['100%', '100%', '1000px']}
         mx='auto'
         fontWeight={100}
+        fontSize='sm'
       >
-        <Text fontWeight={200} color='background'>
+        <Text fontSize='inherit' color='inherit'>
           Made by Aro Andriamaro &copy;{new Date().getFullYear()}
         </Text>
         <Flex as='ul' gap={6}>
@@ -54,8 +49,8 @@ const Footer: FC = () => {
                 <Link
                   href={href}
                   textDecoration='none'
-                  fontFamily='primary'
-                  color='background'
+                  fontSize='inherit'
+                  color='inherit'
                   fontWeight={200}
                 >
                   {name}

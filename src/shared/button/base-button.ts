@@ -5,7 +5,10 @@ import { SystemStyleProps } from 'types/ui';
 import { getSystemStyleProps, sx } from 'utils/ui';
 
 const BaseButton = styled('button', { shouldForwardProp })<SystemStyleProps>`
-  line-height: 1;
+  ${sx({
+    fontFamily: 'primary',
+    lineHeight: '1',
+  })}
   ${getSystemStyleProps()}
   ${(props) => sx(props.sx)}
 `;

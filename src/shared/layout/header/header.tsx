@@ -23,7 +23,6 @@ const Header: FC = () => {
       top={0}
       backgroundColor='background'
       boxShadow='sm'
-      fontFamily='primary'
     >
       <Flex
         px={4}
@@ -34,7 +33,6 @@ const Header: FC = () => {
       >
         <NextLink href='/' passHref>
           <Link
-            fontFamily='primary'
             fontSize='lg'
             sx={{
               textDecoration: 'none',

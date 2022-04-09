@@ -3,7 +3,6 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import { ParsedUrlQuery } from 'querystring';
-import NextLink from 'next/link';
 
 import { format } from 'utils/date';
 import { getAllArticles, getSingleArticle } from 'utils/mdx';
@@ -21,71 +20,24 @@ import PageHeading from 'features/page-heading';
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
-    <Heading
-      lineHeight='1'
-      color='heading'
-      fontFamily='secondary'
-      fontWeight={500}
-      as='h1'
-      my={4}
-      fontSize={['2xl', '3xl']}
-      {...props}
-    />
+    <Heading as='h1' my={4} fontSize={['2xl', '3xl']} {...props} />
   ),
-  h2: (props: any) => (
-    <Heading
-      lineHeight='1'
-      color='heading'
-      fontWeight={500}
-      fontFamily='secondary'
-      my={4}
-      fontSize={['xl', '2xl']}
-      {...props}
-    />
-  ),
+  h2: (props: any) => <Heading my={4} fontSize={['xl', '2xl']} {...props} />,
   h3: (props: any) => (
-    <Heading
-      lineHeight='1'
-      color='heading'
-      fontFamily='secondary'
-      fontWeight={500}
-      as='h3'
-      my={4}
-      fontSize={['lg', 'xl']}
-      {...props}
-    />
+    <Heading as='h3' my={4} fontSize={['lg', 'xl']} {...props} />
   ),
-  p: (props: any) => (
-    <Text
-      fontFamily='primary'
-      color='text'
-      my={5}
-      fontSize={['lg', 'xl']}
-      lineHeight='1.65'
-      fontWeight={200}
-      {...props}
-    />
-  ),
+  p: (props: any) => <Text color='text' my={5} lineHeight='1.65' {...props} />,
   em: (props: any) => (
-    <Text
-      fontFamily='primary'
-      fontSize={['lg', 'xl']}
-      as='em'
-      fontWeight={200}
-      color='tint'
-      {...props}
-    />
+    <Text as='em' color='tint' fontFamily='primary' {...props} />
   ),
   a: (props: any) => (
-    <NextLink passHref href={props.href}>
-      <Link
-        fontSize={['lg', 'xl']}
-        color='tint'
-        fontFamily='primary'
-        fontWeight={200}
-        {...props}
-      />
-    </NextLink>
+    <Link
+      href={props.href}
+      fontSize='lg'
+      color='tint'
+      fontWeight={200}
+      {...props}
+    />
   ),
   ul: (props: any) => (
     <Flex
@@ -128,9 +80,9 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         display='flex'
         gap={3}
         color='text'
-        fontSize={['md', 'lg']}
-        fontFamily='primary'
+        fontSize='md'
         fontWeight={100}
+        fontFamily='primary'
       >
         <Emoji symbol='📅' ariaLabel='calendar' />
         {`${format(frontmatter.date, 'MMMM do')}, ${format(

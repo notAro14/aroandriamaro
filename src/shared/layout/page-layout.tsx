@@ -9,9 +9,9 @@ const PageLayout: FC = ({ children }) => {
   return (
     <Flex
       flexDirection='column'
-      fontFamily='primary'
       backgroundColor='background'
       minHeight='100%'
+      as='section'
     >
       <Header />
       <ContentLayout>{children}</ContentLayout>

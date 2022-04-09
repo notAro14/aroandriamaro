@@ -38,26 +38,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             },
           }}
         >
-          <Heading
-            fontWeight={500}
-            fontFamily='secondary'
-            color='heading'
-            mb={1}
-            fontSize='2xl'
-          >
+          <Heading fontWeight={500} color='heading' mb={1} fontSize='2xl'>
             {title}
           </Heading>
-          <Text color='text' mb={2} fontSize='lg' fontWeight={200}>
-            {description}
-          </Text>
-          <Text
-            fontWeight={200}
-            color='tint'
-            textDecoration='none'
-            fontSize='lg'
-          >
-            Read more
-          </Text>
+          <Text mb={2}>{description}</Text>
+          <Text color='tint'>Read more</Text>
         </Box>
       </Link>
     </NextLink>
