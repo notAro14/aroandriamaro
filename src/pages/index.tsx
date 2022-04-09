@@ -51,11 +51,11 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
           Welcome, Bienvenue, Tongasoa{' '}
           <Emoji symbol='👋🏼' ariaLabel='waving hand' />
         </PageHeading>
-        <Text fontSize='lg' color='text' mb={4}>
+        <Text fontWeight={200} fontSize='lg' color='text' mb={4}>
           Welcome to my blog (yet another dev blog) . My name is Aro, I am a
           Frontend Developer based in Lyon, France.
         </Text>
-        <Text fontSize='lg' color='text' mb={4}>
+        <Text fontWeight={200} fontSize='lg' color='text' mb={4}>
           This blog is my attempt to make the world a better place by sharing my
           modest knowledge in Web development. I write mostly about Frontend dev
           and React.
@@ -64,7 +64,12 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
           {SOCIAL_LINKS.map(({ name, href }) => {
             return (
               <li key={name}>
-                <Link textDecoration='none' color='tint' href={href}>
+                <Link
+                  textDecoration='none'
+                  fontWeight={200}
+                  color='tint'
+                  href={href}
+                >
                   {name}
                 </Link>
               </li>

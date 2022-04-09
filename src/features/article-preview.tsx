@@ -47,11 +47,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           >
             {title}
           </Heading>
-          <Text color='text' mb={2} fontSize='lg' fontWeight={100}>
+          <Text color='text' mb={2} fontSize='lg' fontWeight={200}>
             {description}
           </Text>
           <Text
-            fontWeight={100}
+            fontWeight={200}
             color='tint'
             textDecoration='none'
             fontSize='lg'

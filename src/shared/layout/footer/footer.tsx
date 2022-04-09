@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { GitHub, Twitter, Linkedin } from 'react-feather';
-import NextLink from 'next/link';
 
 import Flex from 'shared/flex';
 import Link from 'shared/link';
@@ -44,7 +43,7 @@ const Footer: FC = () => {
         mx='auto'
         fontWeight={100}
       >
-        <Text color='background'>
+        <Text fontWeight={200} color='background'>
           Made by Aro Andriamaro &copy;{new Date().getFullYear()}
         </Text>
         <Flex as='ul' gap={6}>
@@ -52,15 +51,15 @@ const Footer: FC = () => {
             return (
               <Flex key={name} as='li' alignItems='center' gap={2}>
                 <Component />
-                <NextLink href={href} passHref>
-                  <Link
-                    textDecoration='none'
-                    fontFamily='primary'
-                    color='background'
-                  >
-                    {name}
-                  </Link>
-                </NextLink>
+                <Link
+                  href={href}
+                  textDecoration='none'
+                  fontFamily='primary'
+                  color='background'
+                  fontWeight={200}
+                >
+                  {name}
+                </Link>
               </Flex>
             );
           })}

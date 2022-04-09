@@ -62,7 +62,7 @@ const components = {
       my={5}
       fontSize={['lg', 'xl']}
       lineHeight='1.65'
-      fontWeight={100}
+      fontWeight={200}
       {...props}
     />
   ),
@@ -71,8 +71,7 @@ const components = {
       fontFamily='primary'
       fontSize={['lg', 'xl']}
       as='em'
-      fontStyle='italic'
-      fontWeight={700}
+      fontWeight={200}
       color='tint'
       {...props}
     />
@@ -83,7 +82,7 @@ const components = {
         fontSize={['lg', 'xl']}
         color='tint'
         fontFamily='primary'
-        fontWeight={100}
+        fontWeight={200}
         {...props}
       />
     </NextLink>
@@ -91,7 +90,7 @@ const components = {
   ul: (props: any) => (
     <Flex
       fontSize={['lg', 'xl']}
-      fontWeight={100}
+      fontWeight={200}
       as='ul'
       flexDirection='column'
       sx={{

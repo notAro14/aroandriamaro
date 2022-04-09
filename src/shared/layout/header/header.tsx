@@ -57,7 +57,7 @@ const Header: FC = () => {
                 fontSize='lg'
                 color='heading'
                 position='relative'
-                fontWeight={100}
+                fontWeight={200}
                 sx={{
                   textDecoration: 'none',
                   ':hover': {
@@ -79,6 +79,7 @@ const Header: FC = () => {
             paddingX={2}
             paddingY={1}
             onClick={toggleTheme}
+            fontWeight={200}
             sx={{
               ':hover': {
                 cursor: 'pointer',
