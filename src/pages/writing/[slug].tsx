@@ -73,6 +73,7 @@ const components = {
       as='em'
       fontStyle='italic'
       fontWeight={700}
+      color='tint'
       {...props}
     />
   ),
