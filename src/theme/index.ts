@@ -1,17 +1,31 @@
+import { plum, mauve, plumDark, mauveDark } from '@radix-ui/colors';
+
 export const modes = {
   light: {
-    background: 'white',
-    text: 'hsl(229.7 33.3% 20.6%)',
-    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
-    heading: 'hsl(60, 100%, 9.8%)',
-    tint: 'hsl(306.5, 77.8%, 37.1%)',
+    shadow: mauve.mauve8,
+    brand: plum.plum9,
+    'brand-hover': plum.plum10,
+    appBg: 'white',
+    compBg: plum.plum6,
+    'compBg-hover': plum.plum5,
+    text: plum.plum12,
+    'lo-text': plum.plum11,
+    'light-gray': mauve.mauve5,
+    gray: mauve.mauve12,
+    border: mauve.mauve7,
   },
   dark: {
-    text: 'hsl(231.4, 48.3%, 88.6%)',
-    background: 'hsl(229.7 33.3% 20.6%)',
-    shadow: 'hsl(229.7 33.3% 2.5% / 33%)',
-    heading: 'hsl(60, 100%, 99.8%)',
-    tint: 'hsl(351deg 60% 83%)',
+    shadow: mauveDark.mauve2,
+    brand: plumDark.plum9,
+    'brand-hover': plumDark.plum10,
+    appBg: plumDark.plum2,
+    compBg: plumDark.plum5,
+    'compBg-hover': plumDark.plum4,
+    text: plumDark.plum12,
+    'lo-text': plumDark.plum11,
+    'light-gray': mauveDark.mauve3,
+    gray: mauveDark.mauve12,
+    border: plum.plum6,
   },
 };
 
@@ -48,6 +62,8 @@ const space = [
   0, 4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192, 256, 384, 512, 640, 768,
 ];
 
+const lightShadow = modes.light.shadow;
+
 export const theme = {
   colors,
   fonts,
@@ -55,7 +71,17 @@ export const theme = {
   fontSizes,
   space,
   shadows: {
-    sm: `0px 1px 1px ${colors.shadow}, 0px 1px 2px ${colors.shadow}, 0px 1px 3px ${colors.shadow}`,
-    md: `2px 4px 6px ${colors.shadow}, 2px 4px 7px ${colors.shadow}`,
+    sm: `0px 1px 2px ${lightShadow}, 0px 2px 3px ${lightShadow}, 0px 3px 4px ${lightShadow}`,
+    md: `2px 4px 8px ${lightShadow}, 2px 5px 9px ${lightShadow}, 2px 6px 10px ${lightShadow}`,
+    modes: {
+      light: {
+        sm: `0px 1px 2px ${lightShadow}, 0px 2px 3px ${lightShadow}, 0px 3px 4px ${lightShadow}`,
+        md: `2px 4px 8px ${lightShadow}, 2px 5px 9px ${lightShadow}, 2px 6px 10px ${lightShadow}`,
+      },
+      dark: {
+        sm: 'unset',
+        md: 'unset',
+      },
+    },
   },
 };

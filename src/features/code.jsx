@@ -7,7 +7,7 @@ const Language = ({ children }) => {
   return (
     <Flex
       alignSelf='flex-start'
-      color='tint'
+      color='brand'
       textTransform='uppercase'
       mt={4}
       py={1}

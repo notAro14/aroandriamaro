@@ -31,6 +31,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           padding={4}
           boxShadow='sm'
           borderRadius='md'
+          backgroundColor='compBg'
           sx={{
             transition: 'box-shadow 200ms ease-in-out',
             ':hover': {
@@ -42,7 +43,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             {title}
           </Heading>
           <Text mb={2}>{description}</Text>
-          <Text color='tint'>Read more</Text>
+          <Text color='brand'>Read more</Text>
         </Box>
       </Link>
     </NextLink>

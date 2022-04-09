@@ -18,6 +18,7 @@ const COLOR_MODE_KEY = 'color-mode';
 const getTheme = (theme: typeof rawTheme, mode: ColorMode) =>
   merge({}, theme, {
     colors: get(theme.colors?.modes, mode, theme.colors),
+    shadows: get(theme.shadows?.modes, mode, theme.shadows),
   });
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {

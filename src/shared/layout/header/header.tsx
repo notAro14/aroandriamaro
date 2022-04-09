@@ -8,7 +8,6 @@ import logo from './logo.png';
 import useToggleTheme from 'theme/use-toggle-theme.hook';
 
 import Flex from 'shared/flex';
-import IconButton from 'shared/button/icon-button';
 import BaseButton from 'shared/button/base-button';
 import Link from 'shared/link';
 
@@ -21,7 +20,7 @@ const Header: FC = () => {
       height={75}
       position='sticky'
       top={0}
-      backgroundColor='background'
+      backgroundColor='appBg'
       boxShadow='sm'
     >
       <Flex
@@ -53,13 +52,13 @@ const Header: FC = () => {
             <NextLink href='/' passHref>
               <Link
                 fontSize='lg'
-                color='heading'
+                color='text'
                 position='relative'
                 fontWeight={200}
                 sx={{
                   textDecoration: 'none',
                   ':hover': {
-                    color: 'tint',
+                    color: 'brand',
                   },
                 }}
               >
@@ -70,17 +69,19 @@ const Header: FC = () => {
           </Flex>
 
           <BaseButton
-            backgroundColor='tint'
-            color='background'
+            backgroundColor='compBg'
+            color='text'
             borderRadius='sm'
             border='none'
             paddingX={2}
             paddingY={1}
             onClick={toggleTheme}
-            fontWeight={200}
+            fontWeight={500}
             sx={{
+              transition: 'background-color 200ms ease-in-out',
               ':hover': {
                 cursor: 'pointer',
+                backgroundColor: 'compBg-hover',
               },
             }}
           >

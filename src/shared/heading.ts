@@ -8,7 +8,7 @@ const Heading = styled('h2', { shouldForwardProp })<SystemStyleProps>`
   ${sx({
     lineHeight: '1',
     fontWeight: 500,
-    color: 'heading',
+    color: 'text',
     fontFamily: 'secondary',
   })}
   ${getSystemStyleProps()}

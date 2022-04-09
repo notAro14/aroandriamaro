@@ -42,7 +42,7 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
       <Box
         as='header'
         borderBottom='1px solid'
-        borderBottomColor='text'
+        borderBottomColor='border'
         paddingBottom={5}
         marginBottom={5}
       >
@@ -66,7 +66,7 @@ const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
                 <Link
                   textDecoration='none'
                   fontWeight={200}
-                  color='tint'
+                  color='brand'
                   href={href}
                 >
                   {name}
