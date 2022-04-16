@@ -12,6 +12,7 @@ import Box from 'shared/box';
 import Flex from 'shared/flex';
 import Link from 'shared/link';
 import { SOCIAL_LINKS } from 'shared/layout/footer/footer';
+import { FC } from 'react';
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true });
@@ -24,70 +25,87 @@ export const getStaticProps = () => {
 
 type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
+const SEO = () => {
+  return (
+    <Head>
+      <title>Aro Andriamaro</title>
+      <meta
+        name='description'
+        content='Blog about tech and web developement. It focuses on React and frontend development.'
+      />
+      <meta
+        name='keywords'
+        content='Javascript, Typescript, React, Next, CSS, Frameworks'
+      />
+    </Head>
+  );
+};
+
+const Header = () => {
+  return (
+    <Box
+      as='header'
+      borderBottom='1px solid'
+      borderBottomColor='border'
+      paddingBottom={5}
+      marginBottom={5}
+    >
+      <PageHeading as='h1'>
+        Welcome, Bienvenue, Tongasoa{' '}
+        <Emoji symbol='👋🏼' ariaLabel='waving hand' />
+      </PageHeading>
+      <Text mb={4}>
+        Welcome to my blog (yet another dev blog) . My name is Aro, I am a
+        Frontend Developer based in Lyon, France.
+      </Text>
+      <Text mb={4}>
+        This blog is my attempt to make the world a better place by sharing my
+        modest knowledge in Web development. I write mostly about Frontend dev
+        and React.
+      </Text>
+      <Flex as='ul' gap={4}>
+        {SOCIAL_LINKS.map(({ name, href }) => {
+          return (
+            <li key={name}>
+              <Link
+                textDecoration='none'
+                fontWeight={200}
+                color='brand'
+                href={href}
+              >
+                {name}
+              </Link>
+            </li>
+          );
+        })}
+      </Flex>
+    </Box>
+  );
+};
+
+interface BlogArticlesProps {
+  articles: InferGetStaticPropsType<typeof getStaticProps>['articles'];
+}
+
+const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
+  return (
+    <Flex as='ul' flexDirection='column' gap={4}>
+      {articles.map(({ frontmatter: { title, description }, slug }) => (
+        <li key={slug}>
+          <ArticlePreview slug={slug} title={title} description={description} />
+        </li>
+      ))}
+    </Flex>
+  );
+};
+
 const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
   const { articles } = props;
   return (
     <>
-      <Head>
-        <title>Aro Andriamaro</title>
-        <meta
-          name='description'
-          content='Blog about tech and web developement. It focuses on React and frontend development.'
-        />
-        <meta
-          name='keywords'
-          content='Javascript, Typescript, React, Next, CSS, Frameworks'
-        />
-      </Head>
-      <Box
-        as='header'
-        borderBottom='1px solid'
-        borderBottomColor='border'
-        paddingBottom={5}
-        marginBottom={5}
-      >
-        <PageHeading as='h1'>
-          Welcome, Bienvenue, Tongasoa{' '}
-          <Emoji symbol='👋🏼' ariaLabel='waving hand' />
-        </PageHeading>
-        <Text mb={4}>
-          Welcome to my blog (yet another dev blog) . My name is Aro, I am a
-          Frontend Developer based in Lyon, France.
-        </Text>
-        <Text mb={4}>
-          This blog is my attempt to make the world a better place by sharing my
-          modest knowledge in Web development. I write mostly about Frontend dev
-          and React.
-        </Text>
-        <Flex as='ul' gap={4}>
-          {SOCIAL_LINKS.map(({ name, href }) => {
-            return (
-              <li key={name}>
-                <Link
-                  textDecoration='none'
-                  fontWeight={200}
-                  color='brand'
-                  href={href}
-                >
-                  {name}
-                </Link>
-              </li>
-            );
-          })}
-        </Flex>
-      </Box>
-
-      <Flex as='ul' flexDirection='column' gap={4}>
-        {articles.map(({ frontmatter: { title, description }, slug }) => (
-          <li key={slug}>
-            <ArticlePreview
-              slug={slug}
-              title={title}
-              description={description}
-            />
-          </li>
-        ))}
-      </Flex>
+      <SEO />
+      <Header />
+      <BlogArticles articles={articles} />
     </>
   );
 };
