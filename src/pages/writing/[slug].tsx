@@ -34,7 +34,8 @@ const components = {
   ),
   ul: (props: any) => (
     <Flex
-      fontSize={['lg', 'xl']}
+      fontSize='lg'
+      fontFamily='primary'
       fontWeight={200}
       as='ul'
       flexDirection='column'
