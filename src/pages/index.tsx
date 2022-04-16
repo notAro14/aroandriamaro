@@ -90,9 +90,14 @@ interface BlogArticlesProps {
 const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
   return (
     <Flex as='ul' flexDirection='column' gap={4}>
-      {articles.map(({ frontmatter: { title, description }, slug }) => (
+      {articles.map(({ frontmatter: { title, description, date }, slug }) => (
         <li key={slug}>
-          <ArticlePreview slug={slug} title={title} description={description} />
+          <ArticlePreview
+            date={date}
+            slug={slug}
+            title={title}
+            description={description}
+          />
         </li>
       ))}
     </Flex>

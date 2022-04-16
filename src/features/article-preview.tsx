@@ -5,17 +5,20 @@ import Box from 'shared/box';
 import Heading from 'shared/heading';
 import Link from 'shared/link';
 import Text from 'shared/text';
+import { format } from 'utils/date';
 
 interface ArticlePreviewProps {
   slug: string;
   title: string;
   description: string;
+  date: string;
 }
 
 const ArticlePreview: FC<ArticlePreviewProps> = ({
   slug,
   title,
   description,
+  date,
 }) => {
   return (
     <NextLink href={`/writing/${slug}`} passHref>
@@ -39,6 +42,9 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             },
           }}
         >
+          <Text mb={2} color='gray' fontSize='xs'>
+            {format(date, 'MMMM do, yyyy')}
+          </Text>
           <Heading fontWeight={500} color='heading' mb={1} fontSize='2xl'>
             {title}
           </Heading>
