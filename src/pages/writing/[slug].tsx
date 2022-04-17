@@ -52,23 +52,42 @@ const components = {
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>;
+  slug: string;
 }
 
 interface SEOProps {
   title?: string;
   description?: string;
   keywords?: string[] | string;
+  pageUrl: string;
 }
 
-const SEO: FC<SEOProps> = ({ title, description, keywords }) => {
+const SEO: FC<SEOProps> = ({ title, description, keywords, pageUrl }) => {
+  const ogImage = 'https://aroandriamaro.com/images/social.jpg';
   return (
     <Head>
+      {/* Primary Meta Tags */}
       <title>{title}</title>
+      <meta name='title' content={title} />
       <meta name='description' content={description} />
       <meta
         name='keywords'
         content={typeof keywords === 'string' ? keywords : keywords?.join(', ')}
       />
+
+      {/* Open Graph / Facebook */}
+      <meta property='og:type' content='website' />
+      <meta property='og:url' content={pageUrl} />
+      <meta property='og:title' content={title} />
+      <meta property='og:description' content={description} />
+      <meta property='og:image' content={ogImage} />
+
+      {/* Twitter */}
+      <meta property='twitter:card' content='summary_large_image' />
+      <meta property='twitter:url' content={pageUrl} />
+      <meta property='twitter:title' content={title} />
+      <meta property='twitter:description' content={description} />
+      <meta property='twitter:image' content={ogImage} />
     </Head>
   );
 };
@@ -98,9 +117,10 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
   );
 };
 
-const Post: NextPageWithLayout<Props> = ({ post }) => {
+const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
   const { code, frontmatter, timeToRead } = post;
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
+  const pageUrl = `https://aroandriamaro.com/writing/${slug}`;
 
   return (
     <>
@@ -108,6 +128,7 @@ const Post: NextPageWithLayout<Props> = ({ post }) => {
         title={frontmatter.title}
         description={frontmatter.description}
         keywords='javascript, typescript, react, react.js, next, next.js'
+        pageUrl={pageUrl}
       />
       <PageHeading as='h1'>{frontmatter.title}</PageHeading>
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
@@ -125,7 +146,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params as Params;
   const post = await getSingleArticle(slug);
   return {
-    props: { post },
+    props: { post, slug },
   };
 };
 
