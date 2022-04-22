@@ -123,7 +123,7 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
   const pageUrl = `https://aroandriamaro.com/writing/${slug}`;
 
   return (
-    <>
+    <article>
       <SEO
         title={frontmatter.title}
         description={frontmatter.description}
@@ -133,7 +133,7 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
       <PageHeading as='h1'>{frontmatter.title}</PageHeading>
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
       <MDXComponent components={components} />
-    </>
+    </article>
   );
 };
 
