@@ -16,7 +16,7 @@ export const modes = {
   },
   dark: {
     shadow: mauveDark.mauve2,
-    brand: plumDark.plum9,
+    brand: plumDark.plum10,
     'brand-hover': plumDark.plum10,
     appBg: plumDark.plum2,
     compBg: plumDark.plum5,
