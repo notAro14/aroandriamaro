@@ -63,19 +63,31 @@ const Header = () => {
         modest knowledge in Web development. I write mostly about Frontend dev
         and React.
       </Text>
-      <Flex as='ul' gap={4}>
-        {SOCIAL_LINKS.map(({ name, href }) => {
+      <Flex as='ul' gap={4} flexWrap='wrap'>
+        {SOCIAL_LINKS.map(({ name, href, Component }) => {
           return (
-            <li key={name}>
+            <Flex
+              as='li'
+              alignItems='center'
+              color='text'
+              gap={2}
+              key={name}
+              backgroundColor='compBg'
+              paddingX={2}
+              paddingY={1}
+              borderRadius={9999}
+            >
+              <Component />
               <Link
                 textDecoration='none'
                 fontWeight={200}
-                color='brand'
+                fontSize='md'
+                color='text'
                 href={href}
               >
                 {name}
               </Link>
-            </li>
+            </Flex>
           );
         })}
       </Flex>
