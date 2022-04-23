@@ -4,11 +4,11 @@ description: Truncate and limit long paragraph with this component
 date: '2022-04-23'
 ---
 
-## Emotion
+## Implementation
 
-### Implementation
+### Emotion
 
-Implementation in Emotion or any CSS-in-JS like libraries using styled function
+Implementation in [Emotion](https://emotion.sh/docs/styled) or any CSS-in-JS like libraries using styled function
 
 ```ts
 import styled from '@emotion/styled';
@@ -37,26 +37,18 @@ TextEllipsed.defaultProps = {
 export default TextEllipsed;
 ```
 
-### Usage
+### Stitches
 
-```tsx
-<TextEllipsed maxLine={2}>Paragraph to truncate</TextEllipsed>
-```
-
-## Stitches
-
-### Implementation
-
-Implementation using Radix UI Stitches
+Implementation using [radix ui Stitches](https://stitches.dev/)
 
 ```ts
 import { createStitches } from '@stitches/react';
 
 const { styled } = createStitches({
   utils: {
-    maxLine: (value) => ({
-      lineClamp: value,
-      '-webkit-line-clamp': value,
+    maxLine: (value: string | number) => ({
+      lineClamp: typeof value === 'number' ? String(value) : value,
+      '-webkit-line-clamp': typeof value === 'number' ? String(value) : value,
     }),
   },
 });
@@ -71,8 +63,20 @@ const TextEllipsed = styled('p', {
 });
 ```
 
-### Usage
+## Usage
+
+### Emotion
 
 ```tsx
-<TextEllipsed css={{ maxLine: 2 }}>Paragraph to truncate</TextEllipsed>
+const App = () => {
+  return <TextEllipsed maxLine={2}>Paragraph</TextEllipsed>;
+};
+```
+
+### Stitches
+
+```tsx
+const App = () => {
+  return <TextEllipsed css={{ maxLine: 2 }}>Paragraph</TextEllipsed>;
+};
 ```
