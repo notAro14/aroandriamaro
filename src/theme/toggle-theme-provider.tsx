@@ -1,7 +1,7 @@
-import { FC } from 'react';
+import { FC } from "react"
 
-import type { ToggleTheme } from './use-toggle-theme.hook';
-import { ToggleThemeContext } from './use-toggle-theme.hook';
+import type { ToggleTheme } from "./use-toggle-theme.hook"
+import { ToggleThemeContext } from "./use-toggle-theme.hook"
 
 const ToggleThemeProvider: FC<{ value: ToggleTheme }> = ({
   children,
@@ -11,7 +11,7 @@ const ToggleThemeProvider: FC<{ value: ToggleTheme }> = ({
     <ToggleThemeContext.Provider value={value}>
       {children}
     </ToggleThemeContext.Provider>
-  );
-};
+  )
+}
 
-export default ToggleThemeProvider;
+export default ToggleThemeProvider

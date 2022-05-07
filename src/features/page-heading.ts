@@ -1,15 +1,15 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled"
 
-import Heading from 'shared/heading';
-import { sx } from 'utils/ui';
+import Heading from "shared/heading"
+import { sx } from "utils/ui"
 
 const PageHeading = styled(Heading)`
   ${sx({
-    color: 'heading',
+    color: "heading",
     fontWeight: 500,
-    fontSize: '3xl',
+    fontSize: "3xl",
     mb: 4,
   })}
-`;
+`
 
-export default PageHeading;
+export default PageHeading

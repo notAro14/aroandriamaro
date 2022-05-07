@@ -1,62 +1,62 @@
-import { ThemeProvider } from '@emotion/react';
-import { useCallback, useEffect, useState } from 'react';
-import merge from 'lodash.merge';
-import get from 'lodash.get';
+import { ThemeProvider } from "@emotion/react"
+import { useCallback, useEffect, useState } from "react"
+import merge from "lodash.merge"
+import get from "lodash.get"
 
-import 'styles/reset.css';
-import { theme as rawTheme, modes } from 'theme';
-import Font from 'shared/font';
-import ToggleThemeProvider from 'theme/toggle-theme-provider';
+import "styles/reset.css"
+import { theme as rawTheme, modes } from "theme"
+import Font from "shared/font"
+import ToggleThemeProvider from "theme/toggle-theme-provider"
 
-import type { AppPropsWithLayout } from 'types';
-import PageLayout from 'shared/layout/page-layout';
+import type { AppPropsWithLayout } from "types"
+import PageLayout from "shared/layout/page-layout"
 
-type ColorMode = keyof typeof modes;
-const ALL_COLOR_MODES = Object.keys(modes);
-const COLOR_MODE_KEY = 'color-mode';
+type ColorMode = keyof typeof modes
+const ALL_COLOR_MODES = Object.keys(modes)
+const COLOR_MODE_KEY = "color-mode"
 
 const getTheme = (theme: typeof rawTheme, mode: ColorMode) =>
   merge({}, theme, {
     colors: get(theme.colors?.modes, mode, theme.colors),
     shadows: get(theme.shadows?.modes, mode, theme.shadows),
-  });
+  })
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-  const [colorMode, setColorMode] = useState<ColorMode>('light');
+  const [colorMode, setColorMode] = useState<ColorMode>("light")
   const toggleTheme = useCallback(
     () =>
       setColorMode((prev) => {
-        let nextColorMode: ColorMode = 'light';
+        let nextColorMode: ColorMode = "light"
         switch (prev) {
-          case 'light':
-            nextColorMode = 'dark';
-            break;
-          case 'dark':
-            nextColorMode = 'light';
-            break;
+          case "light":
+            nextColorMode = "dark"
+            break
+          case "dark":
+            nextColorMode = "light"
+            break
           default:
-            nextColorMode = 'light';
-            break;
+            nextColorMode = "light"
+            break
         }
-        localStorage.setItem(COLOR_MODE_KEY, nextColorMode);
-        return nextColorMode;
+        localStorage.setItem(COLOR_MODE_KEY, nextColorMode)
+        return nextColorMode
       }),
     []
-  );
+  )
 
   useEffect(() => {
     const userColorMode = localStorage.getItem(COLOR_MODE_KEY) as
       | ColorMode
       | undefined
-      | null;
+      | null
     if (userColorMode && ALL_COLOR_MODES.includes(userColorMode))
-      setColorMode(userColorMode);
-  }, []);
+      setColorMode(userColorMode)
+  }, [])
 
-  const theme = getTheme(rawTheme, colorMode);
+  const theme = getTheme(rawTheme, colorMode)
 
   const getLayout =
-    Component.getLayout ?? ((page) => <PageLayout>{page}</PageLayout>);
+    Component.getLayout ?? ((page) => <PageLayout>{page}</PageLayout>)
   return (
     <ThemeProvider theme={theme}>
       <Font />
@@ -64,6 +64,6 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         {getLayout(<Component {...pageProps} />)}
       </ToggleThemeProvider>
     </ThemeProvider>
-  );
+  )
 }
-export default MyApp;
+export default MyApp

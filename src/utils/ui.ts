@@ -1,4 +1,4 @@
-import css, { SystemStyleObject } from '@styled-system/css';
+import css, { SystemStyleObject } from "@styled-system/css"
 import {
   color,
   compose,
@@ -11,9 +11,9 @@ import {
   system,
   typography,
   styleFn,
-} from 'styled-system';
+} from "styled-system"
 
-export const sx = (sx?: SystemStyleObject) => css(sx);
+export const sx = (sx?: SystemStyleObject) => css(sx)
 
 export const getSystemStyleProps = (...args: styleFn[]) =>
   compose(
@@ -27,15 +27,15 @@ export const getSystemStyleProps = (...args: styleFn[]) =>
     shadow,
     system({
       gap: {
-        property: 'gap',
-        scale: 'space',
+        property: "gap",
+        scale: "space",
       },
       textTransform: true,
       textDecoration: true,
       textDecorationColor: {
-        property: 'textDecorationColor',
-        scale: 'colors',
+        property: "textDecorationColor",
+        scale: "colors",
       },
     }),
     ...args
-  );
+  )

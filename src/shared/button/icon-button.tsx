@@ -1,6 +1,6 @@
-import { FC, MouseEventHandler } from 'react';
+import { FC, MouseEventHandler } from "react"
 
-import BaseButton from './base-button';
+import BaseButton from "./base-button"
 
 const IconButton: FC<{ onClick: MouseEventHandler<HTMLButtonElement> }> = ({
   children,
@@ -9,20 +9,20 @@ const IconButton: FC<{ onClick: MouseEventHandler<HTMLButtonElement> }> = ({
   return (
     <BaseButton
       onClick={onClick}
-      display='flex'
-      justifyContent='center'
-      alignItems='center'
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
       sx={{
-        background: 'none',
-        border: 'none',
-        ':hover': {
-          cursor: 'pointer',
+        "background": "none",
+        "border": "none",
+        ":hover": {
+          cursor: "pointer",
         },
       }}
     >
       {children}
     </BaseButton>
-  );
-};
+  )
+}
 
-export default IconButton;
+export default IconButton

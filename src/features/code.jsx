@@ -1,50 +1,49 @@
-import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
-import Box from 'shared/box';
-import Flex from 'shared/flex';
+import Highlight, { defaultProps } from "prism-react-renderer"
+import theme from "prism-react-renderer/themes/nightOwl"
+import Box from "shared/box"
+import Flex from "shared/flex"
 
 const Language = ({ children }) => {
   return (
     <Flex
-      alignSelf='flex-start'
-      color='brand'
-      textTransform='uppercase'
+      alignSelf="flex-start"
+      color="brand"
+      textTransform="uppercase"
       mt={4}
       py={1}
       px={2}
-      fontFamily='code'
+      fontFamily="code"
     >
       {children}
     </Flex>
-  );
-};
+  )
+}
 
 const CodeBlockContainer = ({ children }) => {
-  return <Flex flexDirection='column'>{children}</Flex>;
-};
+  return <Flex flexDirection="column">{children}</Flex>
+}
 
 const Code = ({ children, ...props }) => {
   return (
     <Box
-      as='pre'
-      overflow='auto'
+      as="pre"
+      overflow="auto"
       p={5}
       mb={4}
-      fontFamily='code'
-      fontSize='lg'
-      borderRadius='lg'
-      boxShadow='sm'
+      fontFamily="code"
+      fontSize="lg"
+      borderRadius="lg"
+      boxShadow="sm"
       {...props}
     >
       {children}
     </Box>
-  );
-};
+  )
+}
 
 const SyntaxHighlighter = ({ children, className }) => {
-  const code = children.trim();
-  const language =
-    className !== undefined && className.replace(/language-/, '');
+  const code = children.trim()
+  const language = className !== undefined && className.replace(/language-/, "")
 
   return (
     <Highlight {...defaultProps} code={code} language={language} theme={theme}>
@@ -63,7 +62,7 @@ const SyntaxHighlighter = ({ children, className }) => {
         </CodeBlockContainer>
       )}
     </Highlight>
-  );
-};
+  )
+}
 
-export default SyntaxHighlighter;
+export default SyntaxHighlighter
