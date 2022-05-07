@@ -1,4 +1,4 @@
-import { SystemStyleObject } from '@styled-system/css';
+import { SystemStyleObject } from "@styled-system/css"
 import {
   ColorProps,
   BorderProps,
@@ -8,9 +8,9 @@ import {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-} from 'styled-system';
+} from "styled-system"
 
-export type { Theme } from 'styled-system';
+export type { Theme } from "styled-system"
 
 export type SystemStyleProps = BorderProps &
   ColorProps &
@@ -20,21 +20,21 @@ export type SystemStyleProps = BorderProps &
   SpaceProps &
   ShadowProps &
   TypographyProps & {
-    gap?: string | number | string[] | number[];
-    textTransform?: TextTransform;
-    textDecoration?: string;
-    textDecorationColor?: string;
-    sx?: SystemStyleObject;
-  };
+    gap?: string | number | string[] | number[]
+    textTransform?: TextTransform
+    textDecoration?: string
+    textDecorationColor?: string
+    sx?: SystemStyleObject
+  }
 
 export type TextTransform =
-  | 'inherit'
-  | 'initial'
-  | 'unset'
-  | 'revert'
-  | 'none'
-  | 'uppercase'
-  | 'lowercase'
-  | 'capitalize'
-  | 'full-width'
-  | 'full-size-kana';
+  | "inherit"
+  | "initial"
+  | "unset"
+  | "revert"
+  | "none"
+  | "uppercase"
+  | "lowercase"
+  | "capitalize"
+  | "full-width"
+  | "full-size-kana"

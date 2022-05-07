@@ -1,7 +1,7 @@
 ---
 title: Single Level of Abstraction applied to React code
 description: How to apply the SLA principle to improve React component code
-date: '2022-04-16'
+date: "2022-04-16"
 ---
 
 ## Principle statement
@@ -12,17 +12,17 @@ When a method or a function mixes different levels of abstraction, the code is h
 
 ```ts
 function signUp(email: string, password: string) {
-  const user = db.user.findOne({ where: { email } });
-  if (user) throw new Error('User already exists');
+  const user = db.user.findOne({ where: { email } })
+  if (user) throw new Error("User already exists")
 
-  const hashedPassword = hashPassword(password);
+  const hashedPassword = hashPassword(password)
 
   const newUser = db.user.createOne({
     hashedPassword,
     email,
-  });
+  })
 
-  return newUser;
+  return newUser
 }
 ```
 
@@ -38,26 +38,26 @@ To avoid mental grouping, we use the principle of single level of abstraction.
 
 ```ts
 function doesUserAlreadyExist(email: string) {
-  const user = db.user.findOne({ where: { email } });
-  return user ? true : false;
+  const user = db.user.findOne({ where: { email } })
+  return user ? true : false
 }
 
 function createUser(email: string, hashedPassword: string) {
   const user = db.user.createOne({
     hashedPassword,
     email,
-  });
-  return user;
+  })
+  return user
 }
 
 function signUp({ email, password }) {
   if (doesUserAlreadyExist(email)) {
-    throw new Error('User already exists');
+    throw new Error("User already exists")
   }
 
-  const hashedPassword = hashPassword(password);
-  const user = createUser(email, hashedPassword);
-  return user;
+  const hashedPassword = hashPassword(password)
+  const user = createUser(email, hashedPassword)
+  return user
 }
 ```
 
@@ -84,8 +84,8 @@ const BlogHomePage = ({ articles }) => {
         </ul>
       </main>
     </>
-  );
-};
+  )
+}
 ```
 
 In this simple example, the component _BlogHomePage_ is somewhat readable. But still it requires extra effort to mentally visualize to what elements this component renders.
@@ -98,7 +98,7 @@ const Header = () => (
     <h1>My blog</h1>
     <p>Welcome to my blog</p>
   </header>
-);
+)
 
 const Articles = ({ articles }) => (
   <ul>
@@ -106,7 +106,7 @@ const Articles = ({ articles }) => (
       <ArticlePreview key={title} article={article} />
     ))}
   </ul>
-);
+)
 
 const BlogHomePage = ({ articles }) => {
   return (
@@ -117,8 +117,8 @@ const BlogHomePage = ({ articles }) => {
         <Articles articles={articles} />
       </main>
     </>
-  );
-};
+  )
+}
 ```
 
 This way, we can easily visualize all the different parts of _BlogHomePage_ at once.

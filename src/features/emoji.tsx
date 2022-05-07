@@ -1,17 +1,17 @@
-import { FC } from 'react';
+import { FC } from "react"
 
 interface Props {
-  ariaLabel: string;
-  symbol: string;
+  ariaLabel: string
+  symbol: string
 }
 
 const Emoji: FC<Props> = ({ ariaLabel, symbol }) => (
-  <span role='img' aria-label={ariaLabel}>
+  <span role="img" aria-label={ariaLabel}>
     {symbol}
   </span>
-);
+)
 
-export default Emoji;
+export default Emoji
 
 // usage
 {
