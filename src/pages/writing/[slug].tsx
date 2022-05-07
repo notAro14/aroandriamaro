@@ -20,13 +20,18 @@ import PageHeading from "features/page-heading"
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
-    <Heading as="h1" my={4} fontSize={["2xl", "3xl"]} {...props} />
+    <Heading as="h1" mb={4} mt={6} fontSize={["2xl", "3xl"]} {...props} />
   ),
-  h2: (props: any) => <Heading my={4} fontSize={["xl", "2xl"]} {...props} />,
+  h2: (props: any) => (
+    <Heading mb={4} mt={6} fontSize={["xl", "2xl"]} {...props} />
+  ),
   h3: (props: any) => (
-    <Heading as="h3" my={4} fontSize={["lg", "xl"]} {...props} />
+    <Heading as="h3" mb={4} mt={6} fontSize={["lg", "xl"]} {...props} />
   ),
-  p: (props: any) => <Text color="text" my={5} lineHeight="1.65" {...props} />,
+  h4: (props: any) => (
+    <Heading as="h4" mb={4} mt={6} fontSize={"lg"} {...props} />
+  ),
+  p: (props: any) => <Text color="text" my={4} lineHeight="1.65" {...props} />,
   em: (props: any) => (
     <Text as="em" color="brand" fontFamily="primary" {...props} />
   ),
@@ -46,6 +51,7 @@ const components = {
       color="text"
       gap={2}
       pl={4}
+      my={4}
       {...props}
     />
   ),
