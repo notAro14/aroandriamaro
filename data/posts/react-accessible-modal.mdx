@@ -1,0 +1,112 @@
+---
+title: How To Build An Accessible Modal
+description: Building an accessible modal is not an easy task, although it's a very common element. Let's see how to build one easily.
+date: "2022-05-07"
+---
+
+Modal window (or dialog box) is one of those classic element composing an interface. Every app or website has a modal. But it's surprisingly hard to get it right.
+
+## Accessibility Concerns About Modals
+
+I used to think that building a modal in React is just a matter of showing a box when a variable is set to true (after a click on a button for example). But there are many things, accessibility related, to consider :
+
+- annonce the modal and hide the rest of the page from screen reader
+- make the first element <kbd>tab</kbd>-able inside the modal to have focus
+- close the modal when clicking outside or when pressing <kbd>esc</kbd> key
+- restore focus after closing the modal
+
+## Using Headless Modal Component
+
+You could try to implement a modal from scratch. But I strongly advise you against that (at least for production code).
+
+In React, there are many headless component libraries that help developers build accessible interfaces. Headless components are a type of unstyled components that are fully functional.
+
+You can find below few examples of headless modal libraries
+
+- [react modal](https://reactcommunity.org/react-modal/) **(most popular)**
+- [reach UI dialog](https://reach.tech/dialog/) **(what I recommand)**
+- [radix UI dialog](https://www.radix-ui.com/docs/primitives/components/dialog)
+- [reakit dialog](https://reakit.io/docs/dialog/)
+
+[React modal](https://reactcommunity.org/react-modal/) is clearly the most popular out there. But I think it is not the best option, because you can disable some accessibility features needed for a modal.
+
+For the other libraries, important accessibility features are enabled by default. Each of them is a good solution but I have a preference for [Reach UI dialog](https://reach.tech/dialog/) for its ease of use (simple API and component easily style-able).
+
+## Reach UI Dialog Quickstart
+
+### Installation
+
+```shell
+yarn add @reach/dialog
+# or
+npm install @reach/dialog
+```
+
+### Implementation
+
+In this example, I use [Stitches](https://stitches.dev/). But you can use any CSS-in-JS library of your choice. You can also use CSS modules to style _DialogOverlay_ and _DialogContent_
+
+```ts
+/* FILE: src/components/reach-dialog.ts */
+
+import { DialogOverlay, DialogContent } from "@reach/dialog"
+import { styled } from "path/to/stitches.config.ts"
+
+export const Overlay = styled(DialogOverlay, {
+  backgroundColor: "hsl(0 0% 0% / 0.439)",
+  position: "fixed",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  display: "grid",
+  placeItems: "center",
+})
+
+export const Content = styled(DialogContent, {
+  backgroundColor: "white",
+  padding: "1rem",
+  minWidth: 300,
+  borderRadius: 20,
+})
+```
+
+### Usage
+
+```tsx
+/* FILE: src/components/reach-dialog-demo.tsx */
+
+import { useState } from "react"
+import { Content, Overlay } from "./reach-dialog.ts"
+
+const ReachDialogDemo = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const show = () => setIsOpen(true)
+  const close = () => setIsOpen(false)
+  return (
+    <main>
+      <h1>Reach Dialog Demo</h1>
+      <button onClick={show}>Open Dialog</button>
+      <Overlay onDismiss={close} isOpen={isOpen}>
+        <Content>
+          <h2>Reach dialog</h2>
+          <p>Hello World</p>
+          <button onClick={close}>Close</button>
+        </Content>
+      </Overlay>
+    </main>
+  )
+}
+
+export default ReachDialogDemo
+```
+
+### Preview
+
+import ReachDialogDemo from "./dialog"
+
+<ReachDialogDemo />
+
+## What About The Official _dialog_ Element ?
+
+Although major browsers support it recently, there [are still accessibility issues](https://www.scottohara.me/blog/2019/03/05/open-dialog.html) that are being discussed. I think, reaching for a solution like headless components is totally valid for now.
