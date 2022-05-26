@@ -11,9 +11,11 @@ datasource db {
 }
 
 model Like {
-  id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
   uniqueId    String
   articleSlug String
+  count       Int      @default(1)
+
+  @@unique([uniqueId, articleSlug])
 }
