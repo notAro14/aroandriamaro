@@ -18,7 +18,7 @@ export const SOCIAL_LINKS = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/mamitiana/",
+    href: "https://www.linkedin.com/in/notaro14/",
     Component: () => <FaLinkedinIn size={15} />,
   },
 ]
