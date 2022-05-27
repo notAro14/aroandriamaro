@@ -2,6 +2,8 @@ import { ThemeProvider } from "@emotion/react"
 import { useCallback, useEffect, useState } from "react"
 import merge from "lodash.merge"
 import get from "lodash.get"
+import { useAtom } from "jotai"
+import { v4 as uuidv4 } from "uuid"
 
 import "styles/reset.css"
 import { theme as rawTheme, modes } from "theme"
@@ -10,6 +12,8 @@ import ToggleThemeProvider from "theme/toggle-theme-provider"
 
 import type { AppPropsWithLayout } from "types"
 import PageLayout from "shared/layout/page-layout"
+import { AAN_UNIQUE_ID } from "../contants"
+import { uniqueIdAtom } from "../atoms"
 
 type ColorMode = keyof typeof modes
 const ALL_COLOR_MODES = Object.keys(modes)
@@ -44,14 +48,23 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     []
   )
 
+  const [, setUniqueId] = useAtom(uniqueIdAtom)
+
   useEffect(() => {
+    let storedUniqueId = localStorage.getItem(AAN_UNIQUE_ID)
+    if (storedUniqueId === null || typeof storedUniqueId === "undefined") {
+      storedUniqueId = uuidv4()
+      localStorage.setItem(AAN_UNIQUE_ID, storedUniqueId)
+    }
+    setUniqueId(storedUniqueId)
+
     const userColorMode = localStorage.getItem(COLOR_MODE_KEY) as
       | ColorMode
       | undefined
       | null
     if (userColorMode && ALL_COLOR_MODES.includes(userColorMode))
       setColorMode(userColorMode)
-  }, [])
+  }, [setUniqueId])
 
   const theme = getTheme(rawTheme, colorMode)
 

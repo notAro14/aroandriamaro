@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useMemo, FC } from "react"
+import { useMemo, FC, useState, useEffect } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
 import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import { ParsedUrlQuery } from "querystring"
+import { useAtom } from "jotai"
 
 import { format } from "utils/date"
 import { getAllArticles, getSingleArticle } from "utils/mdx"
-import { NextPageWithLayout } from "types"
+import type { NextPageWithLayout } from "types"
+import { uniqueIdAtom } from "../../atoms"
 
 import Flex from "shared/flex"
 import Heading from "shared/heading"
@@ -128,6 +130,20 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
   const { code, frontmatter, timeToRead } = post
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
   const pageUrl = `https://aroandriamaro.com/writing/${slug}`
+  const [uniqueId] = useAtom(uniqueIdAtom)
+  const [maxLikeReached, setMaxLikeReached] = useState(false)
+  const [likeCount, setLikeCount] = useState<number | null>(null)
+
+  useEffect(() => {
+    const getLikeCount = async () => {
+      const res = await fetch(`/api/like?slug=${slug}`)
+      const data = await res.json()
+      setLikeCount(data.count)
+      if (data.count >= 7) setMaxLikeReached(true)
+    }
+
+    getLikeCount()
+  }, [slug])
 
   return (
     <article>
@@ -140,6 +156,31 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
       <PageHeading as="h1">{frontmatter.title}</PageHeading>
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
       <MDXComponent components={components} />
+      <button
+        onClick={async () => {
+          const res = await fetch("/api/like", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              uniqueId,
+              slug,
+            }),
+          })
+          const data = await res.json()
+          if (data?.message) {
+            setMaxLikeReached(true)
+            return
+          }
+          setLikeCount(data.count)
+          if (data.count >= 7) setMaxLikeReached(true)
+        }}
+        disabled={maxLikeReached}
+      >
+        {maxLikeReached ? "MAX" : "Like"}
+        {`: ${likeCount ?? "loading..."}`}
+      </button>
     </article>
   )
 }
