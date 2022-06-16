@@ -56,7 +56,8 @@ const Header = () => {
       </PageHeading>
       <Text mb={4}>
         Welcome to my blog (yet another dev blog) . My name is Aro, I am a
-        Frontend Developer based in Lyon, France. I'm currently working in a very cool startup (<a href="https://santeacademie.com">Santé Académie</a>).
+        Frontend Developer based in Lyon, France. I'm currently working in a very cool 
+        startup (<a href="https://santeacademie.com">Santé Académie</a>).
       </Text>
       <Text mb={4}>
         This blog is my attempt to make the world a better place by sharing my
