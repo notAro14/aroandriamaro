@@ -4,15 +4,16 @@ import ContentLayout from "shared/layout/content-layout"
 import Flex from "shared/flex"
 import Footer from "shared/layout/footer"
 import Header from "shared/layout/header"
+import { theme } from "lib/stitches.config"
 
 const PageLayout: FC = ({ children }) => {
   return (
     <Flex
-      flexDirection="column"
-      backgroundColor="appBg"
-      minHeight="100%"
       as="section"
-      sx={{
+      css={{
+        "flexDirection": "column",
+        "backgroundColor": theme.colors.appBg,
+        "minHeight": "100%",
         "transition": "background-color 200ms ease-in-out",
         "*": {
           transition: "background-color 200ms ease-in-out",

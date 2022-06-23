@@ -16,6 +16,7 @@ import SyntaxHighlighter from "features/code"
 import Text from "shared/text"
 import Emoji from "features/emoji"
 import PageHeading from "features/page-heading"
+import { theme } from "lib/stitches.config"
 
 const components = {
   code: SyntaxHighlighter,
@@ -40,18 +41,19 @@ const components = {
   ),
   ul: (props: any) => (
     <Flex
-      fontSize="lg"
-      fontFamily="primary"
-      fontWeight={200}
       as="ul"
-      flexDirection="column"
-      sx={{
+      css={{
+        fontSize: theme.fontSizes.lg,
+        fontFamily: theme.fonts.primary,
+        fontWeight: 200,
+        flexDirection: "column",
         listStyleType: "disc",
+        color: theme.colors.text,
+        gap: theme.space.xs,
+        paddingLeft: theme.space.md,
+        marginTop: theme.space.md,
+        marginBottom: theme.space.md,
       }}
-      color="text"
-      gap={2}
-      pl={4}
-      my={4}
       {...props}
     />
   ),
@@ -111,12 +113,13 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
   return (
     <Flex
       as="p"
-      display="flex"
-      gap={3}
-      color="gray"
-      fontSize="md"
-      fontWeight={100}
-      fontFamily="primary"
+      css={{
+        gap: theme.space.sm,
+        color: theme.colors.gray,
+        fontSize: theme.fontSizes.md,
+        fontWeight: 100,
+        fontFamily: theme.fonts.primary,
+      }}
     >
       <Emoji symbol="📅" ariaLabel="calendar" />
       {`${format(date, "MMMM do")}, ${format(date, "yyyy")} - ${timeToRead}`}

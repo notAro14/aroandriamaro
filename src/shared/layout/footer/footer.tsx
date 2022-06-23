@@ -1,3 +1,4 @@
+import { theme } from "lib/stitches.config"
 import { FC } from "react"
 import { FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 
@@ -25,18 +26,39 @@ export const SOCIAL_LINKS = [
 
 const Footer: FC = () => {
   return (
-    <Flex as="footer" height={100} backgroundColor="compBg">
+    <Flex
+      as="footer"
+      css={{
+        height: 100,
+        backgroundColor: theme.colors.compBg,
+      }}
+    >
       <Flex
-        as="div"
-        px={4}
-        alignItems="center"
-        flexDirection={["column", "row"]}
-        justifyContent={["center", "space-between"]}
-        gap={[2, 0]}
-        width={["100%", "100%", "1000px"]}
-        mx="auto"
-        fontWeight={100}
-        fontSize="sm"
+        css={{
+          "paddingRight": theme.space.md,
+          "paddingLeft": theme.space.md,
+          "alignItems": "center",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "gap": theme.space.xs,
+          "width": "100%",
+          "marginLeft": "auto",
+          "marginRight": "auto",
+          "fontWeight": 100,
+          "fontSize": theme.space.sm,
+          "@bp2": {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 0,
+            width: "100%",
+          },
+          "@bp3": {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 0,
+            width: 1000,
+          },
+        }}
       >
         <Text fontSize="inherit" color="text">
           Made by Aro Andriamaro{" "}
@@ -45,15 +67,22 @@ const Footer: FC = () => {
           </Text>
           {new Date().getFullYear()}
         </Text>
-        <Flex as="ul" gap={6}>
+        <Flex
+          as="ul"
+          css={{
+            gap: theme.space.xl,
+          }}
+        >
           {SOCIAL_LINKS.map(({ Component, name, href }) => {
             return (
               <Flex
                 key={name}
                 as="li"
-                alignItems="center"
-                gap={2}
-                color="lo-text"
+                css={{
+                  alignItems: "center",
+                  gap: theme.space.xs,
+                  color: theme.colors["lo-text"],
+                }}
               >
                 <Component />
                 <Link

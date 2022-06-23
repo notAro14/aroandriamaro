@@ -10,6 +10,7 @@ import useToggleTheme from "theme/use-toggle-theme.hook"
 import Flex from "shared/flex"
 import BaseButton from "shared/button/base-button"
 import Link from "shared/link"
+import { theme } from "lib/stitches.config"
 
 const Header: FC = () => {
   const { pathname } = useRouter()
@@ -17,18 +18,24 @@ const Header: FC = () => {
   return (
     <Flex
       as="nav"
-      height={75}
-      position="sticky"
-      top={0}
-      backgroundColor="appBg"
-      boxShadow="sm"
+      css={{
+        height: 75,
+        position: "sticky",
+        top: 0,
+        backgroundColor: theme.colors.appBg,
+      }}
     >
       <Flex
-        px={4}
-        alignItems="center"
-        justifyContent="space-between"
-        width={["100%", "100%", "1000px"]}
-        mx="auto"
+        css={{
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "marginLeft": "auto",
+          "marginRight": "auto",
+          "width": "100%",
+          "@bp3": {
+            width: 1000,
+          },
+        }}
       >
         <NextLink href="/" passHref>
           <Link
@@ -47,7 +54,13 @@ const Header: FC = () => {
             />
           </Link>
         </NextLink>
-        <Flex as="ul" alignItems="center" gap={4}>
+        <Flex
+          as="ul"
+          css={{
+            alignItems: "center",
+            gap: theme.space.md,
+          }}
+        >
           <Flex as="li">
             <NextLink href="/" passHref>
               <Link

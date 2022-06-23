@@ -1,20 +1,22 @@
 import { FC } from "react"
 
-import Box from "shared/box"
+import { theme, styled } from "lib/stitches.config"
+
+const Layout = styled("main", {
+  "flex": "1",
+  "paddingLeft": theme.space.md,
+  "paddingTop": theme.space["3xl"],
+  "paddingBottom": theme.space["3xl"],
+  "marginLeft": "auto",
+  "marginRight": "auto",
+  "width": "100%",
+  "@bp3": {
+    width: 1000,
+  },
+})
 
 const ContentLayout: FC = ({ children }) => {
-  return (
-    <Box
-      as="main"
-      width={["100%", "100%", "1000px"]}
-      flex="1"
-      px={4}
-      py={8}
-      mx="auto"
-    >
-      {children}
-    </Box>
-  )
+  return <Layout>{children}</Layout>
 }
 
 export default ContentLayout

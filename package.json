@@ -9,7 +9,8 @@
     "start": "next start -p 4000",
     "lint": "eslint --cache --fix .",
     "format": "prettier --write --ignore-unknown .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.9.0",

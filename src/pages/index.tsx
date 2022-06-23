@@ -3,6 +3,7 @@ import Head from "next/head"
 
 import { getAllArticles } from "utils/mdx"
 import type { NextPageWithLayout } from "types"
+import { theme } from "lib/stitches.config"
 // components
 import ArticlePreview from "features/article-preview"
 import PageHeading from "features/page-heading"
@@ -45,10 +46,12 @@ const Header = () => {
   return (
     <Box
       as="header"
-      borderBottom="1px solid"
-      borderBottomColor="border"
-      paddingBottom={5}
-      marginBottom={5}
+      css={{
+        borderBottom: "1px solid",
+        borderBottomColor: theme.colors.border,
+        paddingBottom: theme.space.lg,
+        marginBottom: theme.space.lg,
+      }}
     >
       <PageHeading as="h1">
         Welcome, Bienvenue, Tongasoa{" "}
@@ -63,19 +66,29 @@ const Header = () => {
         modest knowledge in Web development. I write mostly about Frontend dev
         and React.
       </Text>
-      <Flex as="ul" gap={4} flexWrap="wrap">
+      <Flex
+        as="ul"
+        css={{
+          gap: theme.space.md,
+          flexWrap: "wrap",
+        }}
+      >
         {SOCIAL_LINKS.map(({ name, href, Component }) => {
           return (
             <Flex
               as="li"
-              alignItems="center"
-              color="text"
-              gap={2}
               key={name}
-              backgroundColor="compBg"
-              paddingX={2}
-              paddingY={1}
-              borderRadius={9999}
+              css={{
+                alignItems: "center",
+                color: theme.colors.text,
+                gap: theme.space.xs,
+                backgroundColor: theme.colors.compBg,
+                borderRadius: 9999,
+                paddingTop: theme.space.xxs,
+                paddingBottom: theme.space.xxs,
+                paddingLeft: theme.space.xs,
+                paddingRight: theme.space.xs,
+              }}
             >
               <Component />
               <Link
@@ -101,7 +114,13 @@ interface BlogArticlesProps {
 
 const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
   return (
-    <Flex as="ul" flexDirection="column" gap={4}>
+    <Flex
+      as="ul"
+      css={{
+        flexDirection: "column",
+        gap: theme.space.md,
+      }}
+    >
       {articles.map(({ frontmatter: { title, description, date }, slug }) => (
         <li key={slug}>
           <ArticlePreview

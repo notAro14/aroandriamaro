@@ -6,6 +6,7 @@ import Heading from "shared/heading"
 import Link from "shared/link"
 import Text from "shared/text"
 import { format } from "utils/date"
+import { theme } from "lib/stitches.config"
 
 interface ArticlePreviewProps {
   slug: string
@@ -30,16 +31,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
       >
         <Box
           as="article"
-          mb={6}
-          padding={4}
-          boxShadow="sm"
-          borderRadius="md"
-          backgroundColor="compBg"
-          sx={{
-            "transition": "box-shadow 200ms ease-in-out",
-            ":hover": {
-              boxShadow: "md",
-            },
+          css={{
+            marginBottom: theme.space.xl,
+            padding: theme.space.md,
+            borderRadius: theme.radii.md,
+            backgroundColor: theme.colors.compBg,
           }}
         >
           <Text mb={2} color="gray" fontSize="xs">
