@@ -6,7 +6,8 @@
       "layout/*": ["layout/*"],
       "styles/*": ["styles/*"],
       "theme/*": ["theme/*"],
-      "utils/*": ["utils/*"]
+      "utils/*": ["utils/*"],
+      "lib/*": ["lib/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

@@ -1,5 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
+import { getCssText } from "lib/stitches.config"
+
 const FontPreload = () => {
   return (
     <>
@@ -71,8 +73,11 @@ class MyDocument extends Document {
         <Head>
           <FontPreload />
           <FaviconLinks />
-
           <meta name="theme-color" content="#ffffff" />
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
         </Head>
         <body>
           <Main />
