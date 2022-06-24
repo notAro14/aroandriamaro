@@ -81,9 +81,26 @@ const components = {
       {...props}
     />
   ),
-  p: (props: any) => <Text color="text" my={4} lineHeight="1.65" {...props} />,
+  p: (props: any) => (
+    <Text
+      css={{
+        marginTop: theme.space.md,
+        marginBottom: theme.space.md,
+        lineHeight: "1.65",
+        color: theme.colors.text,
+      }}
+      {...props}
+    />
+  ),
   em: (props: any) => (
-    <Text as="em" color="brand" fontFamily="primary" {...props} />
+    <Text
+      as="em"
+      css={{
+        color: theme.colors.brand,
+        fontFamily: theme.fonts.primary,
+      }}
+      {...props}
+    />
   ),
   a: (props: any) => (
     <Link

@@ -60,9 +60,15 @@ const Footer: FC = () => {
           },
         }}
       >
-        <Text fontSize="inherit" color="text">
+        <Text css={{ fontSize: "inherit", color: theme.colors.text }}>
           Made by Aro Andriamaro{" "}
-          <Text as="span" fontSize="inherit" color="lo-text">
+          <Text
+            as="span"
+            css={{
+              fontSize: "inherit",
+              color: theme.colors["lo-text"],
+            }}
+          >
             &copy;{" "}
           </Text>
           {new Date().getFullYear()}

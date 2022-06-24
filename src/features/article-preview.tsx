@@ -40,7 +40,13 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             backgroundColor: theme.colors.compBg,
           }}
         >
-          <Text mb={2} color="gray" fontSize="xs">
+          <Text
+            css={{
+              marginBottom: theme.space.xs,
+              color: theme.colors.gray,
+              fontSize: theme.fontSizes.xs,
+            }}
+          >
             {format(date, "MMMM do, yyyy")}
           </Text>
           <Heading
@@ -52,8 +58,8 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           >
             {title}
           </Heading>
-          <Text mb={2}>{description}</Text>
-          <Text color="brand">Read more</Text>
+          <Text css={{ marginBottom: theme.space.xs }}>{description}</Text>
+          <Text css={{ color: theme.colors.brand }}>Read more</Text>
         </Box>
       </Link>
     </NextLink>

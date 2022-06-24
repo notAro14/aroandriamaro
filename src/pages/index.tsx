@@ -57,11 +57,11 @@ const Header = () => {
         Welcome, Bienvenue, Tongasoa{" "}
         <Emoji symbol="👋🏼" ariaLabel="waving hand" />
       </PageHeading>
-      <Text mb={4}>
+      <Text css={{ marginBottom: theme.space.md }}>
         Welcome to my blog (yet another dev blog) . My name is Aro, I am a
         Frontend Developer based in Lyon, France.
       </Text>
-      <Text mb={4}>
+      <Text css={{ marginBottom: theme.space.md }}>
         This blog is my attempt to make the world a better place by sharing my
         modest knowledge in Web development. I write mostly about Frontend dev
         and React.
