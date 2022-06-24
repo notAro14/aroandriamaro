@@ -41,7 +41,13 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           <Text mb={2} color="gray" fontSize="xs">
             {format(date, "MMMM do, yyyy")}
           </Text>
-          <Heading fontWeight={500} color="heading" mb={1} fontSize="2xl">
+          <Heading
+            css={{
+              fontWeight: 500,
+              marginBottom: theme.space.xxs,
+              fontSize: theme.fontSizes["2xl"],
+            }}
+          >
             {title}
           </Heading>
           <Text mb={2}>{description}</Text>
