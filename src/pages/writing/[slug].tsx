@@ -86,7 +86,14 @@ const components = {
     <Text as="em" color="brand" fontFamily="primary" {...props} />
   ),
   a: (props: any) => (
-    <Link href={props.href} color="brand" fontWeight={200} {...props} />
+    <Link
+      href={props.href}
+      css={{
+        color: theme.colors.brand,
+        fontWeight: 200,
+      }}
+      {...props}
+    />
   ),
   ul: (props: any) => (
     <Flex

@@ -25,9 +25,11 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
     <NextLink href={`/writing/${slug}`} passHref>
       <Link
         title={title}
-        fontSize="inherit"
-        textDecoration="none"
-        color="inherit"
+        css={{
+          fontSize: "inherit",
+          textDecoration: "none",
+          color: "inherit",
+        }}
       >
         <Box
           as="article"

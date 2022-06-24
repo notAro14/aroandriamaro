@@ -92,11 +92,13 @@ const Header = () => {
             >
               <Component />
               <Link
-                textDecoration="none"
-                fontWeight={200}
-                fontSize="md"
-                color="text"
                 href={href}
+                css={{
+                  textDecoration: "none",
+                  fontWeight: 200,
+                  fontSize: theme.fontSizes.md,
+                  color: theme.colors.text,
+                }}
               >
                 {name}
               </Link>

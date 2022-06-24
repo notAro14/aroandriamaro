@@ -39,9 +39,9 @@ const Header: FC = () => {
       >
         <NextLink href="/" passHref>
           <Link
-            fontSize="lg"
-            sx={{
+            css={{
               textDecoration: "none",
+              fontSize: theme.fontSizes.lg,
             }}
           >
             <Image
@@ -64,14 +64,14 @@ const Header: FC = () => {
           <Flex as="li">
             <NextLink href="/" passHref>
               <Link
-                fontSize="lg"
-                color="text"
-                position="relative"
-                fontWeight={200}
-                sx={{
+                css={{
+                  "fontSize": theme.fontSizes.lg,
+                  "color": theme.colors.text,
+                  "position": "relative",
+                  "fontWeight": 200,
                   "textDecoration": "none",
-                  ":hover": {
-                    color: "brand",
+                  "&:hover": {
+                    color: theme.colors.brand,
                   },
                 }}
               >

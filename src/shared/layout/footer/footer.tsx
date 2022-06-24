@@ -87,14 +87,14 @@ const Footer: FC = () => {
                 <Component />
                 <Link
                   href={href}
-                  textDecoration="none"
-                  fontSize="inherit"
-                  color="text"
-                  fontWeight={200}
-                  sx={{
-                    ":hover": {
+                  css={{
+                    "textDecoration": "none",
+                    "fontSize": "inherit",
+                    "color": theme.colors.text,
+                    "fontWeight": 200,
+                    "&:hover": {
                       cursor: "pointer",
-                      color: "text",
+                      color: theme.colors.text,
                     },
                   }}
                 >
