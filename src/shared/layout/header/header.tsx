@@ -82,19 +82,18 @@ const Header: FC = () => {
           </Flex>
 
           <BaseButton
-            backgroundColor="compBg"
-            color="text"
-            borderRadius="sm"
-            border="none"
-            paddingX={2}
-            paddingY={1}
             onClick={toggleTheme}
-            fontWeight={500}
-            sx={{
+            css={{
+              "fontWeight": 500,
+              "backgroundColor": theme.colors.compBg,
+              "color": theme.colors.text,
+              "borderRadius": theme.radii.sm,
+              "border": "none",
+              "padding": `${theme.space.xxs} ${theme.space.xs}`,
               "transition": "background-color 200ms ease-in-out",
-              ":hover": {
+              "&:hover": {
                 cursor: "pointer",
-                backgroundColor: "compBg-hover",
+                backgroundColor: theme.colors["compBg-hover"],
               },
             }}
           >

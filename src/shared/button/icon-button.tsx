@@ -9,10 +9,10 @@ const IconButton: FC<{ onClick: MouseEventHandler<HTMLButtonElement> }> = ({
   return (
     <BaseButton
       onClick={onClick}
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      sx={{
+      css={{
+        "alignItems": "center",
+        "justifyContent": "center",
+        "display": "flex",
         "background": "none",
         "border": "none",
         ":hover": {
