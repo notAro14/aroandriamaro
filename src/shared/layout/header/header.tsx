@@ -6,9 +6,9 @@ import Image from "next/image"
 import SvgUnderline from "./svg-underline"
 import logo from "./logo.png"
 
-import Flex from "shared/flex"
-import Link from "shared/link"
-import { theme } from "lib/stitches.config"
+import Flex from "src/shared/flex"
+import Link from "src/shared/link"
+import { theme } from "src/lib/stitches.config"
 
 const Header: FC = () => {
   const { pathname } = useRouter()

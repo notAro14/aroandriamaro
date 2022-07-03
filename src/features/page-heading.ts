@@ -1,5 +1,5 @@
-import { styled, theme } from "lib/stitches.config"
-import Heading from "shared/heading"
+import { styled, theme } from "src/lib/stitches.config"
+import Heading from "src/shared/heading"
 
 const PageHeading = styled(Heading, {
   fontWeight: 500,

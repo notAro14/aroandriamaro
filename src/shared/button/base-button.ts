@@ -1,4 +1,4 @@
-import { styled, theme } from "lib/stitches.config"
+import { styled, theme } from "src/lib/stitches.config"
 
 const BaseButton = styled("button", {
   fontFamily: theme.fonts.primary,

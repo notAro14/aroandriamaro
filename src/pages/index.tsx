@@ -1,19 +1,19 @@
+import type { FC } from "react"
 import type { InferGetStaticPropsType } from "next"
 import Head from "next/head"
 
-import { getAllArticles } from "utils/mdx"
-import type { NextPageWithLayout } from "types"
-import { theme } from "lib/stitches.config"
+import { getAllArticles } from "src/utils/mdx"
+import type { NextPageWithLayout } from "src/types"
+import { theme } from "src/lib/stitches.config"
 // components
-import ArticlePreview from "features/article-preview"
-import PageHeading from "features/page-heading"
-import Text from "shared/text"
-import Emoji from "features/emoji"
-import Box from "shared/box"
-import Flex from "shared/flex"
-import Link from "shared/link"
-import { SOCIAL_LINKS } from "shared/layout/footer/footer"
-import { FC } from "react"
+import ArticlePreview from "src/features/article-preview"
+import PageHeading from "src/features/page-heading"
+import Text from "src/shared/text"
+import Emoji from "src/features/emoji"
+import Box from "src/shared/box"
+import Flex from "src/shared/flex"
+import Link from "src/shared/link"
+import { SOCIAL_LINKS } from "src/shared/layout/footer/footer"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })

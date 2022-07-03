@@ -1,8 +1,8 @@
-import "styles/reset.css"
-import "styles/fonts.css"
+import "src/styles/reset.css"
+import "src/styles/fonts.css"
 
-import type { AppPropsWithLayout } from "types"
-import PageLayout from "shared/layout/page-layout"
+import type { AppPropsWithLayout } from "src/types"
+import PageLayout from "src/shared/layout/page-layout"
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =

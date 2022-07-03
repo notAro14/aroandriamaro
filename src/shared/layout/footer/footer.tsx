@@ -1,10 +1,10 @@
-import { theme } from "lib/stitches.config"
 import { FC } from "react"
 import { FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 
-import Flex from "shared/flex"
-import Link from "shared/link"
-import Text from "shared/text"
+import { theme } from "src/lib/stitches.config"
+import Flex from "src/shared/flex"
+import Link from "src/shared/link"
+import Text from "src/shared/text"
 
 export const SOCIAL_LINKS = [
   {

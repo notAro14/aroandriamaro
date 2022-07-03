@@ -1,6 +1,5 @@
-import { styled } from "lib/stitches.config"
-
-import Box from "./box"
+import { styled } from "src/lib/stitches.config"
+import Box from "src/shared/box"
 
 const Flex = styled(Box, {
   display: "flex",

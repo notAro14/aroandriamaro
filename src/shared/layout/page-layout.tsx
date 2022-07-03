@@ -1,10 +1,10 @@
 import { FC } from "react"
 
-import ContentLayout from "shared/layout/content-layout"
-import Flex from "shared/flex"
-import Footer from "shared/layout/footer"
-import Header from "shared/layout/header"
-import { theme } from "lib/stitches.config"
+import ContentLayout from "src/shared/layout/content-layout"
+import Flex from "src/shared/flex"
+import Footer from "src/shared/layout/footer"
+import Header from "src/shared/layout/header"
+import { theme } from "src/lib/stitches.config"
 
 const PageLayout: FC = ({ children }) => {
   return (

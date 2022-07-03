@@ -1,4 +1,4 @@
-import { styled } from "lib/stitches.config"
+import { styled } from "src/lib/stitches.config"
 
 const Box = styled("div", {})
 
