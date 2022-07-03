@@ -121,6 +121,7 @@ const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
       css={{
         flexDirection: "column",
         gap: theme.space.md,
+        listStyleType: "none",
       }}
     >
       {articles.map(({ frontmatter: { title, description, date }, slug }) => (
