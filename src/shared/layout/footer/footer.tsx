@@ -1,26 +1,50 @@
 import { FC } from "react"
-import { FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 
-import { theme } from "src/lib/stitches.config"
+import { styled, theme } from "src/lib/stitches.config"
 import Flex from "src/shared/flex"
 import Link from "src/shared/link"
 import Text from "src/shared/text"
+
+const URL_TO_SPRITE = "/icons/sprite.svg"
+
+const StyledSVG = styled("svg", {
+  fontSize: theme.fontSizes.lg,
+  width: "1em",
+  height: "1em",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  strokeWidth: "1.5",
+  stroke: "currentColor",
+  fill: "none",
+})
 
 export const SOCIAL_LINKS = [
   {
     name: "Github",
     href: "https://github.com/notAro14",
-    Component: () => <FaGithub size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#github`} />
+      </StyledSVG>
+    ),
   },
   {
     name: "Twitter",
     href: "https://twitter.com/notarodev",
-    Component: () => <FaTwitter size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#twitter`} />
+      </StyledSVG>
+    ),
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/notaro14/",
-    Component: () => <FaLinkedinIn size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#linkedin`} />
+      </StyledSVG>
+    ),
   },
 ]
 
