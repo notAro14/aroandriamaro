@@ -7,7 +7,7 @@ const FontPreload = () => {
     <>
       <link
         rel="preload"
-        href="/fonts/metropolis/metropolis.thin.otf"
+        href="/fonts/metropolis/metropolis.extra-light.otf"
         crossOrigin="true"
         as="font"
       />
@@ -16,24 +16,6 @@ const FontPreload = () => {
         href="/fonts/metropolis/metropolis.medium.otf"
         crossOrigin="true"
         as="font"
-      />
-      <link
-        rel="preload"
-        href="/fonts/metropolis/metropolis.black.otf"
-        crossOrigin="true"
-        as="font"
-      />
-      <link
-        rel="preload"
-        href="/fonts/metropolis/metropolis.black-italic.otf"
-        crossOrigin="true"
-        as="font"
-      />
-      <link
-        rel="preload"
-        href="/fonts/fira-code.regular.ttf"
-        as="font"
-        crossOrigin="true"
       />
     </>
   )
@@ -73,7 +55,7 @@ class MyDocument extends Document {
         <Head>
           <FontPreload />
           <FaviconLinks />
-          <meta name="theme-color" content="#ffffff" />
+          <meta name="theme-color" content="#48214b" />
           <style
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssText() }}
