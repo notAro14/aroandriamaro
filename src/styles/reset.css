@@ -1,17 +1,18 @@
 /*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
+  Based on https://www.joshwcomeau.com/css/custom-css-reset/
 */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  padding: 0;
 }
 * {
   margin: 0;
 }
 html,
-body {
+body,
+#__next {
   height: 100%;
 }
 body {
@@ -44,18 +45,4 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
-}
-
-/* Addition */
-
-#__next {
-  height: 100%;
-}
-
-* {
-  padding: 0;
-}
-
-ul {
-  list-style-type: none;
 }

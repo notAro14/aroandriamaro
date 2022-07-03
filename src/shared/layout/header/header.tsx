@@ -5,16 +5,13 @@ import Image from "next/image"
 
 import SvgUnderline from "./svg-underline"
 import logo from "./logo.png"
-import useToggleTheme from "theme/use-toggle-theme.hook"
 
 import Flex from "shared/flex"
-import BaseButton from "shared/button/base-button"
 import Link from "shared/link"
 import { theme } from "lib/stitches.config"
 
 const Header: FC = () => {
   const { pathname } = useRouter()
-  const toggleTheme = useToggleTheme()
   return (
     <Flex
       as="nav"
@@ -80,25 +77,6 @@ const Header: FC = () => {
               </Link>
             </NextLink>
           </Flex>
-
-          <BaseButton
-            onClick={toggleTheme}
-            css={{
-              "fontWeight": 500,
-              "backgroundColor": theme.colors.compBg,
-              "color": theme.colors.text,
-              "borderRadius": theme.radii.sm,
-              "border": "none",
-              "padding": `${theme.space.xxs} ${theme.space.xs}`,
-              "transition": "background-color 200ms ease-in-out",
-              "&:hover": {
-                cursor: "pointer",
-                backgroundColor: theme.colors["compBg-hover"],
-              },
-            }}
-          >
-            Toggle theme
-          </BaseButton>
         </Flex>
       </Flex>
     </Flex>
