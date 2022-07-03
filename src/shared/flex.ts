@@ -1,9 +1,8 @@
-import styled from "@emotion/styled"
+import { styled } from "src/lib/stitches.config"
+import Box from "src/shared/box"
 
-import Box from "./box"
-
-const Flex = styled(Box)`
-  display: flex;
-`
+const Flex = styled(Box, {
+  display: "flex",
+})
 
 export default Flex

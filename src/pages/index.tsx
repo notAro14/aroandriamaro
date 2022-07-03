@@ -1,18 +1,19 @@
+import type { FC } from "react"
 import type { InferGetStaticPropsType } from "next"
 import Head from "next/head"
 
-import { getAllArticles } from "utils/mdx"
-import type { NextPageWithLayout } from "types"
+import { getAllArticles } from "src/utils/mdx"
+import type { NextPageWithLayout } from "src/types"
+import { theme } from "src/lib/stitches.config"
 // components
-import ArticlePreview from "features/article-preview"
-import PageHeading from "features/page-heading"
-import Text from "shared/text"
-import Emoji from "features/emoji"
-import Box from "shared/box"
-import Flex from "shared/flex"
-import Link from "shared/link"
-import { SOCIAL_LINKS } from "shared/layout/footer/footer"
-import { FC } from "react"
+import ArticlePreview from "src/features/article-preview"
+import PageHeading from "src/features/page-heading"
+import Text from "src/shared/text"
+import Emoji from "src/features/emoji"
+import Box from "src/shared/box"
+import Flex from "src/shared/flex"
+import Link from "src/shared/link"
+import { SOCIAL_LINKS } from "src/shared/layout/footer/footer"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
@@ -45,45 +46,59 @@ const Header = () => {
   return (
     <Box
       as="header"
-      borderBottom="1px solid"
-      borderBottomColor="border"
-      paddingBottom={5}
-      marginBottom={5}
+      css={{
+        borderBottom: "1px solid",
+        borderBottomColor: theme.colors.border,
+        paddingBottom: theme.space.lg,
+        marginBottom: theme.space.lg,
+      }}
     >
       <PageHeading as="h1">
         Welcome, Bienvenue, Tongasoa{" "}
         <Emoji symbol="👋🏼" ariaLabel="waving hand" />
       </PageHeading>
-      <Text mb={4}>
+      <Text css={{ marginBottom: theme.space.md }}>
         Welcome to my blog (yet another dev blog) . My name is Aro, I am a
         Frontend Developer based in Lyon, France.
       </Text>
-      <Text mb={4}>
+      <Text css={{ marginBottom: theme.space.md }}>
         This blog is my attempt to make the world a better place by sharing my
         modest knowledge in Web development. I write mostly about Frontend dev
         and React.
       </Text>
-      <Flex as="ul" gap={4} flexWrap="wrap">
+      <Flex
+        as="ul"
+        css={{
+          gap: theme.space.md,
+          flexWrap: "wrap",
+        }}
+      >
         {SOCIAL_LINKS.map(({ name, href, Component }) => {
           return (
             <Flex
               as="li"
-              alignItems="center"
-              color="text"
-              gap={2}
               key={name}
-              backgroundColor="compBg"
-              paddingX={2}
-              paddingY={1}
-              borderRadius={9999}
+              css={{
+                alignItems: "center",
+                color: theme.colors.text,
+                gap: theme.space.xs,
+                backgroundColor: theme.colors.compBg,
+                borderRadius: 9999,
+                paddingTop: theme.space.xxs,
+                paddingBottom: theme.space.xxs,
+                paddingLeft: theme.space.xs,
+                paddingRight: theme.space.xs,
+              }}
             >
               <Component />
               <Link
-                textDecoration="none"
-                fontWeight={200}
-                fontSize="md"
-                color="text"
                 href={href}
+                css={{
+                  textDecoration: "none",
+                  fontWeight: 200,
+                  fontSize: theme.fontSizes.md,
+                  color: theme.colors.text,
+                }}
               >
                 {name}
               </Link>
@@ -101,7 +116,14 @@ interface BlogArticlesProps {
 
 const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
   return (
-    <Flex as="ul" flexDirection="column" gap={4}>
+    <Flex
+      as="ul"
+      css={{
+        flexDirection: "column",
+        gap: theme.space.md,
+        listStyleType: "none",
+      }}
+    >
       {articles.map(({ frontmatter: { title, description, date }, slug }) => (
         <li key={slug}>
           <ArticlePreview

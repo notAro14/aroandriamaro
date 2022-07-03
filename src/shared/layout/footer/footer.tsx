@@ -1,71 +1,130 @@
 import { FC } from "react"
-import { FaLinkedinIn, FaTwitter, FaGithub } from "react-icons/fa"
 
-import Flex from "shared/flex"
-import Link from "shared/link"
-import Text from "shared/text"
+import { styled, theme } from "src/lib/stitches.config"
+import Flex from "src/shared/flex"
+import Link from "src/shared/link"
+import Text from "src/shared/text"
+
+const URL_TO_SPRITE = "/icons/sprite.svg"
+
+const StyledSVG = styled("svg", {
+  fontSize: theme.fontSizes.lg,
+  width: "1em",
+  height: "1em",
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+  strokeWidth: "1.5",
+  stroke: "currentColor",
+  fill: "none",
+})
 
 export const SOCIAL_LINKS = [
   {
     name: "Github",
     href: "https://github.com/notAro14",
-    Component: () => <FaGithub size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#github`} />
+      </StyledSVG>
+    ),
   },
   {
     name: "Twitter",
     href: "https://twitter.com/notarodev",
-    Component: () => <FaTwitter size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#twitter`} />
+      </StyledSVG>
+    ),
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/notaro14/",
-    Component: () => <FaLinkedinIn size={15} />,
+    Component: () => (
+      <StyledSVG>
+        <use href={`${URL_TO_SPRITE}#linkedin`} />
+      </StyledSVG>
+    ),
   },
 ]
 
 const Footer: FC = () => {
   return (
-    <Flex as="footer" height={100} backgroundColor="compBg">
+    <Flex
+      as="footer"
+      css={{
+        height: 100,
+        backgroundColor: theme.colors.compBg,
+      }}
+    >
       <Flex
-        as="div"
-        px={4}
-        alignItems="center"
-        flexDirection={["column", "row"]}
-        justifyContent={["center", "space-between"]}
-        gap={[2, 0]}
-        width={["100%", "100%", "1000px"]}
-        mx="auto"
-        fontWeight={100}
-        fontSize="sm"
+        css={{
+          "paddingRight": theme.space.md,
+          "paddingLeft": theme.space.md,
+          "alignItems": "center",
+          "flexDirection": "column",
+          "justifyContent": "center",
+          "gap": theme.space.xs,
+          "width": "100%",
+          "marginLeft": "auto",
+          "marginRight": "auto",
+          "fontWeight": 100,
+          "fontSize": theme.space.sm,
+          "@bp2": {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 0,
+            width: "100%",
+          },
+          "@bp3": {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            gap: 0,
+            width: 1000,
+          },
+        }}
       >
-        <Text fontSize="inherit" color="text">
+        <Text css={{ fontSize: "inherit", color: theme.colors.text }}>
           Made by Aro Andriamaro{" "}
-          <Text as="span" fontSize="inherit" color="lo-text">
+          <Text
+            as="span"
+            css={{
+              fontSize: "inherit",
+              color: theme.colors["lo-text"],
+            }}
+          >
             &copy;{" "}
           </Text>
           {new Date().getFullYear()}
         </Text>
-        <Flex as="ul" gap={6}>
+        <Flex
+          as="ul"
+          css={{
+            gap: theme.space.xl,
+          }}
+        >
           {SOCIAL_LINKS.map(({ Component, name, href }) => {
             return (
               <Flex
                 key={name}
                 as="li"
-                alignItems="center"
-                gap={2}
-                color="lo-text"
+                css={{
+                  alignItems: "center",
+                  gap: theme.space.xs,
+                  color: theme.colors["lo-text"],
+                }}
               >
                 <Component />
                 <Link
                   href={href}
-                  textDecoration="none"
-                  fontSize="inherit"
-                  color="text"
-                  fontWeight={200}
-                  sx={{
-                    ":hover": {
+                  css={{
+                    "textDecoration": "none",
+                    "fontSize": "inherit",
+                    "color": theme.colors.text,
+                    "fontWeight": 200,
+                    "&:hover": {
                       cursor: "pointer",
-                      color: "text",
+                      color: theme.colors.text,
                     },
                   }}
                 >

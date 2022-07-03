@@ -1,18 +1,23 @@
 import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/nightOwl"
-import Box from "shared/box"
-import Flex from "shared/flex"
+import prismTheme from "prism-react-renderer/themes/nightOwl"
+import Box from "src/shared/box"
+import Flex from "src/shared/flex"
+import { theme } from "src/lib/stitches.config"
 
 const Language = ({ children }) => {
   return (
     <Flex
-      alignSelf="flex-start"
-      color="brand"
-      textTransform="uppercase"
-      mt={4}
-      py={1}
-      px={2}
-      fontFamily="code"
+      css={{
+        alignSelf: "flex-start",
+        color: theme.colors.brand,
+        textTransform: "uppercase",
+        marginTop: theme.space.md,
+        paddingTop: theme.space.xxs,
+        paddingBottom: theme.space.xxs,
+        paddingRight: theme.space.xs,
+        paddingLeft: theme.space.xs,
+        fontFamily: theme.fonts.code,
+      }}
     >
       {children}
     </Flex>
@@ -20,20 +25,29 @@ const Language = ({ children }) => {
 }
 
 const CodeBlockContainer = ({ children }) => {
-  return <Flex flexDirection="column">{children}</Flex>
+  return (
+    <Flex
+      css={{
+        flexDirection: "column",
+      }}
+    >
+      {children}
+    </Flex>
+  )
 }
 
 const Code = ({ children, ...props }) => {
   return (
     <Box
+      css={{
+        overflow: "auto",
+        padding: theme.space.lg,
+        marginBottom: theme.space.md,
+        fontFamily: theme.fonts.code,
+        fontSize: theme.fontSizes.lg,
+        borderRadius: theme.radii.lg,
+      }}
       as="pre"
-      overflow="auto"
-      p={5}
-      mb={4}
-      fontFamily="code"
-      fontSize="lg"
-      borderRadius="lg"
-      boxShadow="sm"
       {...props}
     >
       {children}
@@ -46,7 +60,12 @@ const SyntaxHighlighter = ({ children, className }) => {
   const language = className !== undefined && className.replace(/language-/, "")
 
   return (
-    <Highlight {...defaultProps} code={code} language={language} theme={theme}>
+    <Highlight
+      {...defaultProps}
+      code={code}
+      language={language}
+      theme={prismTheme}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <CodeBlockContainer>
           <Language>{language}</Language>

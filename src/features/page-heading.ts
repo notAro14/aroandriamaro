@@ -1,15 +1,10 @@
-import styled from "@emotion/styled"
+import { styled, theme } from "src/lib/stitches.config"
+import Heading from "src/shared/heading"
 
-import Heading from "shared/heading"
-import { sx } from "utils/ui"
-
-const PageHeading = styled(Heading)`
-  ${sx({
-    color: "heading",
-    fontWeight: 500,
-    fontSize: "3xl",
-    mb: 4,
-  })}
-`
+const PageHeading = styled(Heading, {
+  fontWeight: 500,
+  fontSize: theme.fontSizes["3xl"],
+  marginBottom: theme.space.md,
+})
 
 export default PageHeading

@@ -1,18 +1,10 @@
-import styled from "@emotion/styled"
-import shouldForwardProp from "@styled-system/should-forward-prop"
+import { styled, theme } from "src/lib/stitches.config"
 
-import { SystemStyleProps } from "types/ui"
-import { getSystemStyleProps, sx } from "utils/ui"
-
-const Text = styled("p", { shouldForwardProp })<SystemStyleProps>`
-  ${sx({
-    color: "text",
-    fontWeight: 200,
-    fontSize: "lg",
-    fontFamily: "primary",
-  })}
-  ${getSystemStyleProps()}
-  ${(props) => sx(props.sx)}
-`
+const Text = styled("p", {
+  color: theme.colors.text,
+  fontWeight: 200,
+  fontSize: theme.fontSizes.lg,
+  fontFamily: theme.fonts.primary,
+})
 
 export default Text

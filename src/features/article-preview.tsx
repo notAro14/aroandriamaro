@@ -1,11 +1,12 @@
 import { FC } from "react"
 import NextLink from "next/link"
 
-import Box from "shared/box"
-import Heading from "shared/heading"
-import Link from "shared/link"
-import Text from "shared/text"
-import { format } from "utils/date"
+import Box from "src/shared/box"
+import Heading from "src/shared/heading"
+import Link from "src/shared/link"
+import Text from "src/shared/text"
+import { format } from "src/utils/date"
+import { theme } from "src/lib/stitches.config"
 
 interface ArticlePreviewProps {
   slug: string
@@ -24,32 +25,41 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
     <NextLink href={`/writing/${slug}`} passHref>
       <Link
         title={title}
-        fontSize="inherit"
-        textDecoration="none"
-        color="inherit"
+        css={{
+          fontSize: "inherit",
+          textDecoration: "none",
+          color: "inherit",
+        }}
       >
         <Box
           as="article"
-          mb={6}
-          padding={4}
-          boxShadow="sm"
-          borderRadius="md"
-          backgroundColor="compBg"
-          sx={{
-            "transition": "box-shadow 200ms ease-in-out",
-            ":hover": {
-              boxShadow: "md",
-            },
+          css={{
+            marginBottom: theme.space.xl,
+            padding: theme.space.md,
+            borderRadius: theme.radii.md,
+            backgroundColor: theme.colors.compBg,
           }}
         >
-          <Text mb={2} color="gray" fontSize="xs">
+          <Text
+            css={{
+              marginBottom: theme.space.xs,
+              color: theme.colors.gray,
+              fontSize: theme.fontSizes.xs,
+            }}
+          >
             {format(date, "MMMM do, yyyy")}
           </Text>
-          <Heading fontWeight={500} color="heading" mb={1} fontSize="2xl">
+          <Heading
+            css={{
+              fontWeight: 500,
+              marginBottom: theme.space.xxs,
+              fontSize: theme.fontSizes["2xl"],
+            }}
+          >
             {title}
           </Heading>
-          <Text mb={2}>{description}</Text>
-          <Text color="brand">Read more</Text>
+          <Text css={{ marginBottom: theme.space.xs }}>{description}</Text>
+          <Text css={{ color: theme.colors.brand }}>Read more</Text>
         </Box>
       </Link>
     </NextLink>

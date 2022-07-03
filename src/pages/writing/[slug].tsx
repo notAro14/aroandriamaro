@@ -5,53 +5,128 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import { ParsedUrlQuery } from "querystring"
 
-import { format } from "utils/date"
-import { getAllArticles, getSingleArticle } from "utils/mdx"
-import { NextPageWithLayout } from "types"
+import { format } from "src/utils/date"
+import { getAllArticles, getSingleArticle } from "src/utils/mdx"
+import { NextPageWithLayout } from "src/types"
 
-import Flex from "shared/flex"
-import Heading from "shared/heading"
-import Link from "shared/link"
-import SyntaxHighlighter from "features/code"
-import Text from "shared/text"
-import Emoji from "features/emoji"
-import PageHeading from "features/page-heading"
+import Flex from "src/shared/flex"
+import Heading from "src/shared/heading"
+import Link from "src/shared/link"
+import SyntaxHighlighter from "src/features/code"
+import Text from "src/shared/text"
+import Emoji from "src/features/emoji"
+import PageHeading from "src/features/page-heading"
+import { theme } from "src/lib/stitches.config"
 
 const components = {
   code: SyntaxHighlighter,
   h1: (props: any) => (
-    <Heading as="h1" mb={4} mt={6} fontSize={["2xl", "3xl"]} {...props} />
+    <Heading
+      as="h1"
+      css={{
+        "marginBottom": theme.space.md,
+        "marginTop": theme.space.xl,
+        "fontSize": theme.fontSizes["2xl"],
+        "@bp2": {
+          fontSize: theme.fontSizes["3xl"],
+        },
+        "@bp3": {
+          fontSize: theme.fontSizes["3xl"],
+        },
+      }}
+      {...props}
+    />
   ),
   h2: (props: any) => (
-    <Heading mb={4} mt={6} fontSize={["xl", "2xl"]} {...props} />
+    <Heading
+      css={{
+        "marginBottom": theme.space.md,
+        "marginTop": theme.space.xl,
+        "fontSize": theme.fontSizes.xl,
+        "@bp2": {
+          fontSize: theme.fontSizes["2xl"],
+        },
+        "@bp3": {
+          fontSize: theme.fontSizes["2xl"],
+        },
+      }}
+      {...props}
+    />
   ),
   h3: (props: any) => (
-    <Heading as="h3" mb={4} mt={6} fontSize={["lg", "xl"]} {...props} />
+    <Heading
+      as="h3"
+      css={{
+        "marginBottom": theme.space.md,
+        "marginTop": theme.space.xl,
+        "fontSize": theme.fontSizes.lg,
+        "@bp2": {
+          fontSize: theme.fontSizes.xl,
+        },
+        "@bp3": {
+          fontSize: theme.fontSizes.xl,
+        },
+      }}
+      {...props}
+    />
   ),
   h4: (props: any) => (
-    <Heading as="h4" mb={4} mt={6} fontSize={"lg"} {...props} />
+    <Heading
+      as="h4"
+      css={{
+        marginBottom: theme.space.md,
+        marginTop: theme.space.xl,
+        fontSize: theme.fontSizes.lg,
+      }}
+      {...props}
+    />
   ),
-  p: (props: any) => <Text color="text" my={4} lineHeight="1.65" {...props} />,
+  p: (props: any) => (
+    <Text
+      css={{
+        marginTop: theme.space.md,
+        marginBottom: theme.space.md,
+        lineHeight: "1.65",
+        color: theme.colors.text,
+      }}
+      {...props}
+    />
+  ),
   em: (props: any) => (
-    <Text as="em" color="brand" fontFamily="primary" {...props} />
+    <Text
+      as="em"
+      css={{
+        color: theme.colors.brand,
+        fontFamily: theme.fonts.primary,
+      }}
+      {...props}
+    />
   ),
   a: (props: any) => (
-    <Link href={props.href} color="brand" fontWeight={200} {...props} />
+    <Link
+      href={props.href}
+      css={{
+        color: theme.colors.brand,
+        fontWeight: 200,
+      }}
+      {...props}
+    />
   ),
   ul: (props: any) => (
     <Flex
-      fontSize="lg"
-      fontFamily="primary"
-      fontWeight={200}
       as="ul"
-      flexDirection="column"
-      sx={{
+      css={{
+        fontSize: theme.fontSizes.lg,
+        fontFamily: theme.fonts.primary,
+        fontWeight: 200,
+        flexDirection: "column",
         listStyleType: "disc",
+        color: theme.colors.text,
+        gap: theme.space.xs,
+        paddingLeft: theme.space.md,
+        marginTop: theme.space.md,
+        marginBottom: theme.space.md,
       }}
-      color="text"
-      gap={2}
-      pl={4}
-      my={4}
       {...props}
     />
   ),
@@ -111,12 +186,13 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
   return (
     <Flex
       as="p"
-      display="flex"
-      gap={3}
-      color="gray"
-      fontSize="md"
-      fontWeight={100}
-      fontFamily="primary"
+      css={{
+        gap: theme.space.sm,
+        color: theme.colors.gray,
+        fontSize: theme.fontSizes.md,
+        fontWeight: 100,
+        fontFamily: theme.fonts.primary,
+      }}
     >
       <Emoji symbol="📅" ariaLabel="calendar" />
       {`${format(date, "MMMM do")}, ${format(date, "yyyy")} - ${timeToRead}`}
