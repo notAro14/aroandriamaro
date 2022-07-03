@@ -20,6 +20,8 @@ const Header: FC = () => {
         position: "sticky",
         top: 0,
         backgroundColor: theme.colors.appBg,
+        paddingRight: theme.space.sm,
+        paddingLeft: theme.space.sm,
       }}
     >
       <Flex
@@ -67,6 +69,7 @@ const Header: FC = () => {
                   "position": "relative",
                   "fontWeight": 200,
                   "textDecoration": "none",
+
                   "&:hover": {
                     color: theme.colors.brand,
                   },

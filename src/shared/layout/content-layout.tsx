@@ -5,6 +5,7 @@ import { theme, styled } from "src/lib/stitches.config"
 const Layout = styled("main", {
   "flex": "1",
   "paddingLeft": theme.space.md,
+  "paddingRight": theme.space.md,
   "paddingTop": theme.space["3xl"],
   "paddingBottom": theme.space["3xl"],
   "marginLeft": "auto",
