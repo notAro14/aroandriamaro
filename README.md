@@ -1,26 +1,30 @@
 # aroandriamaro.com
 
-Source code of my personal website https://aroandriamaro.com
+This is the source code of my website at [aroandriamaro.com](https://aroandriamaro.com/)
 
-## Built with
+---
 
-- Next.js and Typescript
-- Emotion for styling
-- [Styled system](https://styled-system.com/) and [Radix UI colors](https://www.radix-ui.com/colors) for theming
-- [Josh comeau's CSS reset](https://www.joshwcomeau.com/css/custom-css-reset/)
-- [MDX bundler](https://github.com/kentcdodds/mdx-bundler) to bundle mdx files (blog articles)
-- [Prism react renderer](https://github.com/FormidableLabs/prism-react-renderer) for code syntax highlighting
+## Tech stack
 
-## Local development
+This site is made with
 
-You can clone or fork the repo and run
+- Next, Typescript
+- [Stitches](https://stitches.dev/), [Radix UI colors](https://www.radix-ui.com/colors)
+- [MDX bundler](https://github.com/kentcdodds/mdx-bundler)
+- [Prism react renderer](https://github.com/FormidableLabs/prism-react-renderer)
 
-```shell
-npm install
-npm run dev
+## Getting started
 
-# or
+Run the development server
 
-yarn
-yarn dev
+```sh
+pnpm dev
 ```
+
+Open http://localhost:4000/
+
+---
+
+## Learn more
+
+[Install pnpm](https://pnpm.io/installation)
