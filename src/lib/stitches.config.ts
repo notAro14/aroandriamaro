@@ -32,9 +32,13 @@ export const { styled, getCssText, theme } = createStitches({
       "sem-solid-hovered": "$plum10",
       "sem-text-lo": "$plum11",
       "sem-text-hi": "$plum12",
+      "sem-text-lo-gray": "$mauve11",
+      "sem-text-hi-gray": "$mauve12",
 
-      "comp-text-vibrant": "$sem-text-lo",
-      "comp-text-functional": "$sem-text-hi",
+      "comp-text-vibrant": "$sem-text-hi",
+      "comp-text-functional": "$sem-text-hi-gray",
+      "comp-heading-vibrant": "$sem-text-hi",
+      "comp-heading-functional": "$sem-text-hi-gray",
     },
     fonts: {
       "core-sans": '"Metropolis"',
@@ -43,6 +47,9 @@ export const { styled, getCssText, theme } = createStitches({
       "sem-secondary": "$core-sans",
       "sem-tertiary": "$core-mono",
 
+      "comp-text": "$sem-primary",
+      "comp-heading": "$sem-secondary",
+
       secondary: '"Metropolis", serif',
       primary: '"Metropolis", sans-serif',
       code: '"Fira Code", monospace',
@@ -50,13 +57,33 @@ export const { styled, getCssText, theme } = createStitches({
     fontSizes: {
       xxs: "0.512rem",
       xs: "0.64rem",
-      sm: "0.8rem",
-      md: "1rem",
-      lg: "1.25rem",
-      xl: "1.563rem",
-      "2xl": "1.953rem",
-      "3xl": "2.441rem",
-      "4xl": "3.052rem",
+      sm: "clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem)",
+      md: "clamp(1rem, 0.34vw + 0.91rem, 1.19rem)",
+      lg: "clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem)",
+      xl: "clamp(1.56rem, 1vw + 1.31rem, 2.11rem)",
+      "2xl": "clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem)",
+      "3xl": "clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem)",
+      "4xl": "clamp(3.05rem, 3.54vw + 2.17rem, 5rem)",
+
+      "comp-text": "$lg",
+    },
+    fontWeights: {
+      thin: 100,
+      "extra-light": 200,
+      light: 300,
+      regular: 400,
+      medium: 500,
+      "semi-bold": 600,
+      bold: 700,
+      "extra-bold": 800,
+      black: 900,
+
+      "comp-text": "$extra-light",
+      "comp-heading": "$medium",
+    },
+    lineHeights: {
+      "com-text-default": 1.5,
+      "comp-heading": 1,
     },
     radii: {
       sm: "2px",
