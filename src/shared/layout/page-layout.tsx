@@ -11,10 +11,10 @@ const PageLayout: FC = ({ children }) => {
     <Flex
       as="section"
       css={{
-        "flexDirection": "column",
-        "backgroundColor": theme.colors.appBg,
-        "minHeight": "100%",
-        "transition": "background-color 200ms ease-in-out",
+        flexDirection: "column",
+        backgroundColor: theme.colors.appBg,
+        minHeight: "100%",
+        transition: "background-color 200ms ease-in-out",
         "*": {
           transition: "background-color 200ms ease-in-out",
         },

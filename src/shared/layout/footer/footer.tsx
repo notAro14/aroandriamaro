@@ -59,17 +59,17 @@ const Footer: FC = () => {
     >
       <Flex
         css={{
-          "paddingRight": theme.space.md,
-          "paddingLeft": theme.space.md,
-          "alignItems": "center",
-          "flexDirection": "column",
-          "justifyContent": "center",
-          "gap": theme.space.xs,
-          "width": "100%",
-          "marginLeft": "auto",
-          "marginRight": "auto",
-          "fontWeight": 100,
-          "fontSize": theme.space.sm,
+          paddingRight: theme.space.md,
+          paddingLeft: theme.space.md,
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+          gap: theme.space.xs,
+          width: "100%",
+          marginLeft: "auto",
+          marginRight: "auto",
+          fontWeight: 100,
+          fontSize: theme.space.sm,
           "@bp2": {
             flexDirection: "row",
             justifyContent: "space-between",
@@ -118,10 +118,10 @@ const Footer: FC = () => {
                 <Link
                   href={href}
                   css={{
-                    "textDecoration": "none",
-                    "fontSize": "inherit",
-                    "color": theme.colors.text,
-                    "fontWeight": 200,
+                    textDecoration: "none",
+                    fontSize: "inherit",
+                    color: theme.colors.text,
+                    fontWeight: 200,
                     "&:hover": {
                       cursor: "pointer",
                       color: theme.colors.text,

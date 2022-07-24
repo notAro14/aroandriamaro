@@ -26,11 +26,11 @@ const Header: FC = () => {
     >
       <Flex
         css={{
-          "alignItems": "center",
-          "justifyContent": "space-between",
-          "marginLeft": "auto",
-          "marginRight": "auto",
-          "width": "100%",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "100%",
           "@bp3": {
             width: 1000,
           },
@@ -64,11 +64,11 @@ const Header: FC = () => {
             <NextLink href="/" passHref>
               <Link
                 css={{
-                  "fontSize": theme.fontSizes.lg,
-                  "color": theme.colors.text,
-                  "position": "relative",
-                  "fontWeight": 200,
-                  "textDecoration": "none",
+                  fontSize: theme.fontSizes.lg,
+                  color: theme.colors.text,
+                  position: "relative",
+                  fontWeight: 200,
+                  textDecoration: "none",
 
                   "&:hover": {
                     color: theme.colors.brand,

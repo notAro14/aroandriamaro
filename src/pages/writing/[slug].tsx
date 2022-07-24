@@ -24,9 +24,9 @@ const components = {
     <Heading
       as="h1"
       css={{
-        "marginBottom": theme.space.md,
-        "marginTop": theme.space.xl,
-        "fontSize": theme.fontSizes["2xl"],
+        marginBottom: theme.space.md,
+        marginTop: theme.space.xl,
+        fontSize: theme.fontSizes["2xl"],
         "@bp2": {
           fontSize: theme.fontSizes["3xl"],
         },
@@ -40,9 +40,9 @@ const components = {
   h2: (props: any) => (
     <Heading
       css={{
-        "marginBottom": theme.space.md,
-        "marginTop": theme.space.xl,
-        "fontSize": theme.fontSizes.xl,
+        marginBottom: theme.space.md,
+        marginTop: theme.space.xl,
+        fontSize: theme.fontSizes.xl,
         "@bp2": {
           fontSize: theme.fontSizes["2xl"],
         },
@@ -57,9 +57,9 @@ const components = {
     <Heading
       as="h3"
       css={{
-        "marginBottom": theme.space.md,
-        "marginTop": theme.space.xl,
-        "fontSize": theme.fontSizes.lg,
+        marginBottom: theme.space.md,
+        marginTop: theme.space.xl,
+        fontSize: theme.fontSizes.lg,
         "@bp2": {
           fontSize: theme.fontSizes.xl,
         },

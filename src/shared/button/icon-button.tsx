@@ -10,11 +10,11 @@ const IconButton: FC<{ onClick: MouseEventHandler<HTMLButtonElement> }> = ({
     <BaseButton
       onClick={onClick}
       css={{
-        "alignItems": "center",
-        "justifyContent": "center",
-        "display": "flex",
-        "background": "none",
-        "border": "none",
+        alignItems: "center",
+        justifyContent: "center",
+        display: "flex",
+        background: "none",
+        border: "none",
         ":hover": {
           cursor: "pointer",
         },
