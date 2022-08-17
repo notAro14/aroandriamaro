@@ -38,6 +38,9 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             padding: theme.space.md,
             borderRadius: "$lg",
             backgroundColor: "$ui",
+            "&:hover": {
+              backgroundColor: "$ui-hovered",
+            },
           }}
         >
           <Text
