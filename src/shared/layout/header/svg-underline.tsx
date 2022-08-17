@@ -1,4 +1,4 @@
-import { styled, theme } from "src/lib/stitches.config"
+import { styled } from "src/lib/stitches.config"
 
 const SvgUnderline = styled(
   ({ className }: { className?: string }) => (
@@ -15,7 +15,7 @@ const SvgUnderline = styled(
     strokeWidth: "5px",
     top: "100%",
     width: "100%",
-    stroke: theme.colors.brand,
+    stroke: "$solid",
     path: {
       strokeDasharray: 1,
       strokeDashoffset: 0,

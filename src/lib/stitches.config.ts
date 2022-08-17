@@ -1,57 +1,42 @@
 import { createStitches } from "@stitches/react"
 import { plum, mauve, plumDark, mauveDark } from "@radix-ui/colors"
 
-export const { styled, getCssText, theme } = createStitches({
+export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
-      ...plum,
-      ...mauve,
       ...plumDark,
       ...mauveDark,
-      shadow: mauveDark.mauve2,
-      brand: plumDark.plum10,
-      "brand-hover": plumDark.plum10,
-      appBg: plumDark.plum2,
-      compBg: plumDark.plum5,
-      "compBg-hover": plumDark.plum4,
-      text: plumDark.plum12,
-      "lo-text": plumDark.plum11,
-      "light-gray": mauveDark.mauve3,
-      gray: mauveDark.mauve12,
-      border: plum.plum6,
 
-      "sem-bg": "$plum1",
-      "sem-bg-subtle": "$plum2",
-      "sem-ui-bg": "$plum3",
-      "sem-ui-bg-hovered": "$plum4",
-      "sem-ui-bg-selected": "$plum5",
-      "sem-line": "$plum6",
-      "sem-ui-border": "$plum7",
-      "sem-ui-border-hovered": "$plum8",
-      "sem-solid": "$plum9",
-      "sem-solid-hovered": "$plum10",
-      "sem-text-lo": "$plum11",
-      "sem-text-hi": "$plum12",
-      "sem-text-lo-gray": "$mauve11",
-      "sem-text-hi-gray": "$mauve12",
+      bg: "$plum1",
+      "bg-subtle": "$plum2",
+      ui: "$plum3",
+      "ui-hovered": "$plum4",
+      "ui-selected": "$plum5",
+      line: "$plum6",
+      border: "$plum7",
+      "border-hovered": "$plum8",
+      solid: "$plum9",
+      "solid-hovered": "$plum10",
+      "text-lo": "$plum11",
+      "text-hi": "$plum12",
+      "text-lo-gray": "$mauve11",
+      "text-hi-gray": "$mauve12",
 
-      "comp-text-vibrant": "$sem-text-hi",
-      "comp-text-functional": "$sem-text-hi-gray",
-      "comp-heading-vibrant": "$sem-text-hi",
-      "comp-heading-functional": "$sem-text-hi-gray",
+      "text-functional": "$text-hi-gray",
+      "text-vibrant": "$text-hi",
     },
     fonts: {
-      "core-sans": '"Metropolis"',
-      "core-mono": '"Fira Code"',
-      "sem-primary": "$core-sans",
-      "sem-secondary": "$core-sans",
-      "sem-tertiary": "$core-mono",
+      sans: '"Metropolis"',
+      mono: '"Fira Code"',
+      primary: "$sans",
+      secondary: "$sans",
+      tertiary: "$mono",
 
-      "comp-text": "$sem-primary",
-      "comp-heading": "$sem-secondary",
+      //"comp-text": "$sem-primary",
+      //"comp-heading": "$sem-secondary",
 
-      secondary: '"Metropolis", serif',
-      primary: '"Metropolis", sans-serif',
+      //secondary: '"Metropolis", serif',
+      //primary: '"Metropolis", sans-serif',
       code: '"Fira Code", monospace',
     },
     fontSizes: {
@@ -64,8 +49,6 @@ export const { styled, getCssText, theme } = createStitches({
       "2xl": "clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem)",
       "3xl": "clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem)",
       "4xl": "clamp(3.05rem, 3.54vw + 2.17rem, 5rem)",
-
-      "comp-text": "$lg",
     },
     fontWeights: {
       thin: 100,
@@ -77,13 +60,6 @@ export const { styled, getCssText, theme } = createStitches({
       bold: 700,
       "extra-bold": 800,
       black: 900,
-
-      "comp-text": "$extra-light",
-      "comp-heading": "$medium",
-    },
-    lineHeights: {
-      "com-text-default": 1.5,
-      "comp-heading": 1,
     },
     radii: {
       sm: "2px",
@@ -163,5 +139,12 @@ export const { styled, getCssText, theme } = createStitches({
       paddingTop: value,
       paddingBottom: value,
     }),
+  },
+})
+
+export const lightTheme = createTheme("light-theme", {
+  colors: {
+    ...plum,
+    ...mauve,
   },
 })

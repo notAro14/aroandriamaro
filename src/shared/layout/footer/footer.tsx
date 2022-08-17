@@ -14,7 +14,7 @@ const StyledSVG = styled("svg", {
   strokeLinecap: "round",
   strokeLinejoin: "round",
   strokeWidth: "1.5",
-  stroke: "currentColor",
+  stroke: "$text-lo",
   fill: "none",
 })
 
@@ -54,7 +54,7 @@ const Footer: FC = () => {
       as="footer"
       css={{
         height: 100,
-        backgroundColor: theme.colors.compBg,
+        backgroundColor: "$ui",
       }}
     >
       <Flex
@@ -69,7 +69,7 @@ const Footer: FC = () => {
           marginLeft: "auto",
           marginRight: "auto",
           fontWeight: 100,
-          fontSize: theme.space.sm,
+          fontSize: "$md",
           "@bp2": {
             flexDirection: "row",
             justifyContent: "space-between",
@@ -84,13 +84,13 @@ const Footer: FC = () => {
           },
         }}
       >
-        <Text css={{ fontSize: "inherit", color: theme.colors.text }}>
+        <Text css={{ fontSize: "inherit" }}>
           Made by Aro Andriamaro{" "}
           <Text
             as="span"
             css={{
               fontSize: "inherit",
-              color: theme.colors["lo-text"],
+              color: "$text-lo",
             }}
           >
             &copy;{" "}
@@ -111,7 +111,7 @@ const Footer: FC = () => {
                 css={{
                   alignItems: "center",
                   gap: theme.space.xs,
-                  color: theme.colors["lo-text"],
+                  color: "$text-functional",
                 }}
               >
                 <Component />
@@ -120,11 +120,10 @@ const Footer: FC = () => {
                   css={{
                     textDecoration: "none",
                     fontSize: "inherit",
-                    color: theme.colors.text,
+                    color: "$text-functional",
                     fontWeight: 200,
                     "&:hover": {
                       cursor: "pointer",
-                      color: theme.colors.text,
                     },
                   }}
                 >

@@ -86,8 +86,6 @@ const components = {
       css={{
         marginTop: theme.space.md,
         marginBottom: theme.space.md,
-        lineHeight: "1.65",
-        color: theme.colors.text,
       }}
       {...props}
     />
@@ -96,7 +94,7 @@ const components = {
     <Text
       as="em"
       css={{
-        color: theme.colors.brand,
+        color: "$text-lo",
         fontFamily: theme.fonts.primary,
       }}
       {...props}
@@ -106,7 +104,7 @@ const components = {
     <Link
       href={props.href}
       css={{
-        color: theme.colors.brand,
+        color: "$text-lo",
         fontWeight: 200,
       }}
       {...props}
@@ -121,7 +119,7 @@ const components = {
         fontWeight: 200,
         flexDirection: "column",
         listStyleType: "disc",
-        color: theme.colors.text,
+        color: "$text-functional",
         gap: theme.space.xs,
         paddingLeft: theme.space.md,
         marginTop: theme.space.md,
@@ -188,7 +186,7 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
       as="p"
       css={{
         gap: theme.space.sm,
-        color: theme.colors.gray,
+        color: "$text-lo-gray",
         fontSize: theme.fontSizes.md,
         fontWeight: 100,
         fontFamily: theme.fonts.primary,

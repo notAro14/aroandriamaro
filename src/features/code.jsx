@@ -9,7 +9,7 @@ const Language = ({ children }) => {
     <Flex
       css={{
         alignSelf: "flex-start",
-        color: theme.colors.brand,
+        color: "$text-lo",
         textTransform: "uppercase",
         marginTop: theme.space.md,
         paddingTop: theme.space.xxs,

@@ -37,13 +37,13 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             marginBottom: theme.space.xl,
             padding: theme.space.md,
             borderRadius: theme.radii.md,
-            backgroundColor: theme.colors.compBg,
+            backgroundColor: "$ui",
           }}
         >
           <Text
             css={{
               marginBottom: theme.space.xs,
-              color: theme.colors.gray,
+              color: "$text-hi-gray",
               fontSize: theme.fontSizes.xs,
             }}
           >
@@ -59,7 +59,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             {title}
           </Heading>
           <Text css={{ marginBottom: theme.space.xs }}>{description}</Text>
-          <Text css={{ color: theme.colors.brand }}>Read more</Text>
+          <Text css={{ color: "$text-lo" }}>Read more</Text>
         </Box>
       </Link>
     </NextLink>
