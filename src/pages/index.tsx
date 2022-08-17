@@ -83,7 +83,7 @@ const Header = () => {
                 color: "$text-hi",
                 gap: theme.space.xs,
                 backgroundColor: "$ui",
-                borderRadius: 9999,
+                borderRadius: "$lg",
                 paddingTop: theme.space.xxs,
                 paddingBottom: theme.space.xxs,
                 paddingLeft: theme.space.xs,

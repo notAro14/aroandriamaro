@@ -36,7 +36,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
           css={{
             marginBottom: theme.space.xl,
             padding: theme.space.md,
-            borderRadius: theme.radii.md,
+            borderRadius: "$lg",
             backgroundColor: "$ui",
           }}
         >
