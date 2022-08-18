@@ -28,16 +28,10 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
     fonts: {
       sans: '"Metropolis"',
       mono: '"Fira Code"',
+
       primary: "$sans",
       secondary: "$sans",
       tertiary: "$mono",
-
-      //"comp-text": "$sem-primary",
-      //"comp-heading": "$sem-secondary",
-
-      //secondary: '"Metropolis", serif',
-      //primary: '"Metropolis", sans-serif',
-      code: '"Fira Code", monospace',
     },
     fontSizes: {
       xxs: "0.512rem",
@@ -89,56 +83,6 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
     bp1: "(min-width: 640px)",
     bp2: "(min-width: 768px)",
     bp3: "(min-width: 1024px)",
-  },
-  utils: {
-    // abbreviated margin
-    m: (value: string | number) => ({
-      margin: value,
-    }),
-    mt: (value: string | number) => ({
-      marginTop: value,
-    }),
-    mr: (value: string | number) => ({
-      marginRight: value,
-    }),
-    mb: (value: string | number) => ({
-      marginBottom: value,
-    }),
-    ml: (value: string | number) => ({
-      marginLeft: value,
-    }),
-    mx: (value: string | number) => ({
-      marginLeft: value,
-      marginRight: value,
-    }),
-    my: (value: string | number) => ({
-      marginTop: value,
-      marginBottom: value,
-    }),
-    // abbreviated padding
-    p: (value: string | number) => ({
-      padding: value,
-    }),
-    pt: (value: string | number) => ({
-      paddingTop: value,
-    }),
-    pr: (value: string | number) => ({
-      paddingRight: value,
-    }),
-    pb: (value: string | number) => ({
-      paddingBottom: value,
-    }),
-    pl: (value: string | number) => ({
-      paddingLeft: value,
-    }),
-    px: (value: string | number) => ({
-      paddingLeft: value,
-      paddingRight: value,
-    }),
-    py: (value: string | number) => ({
-      paddingTop: value,
-      paddingBottom: value,
-    }),
   },
 })
 

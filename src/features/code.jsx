@@ -16,7 +16,7 @@ const Language = ({ children }) => {
         paddingBottom: theme.space.xxs,
         paddingRight: theme.space.xs,
         paddingLeft: theme.space.xs,
-        fontFamily: theme.fonts.code,
+        fontFamily: "$tertiary",
       }}
     >
       {children}
@@ -43,7 +43,7 @@ const Code = ({ children, ...props }) => {
         overflow: "auto",
         padding: theme.space.lg,
         marginBottom: theme.space.md,
-        fontFamily: theme.fonts.code,
+        fontFamily: "$tertiary",
         fontSize: theme.fontSizes.lg,
         borderRadius: theme.radii.lg,
       }}
