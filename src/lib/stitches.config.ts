@@ -86,9 +86,14 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
   },
 })
 
-export const lightTheme = createTheme("light-theme", {
+const lightTheme = createTheme("light-theme", {
   colors: {
     ...plum,
     ...mauve,
   },
 })
+
+const darkTheme = createTheme("dark-theme")
+
+export const light = lightTheme.className
+export const dark = darkTheme.className
