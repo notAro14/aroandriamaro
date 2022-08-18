@@ -9,14 +9,14 @@ import { format } from "src/utils/date"
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
 import { NextPageWithLayout } from "src/types"
 
-import Flex from "src/shared/flex"
-import Heading from "src/shared/heading"
-import Link from "src/shared/link"
-import SyntaxHighlighter from "src/features/code"
-import Text from "src/shared/text"
-import Emoji from "src/features/emoji"
-import PageHeading from "src/features/page-heading"
-import { theme } from "src/lib/stitches.config"
+import Flex from "src/ui/flex"
+import Heading from "src/ui/heading"
+import Link from "src/ui/link"
+import SyntaxHighlighter from "src/components/code"
+import Text from "src/ui/text"
+import Emoji from "src/components/emoji"
+import PageHeading from "src/components/page-heading"
+import { theme } from "src/ui/stitches.config"
 
 const components = {
   code: SyntaxHighlighter,

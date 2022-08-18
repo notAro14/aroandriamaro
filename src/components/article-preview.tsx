@@ -1,12 +1,12 @@
 import { FC } from "react"
 import NextLink from "next/link"
 
-import Box from "src/shared/box"
-import Heading from "src/shared/heading"
-import Link from "src/shared/link"
-import Text from "src/shared/text"
+import Box from "src/ui/box"
+import Heading from "src/ui/heading"
+import Link from "src/ui/link"
+import Text from "src/ui/text"
 import { format } from "src/utils/date"
-import { theme } from "src/lib/stitches.config"
+import { theme } from "src/ui/stitches.config"
 
 interface ArticlePreviewProps {
   slug: string

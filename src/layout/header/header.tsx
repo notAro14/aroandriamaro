@@ -4,10 +4,10 @@ import Image from "next/image"
 
 import logo from "./logo.png"
 
-import Flex from "src/shared/flex"
-import Link from "src/shared/link"
-import { theme } from "src/lib/stitches.config"
-import ThemeSelect from "src/features/theme-select"
+import Flex from "src/ui/flex"
+import Link from "src/ui/link"
+import { theme } from "src/ui/stitches.config"
+import ThemeSelect from "src/components/theme-select"
 
 const Header: FC = () => {
   return (

@@ -1,4 +1,4 @@
-import { styled, theme } from "src/lib/stitches.config"
+import { styled, theme } from "src/ui/stitches.config"
 
 const Link = styled("a", {
   fontWeight: 200,

@@ -1,4 +1,4 @@
-import { styled } from "src/lib/stitches.config"
+import { styled } from "src/ui/stitches.config"
 
 const Heading = styled("h2", {
   lineHeight: 1,

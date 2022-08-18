@@ -1,8 +1,8 @@
 import Highlight, { defaultProps } from "prism-react-renderer"
 import prismTheme from "prism-react-renderer/themes/nightOwl"
-import Box from "src/shared/box"
-import Flex from "src/shared/flex"
-import { theme } from "src/lib/stitches.config"
+import Box from "src/ui/box"
+import Flex from "src/ui/flex"
+import { theme } from "src/ui/stitches.config"
 
 const Language = ({ children }) => {
   return (

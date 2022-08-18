@@ -1,9 +1,9 @@
 import { FC } from "react"
 
-import { styled, theme } from "src/lib/stitches.config"
-import Flex from "src/shared/flex"
-import Link from "src/shared/link"
-import Text from "src/shared/text"
+import { styled, theme } from "src/ui/stitches.config"
+import Flex from "src/ui/flex"
+import Link from "src/ui/link"
+import Text from "src/ui/text"
 
 const URL_TO_SPRITE = "/icons/sprite.svg"
 

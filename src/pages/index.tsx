@@ -4,16 +4,16 @@ import Head from "next/head"
 
 import { getAllArticles } from "src/utils/mdx"
 import type { NextPageWithLayout } from "src/types"
-import { theme } from "src/lib/stitches.config"
+import { theme } from "src/ui/stitches.config"
 // components
-import ArticlePreview from "src/features/article-preview"
-import PageHeading from "src/features/page-heading"
-import Text from "src/shared/text"
-import Emoji from "src/features/emoji"
-import Box from "src/shared/box"
-import Flex from "src/shared/flex"
-import Link from "src/shared/link"
-import { SOCIAL_LINKS } from "src/shared/layout/footer/footer"
+import ArticlePreview from "src/components/article-preview"
+import PageHeading from "src/components/page-heading"
+import Text from "src/ui/text"
+import Emoji from "src/components/emoji"
+import Box from "src/ui/box"
+import Flex from "src/ui/flex"
+import Link from "src/ui/link"
+import { SOCIAL_LINKS } from "src/layout/footer/footer"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })

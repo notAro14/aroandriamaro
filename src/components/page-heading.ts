@@ -1,5 +1,5 @@
-import { styled } from "src/lib/stitches.config"
-import Heading from "src/shared/heading"
+import { styled } from "src/ui/stitches.config"
+import Heading from "src/ui/heading"
 
 const PageHeading = styled(Heading, {
   fontSize: "$2xl",

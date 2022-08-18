@@ -1,6 +1,6 @@
 import { FC } from "react"
 
-import { theme, styled } from "src/lib/stitches.config"
+import { theme, styled } from "src/ui/stitches.config"
 
 const Layout = styled("main", {
   flex: "1",

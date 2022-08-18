@@ -18,7 +18,7 @@ import Select, {
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectGroup,
-} from "src/shared/select"
+} from "src/ui/select"
 
 const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
   const [isEnable, enableOnce] = useEnableOnce()
