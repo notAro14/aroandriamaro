@@ -1,11 +1,20 @@
 import { createStitches } from "@stitches/react"
-import { plum, mauve, plumDark, mauveDark } from "@radix-ui/colors"
+import {
+  plum,
+  mauve,
+  plumDark,
+  mauveDark,
+  sky as skyColor,
+  slate,
+  whiteA,
+} from "@radix-ui/colors"
 
 export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
       ...plumDark,
       ...mauveDark,
+      ...whiteA,
 
       bg: "$plum1",
       "bg-subtle": "$plum2",
@@ -21,9 +30,12 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
       "text-hi": "$plum12",
       "text-lo-gray": "$mauve11",
       "text-hi-gray": "$mauve12",
+      "text-fg-white": "$whiteA12",
 
       "text-functional": "$text-hi-gray",
+      "text-functional-low": "$text-lo-gray",
       "text-vibrant": "$text-hi",
+      "text-vibrant-low": "$text-lo",
     },
     fonts: {
       sans: '"Metropolis"',
@@ -95,5 +107,32 @@ const lightTheme = createTheme("light-theme", {
 
 const darkTheme = createTheme("dark-theme")
 
+const skyTheme = createTheme("sky-theme", {
+  colors: {
+    ...skyColor,
+    ...slate,
+    bg: "$sky1",
+    "bg-subtle": "$sky2",
+    ui: "$sky3",
+    "ui-hovered": "$sky4",
+    "ui-selected": "$sky5",
+    line: "$sky6",
+    border: "$sky7",
+    "border-hovered": "$sky8",
+    solid: "$sky9",
+    "solid-hovered": "$sky10",
+    "text-lo": "$sky11",
+    "text-hi": "$sky12",
+    "text-lo-gray": "$slate11",
+    "text-hi-gray": "$slate12",
+
+    "text-functional": "$text-hi-gray",
+    "text-functional-low": "$text-lo-gray",
+    "text-vibrant": "$text-hi",
+    "text-vibrant-low": "$text-lo",
+  },
+})
+
 export const light = lightTheme.className
 export const dark = darkTheme.className
+export const sky = skyTheme.className

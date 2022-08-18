@@ -223,9 +223,7 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
         pageUrl={pageUrl}
       />
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
-      <PageHeading css={{ color: "$text-vibrant" }} as="h1">
-        {frontmatter.title}
-      </PageHeading>
+      <PageHeading as="h1">{frontmatter.title}</PageHeading>
       <MDXComponent components={components} />
     </article>
   )

@@ -48,12 +48,12 @@ const Header = () => {
       as="header"
       css={{
         borderBottom: "1px solid",
-        borderBottomColor: "$border",
+        borderBottomColor: "$line",
         paddingBottom: theme.space.lg,
         marginBottom: theme.space.lg,
       }}
     >
-      <PageHeading as="h1">
+      <PageHeading as="h1" color="vibrant-low">
         Welcome, Bienvenue, Tongasoa{" "}
         <Emoji symbol="👋🏼" ariaLabel="waving hand" />
       </PageHeading>

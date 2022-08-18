@@ -1,17 +1,15 @@
 import { FC } from "react"
 import NextLink from "next/link"
-import { useRouter } from "next/router"
 import Image from "next/image"
 
-import SvgUnderline from "./svg-underline"
 import logo from "./logo.png"
 
 import Flex from "src/shared/flex"
 import Link from "src/shared/link"
 import { theme } from "src/lib/stitches.config"
+import ThemeSelect from "src/features/theme-select"
 
 const Header: FC = () => {
-  const { pathname } = useRouter()
   return (
     <Flex
       as="nav"
@@ -53,34 +51,7 @@ const Header: FC = () => {
             />
           </Link>
         </NextLink>
-        <Flex
-          as="ul"
-          css={{
-            alignItems: "center",
-            gap: theme.space.md,
-          }}
-        >
-          <Flex as="li">
-            <NextLink href="/" passHref>
-              <Link
-                css={{
-                  fontSize: theme.fontSizes.lg,
-                  color: "$text-functional",
-                  position: "relative",
-                  fontWeight: 200,
-                  textDecoration: "none",
-
-                  "&:hover": {
-                    color: "$solid",
-                  },
-                }}
-              >
-                Blog
-                {pathname === "/" && <SvgUnderline />}
-              </Link>
-            </NextLink>
-          </Flex>
-        </Flex>
+        <ThemeSelect />
       </Flex>
     </Flex>
   )
