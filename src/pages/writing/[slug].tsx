@@ -185,11 +185,22 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
     <Flex
       as="p"
       css={{
-        gap: theme.space.sm,
-        color: "$text-lo-gray",
+        gap: "$md",
+        color: "$text-vibrant",
+        backgroundColor: "$ui",
+        alignItems: "center",
+        padding: "$xs $xl",
+        borderRadius: "$lg",
+        justifyContent: "center",
         fontSize: theme.fontSizes.md,
         fontWeight: 100,
-        fontFamily: theme.fonts.primary,
+        width: "fit-content",
+        margin: "0 auto $2xl auto",
+        fontFamily: "$primary",
+        userSelect: "none",
+        "&:hover": {
+          backgroundColor: "$ui-hovered",
+        },
       }}
     >
       <Emoji symbol="📅" ariaLabel="calendar" />
@@ -211,8 +222,10 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
         keywords="javascript, typescript, react, react.js, next, next.js"
         pageUrl={pageUrl}
       />
-      <PageHeading as="h1">{frontmatter.title}</PageHeading>
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
+      <PageHeading css={{ color: "$text-vibrant" }} as="h1">
+        {frontmatter.title}
+      </PageHeading>
       <MDXComponent components={components} />
     </article>
   )
