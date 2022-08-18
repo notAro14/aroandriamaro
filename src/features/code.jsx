@@ -9,14 +9,14 @@ const Language = ({ children }) => {
     <Flex
       css={{
         alignSelf: "flex-start",
-        color: theme.colors.brand,
+        color: "$text-lo",
         textTransform: "uppercase",
         marginTop: theme.space.md,
         paddingTop: theme.space.xxs,
         paddingBottom: theme.space.xxs,
         paddingRight: theme.space.xs,
         paddingLeft: theme.space.xs,
-        fontFamily: theme.fonts.code,
+        fontFamily: "$tertiary",
       }}
     >
       {children}
@@ -43,7 +43,7 @@ const Code = ({ children, ...props }) => {
         overflow: "auto",
         padding: theme.space.lg,
         marginBottom: theme.space.md,
-        fontFamily: theme.fonts.code,
+        fontFamily: "$tertiary",
         fontSize: theme.fontSizes.lg,
         borderRadius: theme.radii.lg,
       }}

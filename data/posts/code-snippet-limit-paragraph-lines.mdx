@@ -47,18 +47,18 @@ import { createStitches } from "@stitches/react"
 const { styled } = createStitches({
   utils: {
     maxLine: (value: string | number) => ({
-      "lineClamp": typeof value === "number" ? String(value) : value,
+      lineClamp: typeof value === "number" ? String(value) : value,
       "-webkit-line-clamp": typeof value === "number" ? String(value) : value,
     }),
   },
 })
 
 const TextEllipsed = styled("p", {
-  "overflow": "hidden",
-  "textOverflow": "ellipsis",
-  "display": "-webkit-box",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  display: "-webkit-box",
   "-webkit-box-orient": "vertical",
-  "lineClamp": "1",
+  lineClamp: "1",
   "-webkit-line-clamp": "1",
 })
 ```

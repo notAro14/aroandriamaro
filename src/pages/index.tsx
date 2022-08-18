@@ -48,7 +48,7 @@ const Header = () => {
       as="header"
       css={{
         borderBottom: "1px solid",
-        borderBottomColor: theme.colors.border,
+        borderBottomColor: "$border",
         paddingBottom: theme.space.lg,
         marginBottom: theme.space.lg,
       }}
@@ -80,14 +80,17 @@ const Header = () => {
               key={name}
               css={{
                 alignItems: "center",
-                color: theme.colors.text,
+                color: "$text-hi",
                 gap: theme.space.xs,
-                backgroundColor: theme.colors.compBg,
-                borderRadius: 9999,
+                backgroundColor: "$ui",
+                borderRadius: "$lg",
                 paddingTop: theme.space.xxs,
                 paddingBottom: theme.space.xxs,
                 paddingLeft: theme.space.xs,
                 paddingRight: theme.space.xs,
+                "&:hover": {
+                  backgroundColor: "$ui-hovered",
+                },
               }}
             >
               <Component />
@@ -97,7 +100,7 @@ const Header = () => {
                   textDecoration: "none",
                   fontWeight: 200,
                   fontSize: theme.fontSizes.md,
-                  color: theme.colors.text,
+                  color: "$text-hi",
                 }}
               >
                 {name}
