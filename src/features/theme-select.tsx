@@ -43,7 +43,7 @@ const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
         </SelectScrollUpButton>
         <SelectViewport>
           <SelectGroup>
-            {themes.map((t) => (
+            {[...themes].sort().map((t) => (
               <Fragment key={t}>
                 <SelectItem value={t}>
                   <SelectItemIndicator>

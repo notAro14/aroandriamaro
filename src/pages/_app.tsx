@@ -5,7 +5,7 @@ import "src/styles/fonts.css"
 
 import type { AppPropsWithLayout } from "src/types"
 import PageLayout from "src/shared/layout/page-layout"
-import { light, dark, sky } from "src/lib/stitches.config"
+import { themeValues, themeKeys } from "src/lib/stitches.config"
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
@@ -14,12 +14,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     <ThemeProvider
       attribute="class"
       defaultTheme="system"
-      themes={["light", "dark", "sky"]}
-      value={{
-        light,
-        dark,
-        sky,
-      }}
+      themes={themeKeys}
+      value={themeValues}
     >
       {getLayout(<Component {...pageProps} />)}
     </ThemeProvider>

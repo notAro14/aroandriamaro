@@ -7,6 +7,8 @@ import {
   sky as skyColor,
   slate,
   whiteA,
+  grass as grassColor,
+  olive,
 } from "@radix-ui/colors"
 
 export const { styled, getCssText, theme, createTheme } = createStitches({
@@ -132,7 +134,42 @@ const skyTheme = createTheme("sky-theme", {
     "text-vibrant-low": "$text-lo",
   },
 })
+const grassTheme = createTheme("grass-theme", {
+  colors: {
+    ...grassColor,
+    ...olive,
+    bg: "$grass1",
+    "bg-subtle": "$grass2",
+    ui: "$grass3",
+    "ui-hovered": "$grass4",
+    "ui-selected": "$grass5",
+    line: "$grass6",
+    border: "$grass7",
+    "border-hovered": "$grass8",
+    solid: "$grass9",
+    "solid-hovered": "$grass10",
+    "text-lo": "$grass11",
+    "text-hi": "$grass12",
+    "text-lo-gray": "$olive11",
+    "text-hi-gray": "$olive12",
 
-export const light = lightTheme.className
-export const dark = darkTheme.className
-export const sky = skyTheme.className
+    "text-functional": "$text-hi-gray",
+    "text-functional-low": "$text-lo-gray",
+    "text-vibrant": "$text-hi",
+    "text-vibrant-low": "$text-lo",
+  },
+})
+
+const light = lightTheme.className
+const dark = darkTheme.className
+const sky = skyTheme.className
+const grass = grassTheme.className
+
+export const themeValues = {
+  light,
+  dark,
+  sky,
+  grass,
+}
+
+export const themeKeys = Object.keys(themeValues)
