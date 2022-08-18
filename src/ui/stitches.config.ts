@@ -192,12 +192,13 @@ const grass = grassTheme.className
 const grassDark = grassDarkTheme.className
 
 export const themeValues = {
-  light,
   dark,
-  sky,
+  light,
+  // sort ASC
   grass,
-  "sky dark": skyDark,
   "grass dark": grassDark,
+  sky,
+  "sky dark": skyDark,
 }
 
 export const themeKeys = Object.keys(themeValues)

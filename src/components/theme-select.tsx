@@ -23,7 +23,7 @@ import Select, {
 } from "src/ui/select"
 import { themeValues } from "src/ui/stitches.config"
 
-const CLASSIC_THEMES = ["light", "dark", "system"]
+const CLASSIC_THEMES = ["dark", "light", "system"]
 
 const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
   const [isEnable, enableOnce] = useEnableOnce()
