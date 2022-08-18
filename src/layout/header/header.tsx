@@ -1,13 +1,11 @@
 import { FC } from "react"
 import NextLink from "next/link"
-import Image from "next/image"
-
-import logo from "./logo.png"
 
 import Flex from "src/ui/flex"
 import Link from "src/ui/link"
 import { theme } from "src/ui/stitches.config"
 import ThemeSelect from "src/components/theme-select"
+import Avatar, { AvatarImage, AvatarFallback } from "src/ui/avatar"
 
 const Header: FC = () => {
   return (
@@ -35,20 +33,14 @@ const Header: FC = () => {
         }}
       >
         <NextLink href="/" passHref>
-          <Link
-            css={{
-              textDecoration: "none",
-              fontSize: theme.fontSizes.lg,
-            }}
-          >
-            <Image
-              width={50}
-              height={50}
-              layout="fixed"
-              title="aroandriamaro.com"
-              alt="Hacker cat"
-              src={logo}
-            />
+          <Link css={{ textDecoration: "none" }}>
+            <Avatar>
+              <AvatarImage
+                src="https://avatars.githubusercontent.com/u/47597252?v=4"
+                alt="Aro Andriamaro"
+              />
+              <AvatarFallback delayMs={600}>AA</AvatarFallback>
+            </Avatar>
           </Link>
         </NextLink>
         <ThemeSelect />

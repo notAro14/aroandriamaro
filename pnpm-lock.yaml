@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@radix-ui/colors': ^0.1.8
+  '@radix-ui/react-avatar': ^1.0.0
   '@radix-ui/react-icons': ^1.1.1
   '@radix-ui/react-select': ^1.0.0
   '@stitches/react': ^1.2.8
@@ -30,6 +31,7 @@ specifiers:
 
 dependencies:
   '@radix-ui/colors': 0.1.8
+  '@radix-ui/react-avatar': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
   '@radix-ui/react-icons': 1.1.1_react@17.0.2
   '@radix-ui/react-select': 1.0.0_xd63vgjm47lzoal5ybyqmsdesy
   '@stitches/react': 1.2.8_react@17.0.2
@@ -264,6 +266,21 @@ packages:
     resolution: {integrity: sha512-3e7rn8FDMin4CgeL7Z/49smCA3rFYY3Ha2rUQ7HRWFadS5iCRw08ZgVT1LaNTCNqgvrUiyczLflrVrF0SRQtNA==}
     dependencies:
       '@babel/runtime': 7.16.3
+    dev: false
+
+  /@radix-ui/react-avatar/1.0.0_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-pCN+bXAjhuGt7xkDh8MgdB2wN09XhLKpzPMJR9aVVS0tz0oTCy8wkbFOAmLotjBwZBHMJ9acpsVh7/JIuDSCtw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.16.3
+      '@radix-ui/react-context': 1.0.0_react@17.0.2
+      '@radix-ui/react-primitive': 1.0.0_sfoxds7t5ydpegc3knd667wn6m
+      '@radix-ui/react-use-callback-ref': 1.0.0_react@17.0.2
+      '@radix-ui/react-use-layout-effect': 1.0.0_react@17.0.2
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /@radix-ui/react-collection/1.0.0_sfoxds7t5ydpegc3knd667wn6m:
