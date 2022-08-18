@@ -50,7 +50,7 @@ const StyledViewport = styled(SelectPrimitive.SelectViewport, {
 })
 const StyledLabel = styled(SelectPrimitive.Label, {
   padding: "0 $lg",
-  color: "$text-functional",
+  color: "$text-vibrant-low",
   fontSize: "$sm",
 })
 export const StyledItem = styled(SelectPrimitive.Item, {
