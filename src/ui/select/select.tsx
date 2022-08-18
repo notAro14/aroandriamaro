@@ -14,7 +14,7 @@ const StyledContent = styled(SelectPrimitive.SelectContent, {
   backgroundColor: "$ui",
   fontFamily: "$primary",
   color: "$text-functional",
-  //boxShadow: "$$component-select-content-shadow",
+  boxShadow: "$medium",
 })
 const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   fontFamily: "$primary",

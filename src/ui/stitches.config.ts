@@ -15,11 +15,30 @@ import {
   oliveDark,
 } from "@radix-ui/colors"
 
+const SHADOW_COLOR_KEY = "$colors$shadow"
+const shadows = {
+  low: `0.3px 0.5px 0.7px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  0.4px 0.8px 1px -1.2px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  1px 2px 2.5px -2.5px hsl(${SHADOW_COLOR_KEY} / 0.34)`,
+  medium: `0.3px 0.5px 0.7px hsl(${SHADOW_COLOR_KEY} / 0.36),
+  0.8px 1.6px 2px -0.8px hsl(${SHADOW_COLOR_KEY} / 0.36),
+  2.1px 4.1px 5.2px -1.7px hsl(${SHADOW_COLOR_KEY} / 0.36),
+  5px 10px 12.6px -2.5px hsl(${SHADOW_COLOR_KEY} / 0.36)`,
+  high: `0.3px 0.5px 0.7px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  1.5px 2.9px 3.7px -0.4px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  2.7px 5.4px 6.8px -0.7px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  4.5px 8.9px 11.2px -1.1px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  7.1px 14.3px 18px -1.4px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  11.2px 22.3px 28.1px -1.8px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  17px 33.9px 42.7px -2.1px hsl(${SHADOW_COLOR_KEY} / 0.34),
+  25px 50px 62.9px -2.5px hsl(${SHADOW_COLOR_KEY} / 0.34)`,
+}
+
 export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
-      ...plumDark,
-      ...mauveDark,
+      ...plum,
+      ...mauve,
       ...whiteA,
 
       bg: "$plum1",
@@ -103,15 +122,19 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
     bp3: "(min-width: 1024px)",
   },
 })
-
 const lightTheme = createTheme("light-theme", {
   colors: {
-    ...plum,
-    ...mauve,
+    shadow: "280deg 25% 63%",
   },
+  shadows,
 })
 
-const darkTheme = createTheme("dark-theme")
+const darkTheme = createTheme("dark-theme", {
+  colors: {
+    ...plumDark,
+    ...mauveDark,
+  },
+})
 
 const skySemantics = {
   bg: "$sky1",
@@ -128,6 +151,7 @@ const skySemantics = {
   "text-hi": "$sky12",
   "text-lo-gray": "$slate11",
   "text-hi-gray": "$slate12",
+  shadow: "190deg 27% 62%",
 
   "text-functional": "$text-hi-gray",
   "text-functional-low": "$text-lo-gray",
@@ -140,6 +164,7 @@ const skyTheme = createTheme("sky-theme", {
     ...slate,
     ...skySemantics,
   },
+  shadows,
 })
 const skyDarkTheme = createTheme("sky-dark-theme", {
   colors: {
@@ -163,6 +188,7 @@ const grassSemantics = {
   "text-hi": "$grass12",
   "text-lo-gray": "$olive11",
   "text-hi-gray": "$olive12",
+  shadow: "120deg 18% 59%",
 
   "text-functional": "$text-hi-gray",
   "text-functional-low": "$text-lo-gray",
@@ -175,6 +201,7 @@ const grassTheme = createTheme("grass-theme", {
     ...olive,
     ...grassSemantics,
   },
+  shadows,
 })
 const grassDarkTheme = createTheme("grass-dark-theme", {
   colors: {

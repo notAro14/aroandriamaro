@@ -41,6 +41,7 @@ const ArticlePreview: FC<ArticlePreviewProps> = ({
             "&:hover": {
               backgroundColor: "$ui-hovered",
             },
+            boxShadow: "$low",
           }}
         >
           <Text
