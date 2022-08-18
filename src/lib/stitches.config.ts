@@ -5,10 +5,14 @@ import {
   plumDark,
   mauveDark,
   sky as skyColor,
+  skyDark as skyDarkColor,
   slate,
+  slateDark,
   whiteA,
   grass as grassColor,
   olive,
+  grassDark as grassDarkColor,
+  oliveDark,
 } from "@radix-ui/colors"
 
 export const { styled, getCssText, theme, createTheme } = createStitches({
@@ -134,6 +138,31 @@ const skyTheme = createTheme("sky-theme", {
     "text-vibrant-low": "$text-lo",
   },
 })
+const skyDarkTheme = createTheme("sky-dark-theme", {
+  colors: {
+    ...skyDarkColor,
+    ...slateDark,
+    bg: "$sky1",
+    "bg-subtle": "$sky2",
+    ui: "$sky3",
+    "ui-hovered": "$sky4",
+    "ui-selected": "$sky5",
+    line: "$sky6",
+    border: "$sky7",
+    "border-hovered": "$sky8",
+    solid: "$sky9",
+    "solid-hovered": "$sky10",
+    "text-lo": "$sky11",
+    "text-hi": "$sky12",
+    "text-lo-gray": "$slate11",
+    "text-hi-gray": "$slate12",
+
+    "text-functional": "$text-hi-gray",
+    "text-functional-low": "$text-lo-gray",
+    "text-vibrant": "$text-hi",
+    "text-vibrant-low": "$text-lo",
+  },
+})
 const grassTheme = createTheme("grass-theme", {
   colors: {
     ...grassColor,
@@ -159,17 +188,46 @@ const grassTheme = createTheme("grass-theme", {
     "text-vibrant-low": "$text-lo",
   },
 })
+const grassDarkTheme = createTheme("grass-dark-theme", {
+  colors: {
+    ...grassDarkColor,
+    ...oliveDark,
+    bg: "$grass1",
+    "bg-subtle": "$grass2",
+    ui: "$grass3",
+    "ui-hovered": "$grass4",
+    "ui-selected": "$grass5",
+    line: "$grass6",
+    border: "$grass7",
+    "border-hovered": "$grass8",
+    solid: "$grass9",
+    "solid-hovered": "$grass10",
+    "text-lo": "$grass11",
+    "text-hi": "$grass12",
+    "text-lo-gray": "$olive11",
+    "text-hi-gray": "$olive12",
+
+    "text-functional": "$text-hi-gray",
+    "text-functional-low": "$text-lo-gray",
+    "text-vibrant": "$text-hi",
+    "text-vibrant-low": "$text-lo",
+  },
+})
 
 const light = lightTheme.className
 const dark = darkTheme.className
 const sky = skyTheme.className
+const skyDark = skyDarkTheme.className
 const grass = grassTheme.className
+const grassDark = grassDarkTheme.className
 
 export const themeValues = {
   light,
   dark,
   sky,
   grass,
+  "sky dark": skyDark,
+  "grass dark": grassDark,
 }
 
 export const themeKeys = Object.keys(themeValues)
