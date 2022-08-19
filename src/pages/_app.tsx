@@ -4,12 +4,12 @@ import "src/styles/reset.css"
 import "src/styles/fonts.css"
 
 import type { AppPropsWithLayout } from "src/types"
-import PageLayout from "src/layout/page-layout"
+import DefaultLayout from "src/layouts/default-layout"
 import { themeValues, themeKeys } from "src/ui/stitches.config"
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
-    Component.getLayout ?? ((page) => <PageLayout>{page}</PageLayout>)
+    Component.getLayout ?? ((page) => <DefaultLayout>{page}</DefaultLayout>)
   return (
     <ThemeProvider
       attribute="class"

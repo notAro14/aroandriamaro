@@ -13,7 +13,7 @@ import Emoji from "src/components/emoji"
 import Box from "src/ui/box"
 import Flex from "src/ui/flex"
 import Link from "src/ui/link"
-import { SOCIAL_LINKS } from "src/layout/footer/footer"
+import { SOCIAL_LINKS } from "src/components/footer/footer"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
