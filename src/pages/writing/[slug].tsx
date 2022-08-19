@@ -12,42 +12,34 @@ import { NextPageWithLayout } from "src/types"
 import Flex from "src/ui/flex"
 import Heading from "src/ui/heading"
 import Link from "src/ui/link"
-import SyntaxHighlighter from "src/components/code"
+import CodeBlock from "src/components/code-block"
 import Text from "src/ui/text"
 import Emoji from "src/components/emoji"
 import PageHeading from "src/components/page-heading"
-import { theme } from "src/ui/stitches.config"
+import List from "src/ui/list"
 
 const components = {
-  code: SyntaxHighlighter,
+  code: CodeBlock,
   h1: (props: any) => (
     <Heading
       as="h1"
       css={{
-        marginBottom: theme.space.md,
-        marginTop: theme.space.xl,
-        fontSize: theme.fontSizes["2xl"],
-        "@bp2": {
-          fontSize: theme.fontSizes["3xl"],
-        },
-        "@bp3": {
-          fontSize: theme.fontSizes["3xl"],
-        },
+        marginBottom: "$md",
+        marginTop: "$xl",
+        fontSize: "$2xl",
       }}
       {...props}
     />
   ),
   h2: (props: any) => (
     <Heading
+      as="h2"
       css={{
-        marginBottom: theme.space.md,
-        marginTop: theme.space.xl,
-        fontSize: theme.fontSizes.xl,
+        marginBottom: "$md",
+        marginTop: "$xl",
+        fontSize: "$xl",
         "@bp2": {
-          fontSize: theme.fontSizes["2xl"],
-        },
-        "@bp3": {
-          fontSize: theme.fontSizes["2xl"],
+          fontSize: "$2xl",
         },
       }}
       {...props}
@@ -57,14 +49,11 @@ const components = {
     <Heading
       as="h3"
       css={{
-        marginBottom: theme.space.md,
-        marginTop: theme.space.xl,
-        fontSize: theme.fontSizes.lg,
+        marginBottom: "$md",
+        marginTop: "$xl",
+        fontSize: "$lg",
         "@bp2": {
-          fontSize: theme.fontSizes.xl,
-        },
-        "@bp3": {
-          fontSize: theme.fontSizes.xl,
+          fontSize: "$xl",
         },
       }}
       {...props}
@@ -74,9 +63,9 @@ const components = {
     <Heading
       as="h4"
       css={{
-        marginBottom: theme.space.md,
-        marginTop: theme.space.xl,
-        fontSize: theme.fontSizes.lg,
+        marginBottom: "$md",
+        marginTop: "$xl",
+        fontSize: "$lg",
       }}
       {...props}
     />
@@ -84,8 +73,8 @@ const components = {
   p: (props: any) => (
     <Text
       css={{
-        marginTop: theme.space.md,
-        marginBottom: theme.space.md,
+        marginTop: "$md",
+        marginBottom: "$md",
       }}
       {...props}
     />
@@ -95,7 +84,7 @@ const components = {
       as="em"
       css={{
         color: "$text-lo",
-        fontFamily: theme.fonts.primary,
+        fontFamily: "$primary",
       }}
       {...props}
     />
@@ -111,19 +100,18 @@ const components = {
     />
   ),
   ul: (props: any) => (
-    <Flex
+    <List
       as="ul"
+      spacing="xs"
       css={{
-        fontSize: theme.fontSizes.lg,
-        fontFamily: theme.fonts.primary,
+        fontSize: "$lg",
+        fontFamily: "$primary",
         fontWeight: 200,
-        flexDirection: "column",
         listStyleType: "disc",
         color: "$text-functional",
-        gap: theme.space.xs,
-        paddingLeft: theme.space.md,
-        marginTop: theme.space.md,
-        marginBottom: theme.space.md,
+        paddingLeft: "$md",
+        marginTop: "$md",
+        marginBottom: "$md",
       }}
       {...props}
     />
@@ -184,15 +172,15 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
   return (
     <Flex
       as="p"
+      spacing="md"
+      align="center"
+      justify="center"
       css={{
-        gap: "$md",
         color: "$text-vibrant",
         backgroundColor: "$ui",
-        alignItems: "center",
         padding: "$xs $xl",
         borderRadius: "$lg",
-        justifyContent: "center",
-        fontSize: theme.fontSizes.md,
+        fontSize: "$md",
         boxShadow: "$low",
         fontWeight: 100,
         width: "fit-content",
