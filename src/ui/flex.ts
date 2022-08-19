@@ -61,6 +61,11 @@ const Flex = styled(Box, {
         justifyContent: "space-evenly",
       },
     },
+    wrap: {
+      true: {
+        flexWrap: "wrap",
+      },
+    },
   },
   defaultVariants: {
     spacing: "xxs",

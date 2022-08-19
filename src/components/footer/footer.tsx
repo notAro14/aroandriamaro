@@ -1,6 +1,5 @@
 import { FC } from "react"
 
-import Flex from "src/ui/flex"
 import {
   FooterContainer,
   FooterMain,
@@ -11,6 +10,7 @@ import {
 } from "./footer.styles"
 import Svg from "src/ui/svg"
 import { SOCIAL_LINKS, URL_TO_SPRITE } from "src/constants"
+import HStack from "src/ui/h-stack"
 
 const Footer: FC = () => {
   return (
@@ -21,7 +21,7 @@ const Footer: FC = () => {
           <CopyRightSymbol as="span">&copy; </CopyRightSymbol>
           {new Date().getFullYear()}
         </CopyrightContainer>
-        <Flex as="ul" spacing="lg" align="center">
+        <HStack as="ul" spacing="lg" align="center">
           {SOCIAL_LINKS.map(({ name, href }) => {
             return (
               <SocialLinkContainer key={name}>
@@ -32,7 +32,7 @@ const Footer: FC = () => {
               </SocialLinkContainer>
             )
           })}
-        </Flex>
+        </HStack>
       </FooterMain>
     </FooterContainer>
   )

@@ -13,10 +13,6 @@ export const CodeBlockLanguage = styled(Flex, {
   fontFamily: "$tertiary",
 })
 
-export const CodeBlockContainer = styled(Flex, {
-  flexDirection: "column",
-})
-
 export const Pre = styled("pre", {
   overflow: "auto",
   padding: "$lg",

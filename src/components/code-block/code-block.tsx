@@ -1,7 +1,9 @@
+import { FC } from "react"
 import Highlight, { defaultProps, Language } from "prism-react-renderer"
 import prismTheme from "prism-react-renderer/themes/nightOwl"
-import { FC } from "react"
-import { CodeBlockLanguage, CodeBlockContainer, Pre } from "./code-block.styles"
+
+import VStack from "src/ui/v-stack"
+import { CodeBlockLanguage, Pre } from "./code-block.styles"
 
 interface Props {
   children: string
@@ -22,7 +24,7 @@ const CodeBlock: FC<Props> = ({ children, className }) => {
       theme={prismTheme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <CodeBlockContainer>
+        <VStack>
           <CodeBlockLanguage>{language}</CodeBlockLanguage>
           <Pre className={className} style={{ ...style }}>
             {tokens.map((line, i) => (
@@ -33,7 +35,7 @@ const CodeBlock: FC<Props> = ({ children, className }) => {
               </div>
             ))}
           </Pre>
-        </CodeBlockContainer>
+        </VStack>
       )}
     </Highlight>
   )

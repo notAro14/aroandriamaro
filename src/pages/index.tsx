@@ -1,20 +1,19 @@
-import type { FC } from "react"
 import type { InferGetStaticPropsType } from "next"
 import Head from "next/head"
 
 import { getAllArticles } from "src/utils/mdx"
 import type { NextPageWithLayout } from "src/types"
-import { theme } from "src/ui/stitches.config"
 // components
-import ArticlePreview from "src/components/article-preview"
 import PageHeading from "src/components/page-heading"
 import Text from "src/ui/text"
 import Emoji from "src/components/emoji"
 import Box from "src/ui/box"
-import Flex from "src/ui/flex"
 import Link from "src/ui/link"
 import { SOCIAL_LINKS, URL_TO_SPRITE } from "src/constants"
 import Svg from "src/ui/svg"
+import HStack from "src/ui/h-stack"
+import Pill from "src/ui/pill"
+import ListOfArticles from "src/components/list-of-articles"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
@@ -24,8 +23,6 @@ export const getStaticProps = () => {
     },
   }
 }
-
-type IndexPageProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const SEO = () => {
   return (
@@ -50,108 +47,57 @@ const Header = () => {
       css={{
         borderBottom: "1px solid",
         borderBottomColor: "$line",
-        paddingBottom: theme.space.lg,
-        marginBottom: theme.space.lg,
+        paddingBottom: "$lg",
+        marginBottom: "$lg",
       }}
     >
       <PageHeading as="h1" color="vibrant-low">
         Welcome, Bienvenue, Tongasoa{" "}
         <Emoji symbol="👋🏼" ariaLabel="waving hand" />
       </PageHeading>
-      <Text css={{ marginBottom: theme.space.md }}>
+      <Text css={{ marginBottom: "$md" }}>
         Welcome to my blog (yet another dev blog) . My name is Aro, I am a
         Frontend Developer based in Lyon, France.
       </Text>
-      <Text css={{ marginBottom: theme.space.md }}>
+      <Text css={{ marginBottom: "$md" }}>
         This blog is my attempt to make the world a better place by sharing my
         modest knowledge in Web development. I write mostly about Frontend dev
         and React.
       </Text>
-      <Flex
-        as="ul"
-        css={{
-          gap: theme.space.md,
-          flexWrap: "wrap",
-        }}
-      >
+      <HStack as="ul" spacing="md">
         {SOCIAL_LINKS.map(({ name, href }) => {
           return (
-            <Flex
-              as="li"
-              key={name}
-              css={{
-                alignItems: "center",
-                color: "$text-hi",
-                gap: theme.space.xs,
-                backgroundColor: "$ui",
-                borderRadius: "$lg",
-                paddingTop: theme.space.xxs,
-                paddingBottom: theme.space.xxs,
-                paddingLeft: theme.space.xs,
-                paddingRight: theme.space.xs,
-                boxShadow: "$low",
-                "&:hover": {
-                  backgroundColor: "$ui-hovered",
-                },
-              }}
-            >
+            <Pill as="li" key={name}>
               <Svg>
                 <use href={`${URL_TO_SPRITE}#${name}`} />
               </Svg>
               <Link
                 href={href}
+                noUnderline
                 css={{
-                  textDecoration: "none",
-                  fontWeight: 200,
-                  fontSize: theme.fontSizes.md,
+                  fontSize: "$md",
                   color: "$text-hi",
                 }}
               >
                 {name}
               </Link>
-            </Flex>
+            </Pill>
           )
         })}
-      </Flex>
+      </HStack>
     </Box>
   )
 }
 
-interface BlogArticlesProps {
-  articles: InferGetStaticPropsType<typeof getStaticProps>["articles"]
-}
+type Props = InferGetStaticPropsType<typeof getStaticProps>
 
-const BlogArticles: FC<BlogArticlesProps> = ({ articles }) => {
-  return (
-    <Flex
-      as="ul"
-      css={{
-        flexDirection: "column",
-        gap: theme.space.md,
-        listStyleType: "none",
-      }}
-    >
-      {articles.map(({ frontmatter: { title, description, date }, slug }) => (
-        <li key={slug}>
-          <ArticlePreview
-            date={date}
-            slug={slug}
-            title={title}
-            description={description}
-          />
-        </li>
-      ))}
-    </Flex>
-  )
-}
-
-const IndexPage: NextPageWithLayout<IndexPageProps> = (props) => {
+const IndexPage: NextPageWithLayout<Props> = (props) => {
   const { articles } = props
   return (
     <>
       <SEO />
       <Header />
-      <BlogArticles articles={articles} />
+      <ListOfArticles articles={articles} />
     </>
   )
 }
