@@ -15,7 +15,8 @@ const Header: FC = () => {
         height: 75,
         position: "sticky",
         top: 0,
-        backgroundColor: "$bg",
+        backgroundColor: "$bg-transparent",
+        backdropFilter: "blur(10px)",
         paddingRight: theme.space.sm,
         paddingLeft: theme.space.sm,
       }}

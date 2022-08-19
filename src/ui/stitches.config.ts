@@ -13,6 +13,12 @@ import {
   olive,
   grassDark as grassDarkColor,
   oliveDark,
+  plumA,
+  plumDarkA,
+  skyA,
+  skyDarkA,
+  grassA,
+  grassDarkA,
 } from "@radix-ui/colors"
 
 const SHADOW_COLOR_KEY = "$colors$shadow"
@@ -38,10 +44,12 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
       ...plum,
+      ...plumA,
       ...mauve,
       ...whiteA,
 
       bg: "$plum1",
+      "bg-transparent": "$plumA1",
       "bg-subtle": "$plum2",
       ui: "$plum3",
       "ui-hovered": "$plum4",
@@ -132,12 +140,14 @@ const lightTheme = createTheme("light-theme", {
 const darkTheme = createTheme("dark-theme", {
   colors: {
     ...plumDark,
+    ...plumDarkA,
     ...mauveDark,
   },
 })
 
 const skySemantics = {
   bg: "$sky1",
+  "bg-transparent": "$skyA1",
   "bg-subtle": "$sky2",
   ui: "$sky3",
   "ui-hovered": "$sky4",
@@ -161,6 +171,7 @@ const skySemantics = {
 const skyTheme = createTheme("sky-theme", {
   colors: {
     ...skyColor,
+    ...skyA,
     ...slate,
     ...skySemantics,
   },
@@ -169,12 +180,14 @@ const skyTheme = createTheme("sky-theme", {
 const skyDarkTheme = createTheme("sky-dark-theme", {
   colors: {
     ...skyDarkColor,
+    ...skyDarkA,
     ...slateDark,
     ...skySemantics,
   },
 })
 const grassSemantics = {
   bg: "$grass1",
+  "bg-transparent": "$grassA1",
   "bg-subtle": "$grass2",
   ui: "$grass3",
   "ui-hovered": "$grass4",
@@ -200,12 +213,14 @@ const grassTheme = createTheme("grass-theme", {
     ...grassColor,
     ...olive,
     ...grassSemantics,
+    ...grassA,
   },
   shadows,
 })
 const grassDarkTheme = createTheme("grass-dark-theme", {
   colors: {
     ...grassDarkColor,
+    ...grassDarkA,
     ...oliveDark,
     ...grassSemantics,
   },
