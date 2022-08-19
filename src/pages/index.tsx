@@ -88,6 +88,7 @@ const Header = () => {
                 paddingBottom: theme.space.xxs,
                 paddingLeft: theme.space.xs,
                 paddingRight: theme.space.xs,
+                boxShadow: "$low",
                 "&:hover": {
                   backgroundColor: "$ui-hovered",
                 },

@@ -30,6 +30,7 @@ const StyledTrigger = styled(SelectPrimitive.SelectTrigger, {
   gap: "$sm",
   textTransform: "capitalize",
   width: "fit-content",
+  boxShadow: "$low",
   "&:hover": {
     backgroundColor: "$ui-hovered",
   },

@@ -193,6 +193,7 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
         borderRadius: "$lg",
         justifyContent: "center",
         fontSize: theme.fontSizes.md,
+        boxShadow: "$low",
         fontWeight: 100,
         width: "fit-content",
         margin: "0 auto $2xl auto",

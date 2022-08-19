@@ -46,6 +46,7 @@ const Code = ({ children, ...props }) => {
         fontFamily: "$tertiary",
         fontSize: theme.fontSizes.lg,
         borderRadius: theme.radii.lg,
+        boxShadow: "$low",
       }}
       as="pre"
       {...props}
