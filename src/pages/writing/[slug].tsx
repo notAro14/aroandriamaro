@@ -12,14 +12,14 @@ import { NextPageWithLayout } from "src/types"
 import Flex from "src/ui/flex"
 import Heading from "src/ui/heading"
 import Link from "src/ui/link"
-import SyntaxHighlighter from "src/components/code"
+import CodeBlock from "src/components/code-block"
 import Text from "src/ui/text"
 import Emoji from "src/components/emoji"
 import PageHeading from "src/components/page-heading"
 import { theme } from "src/ui/stitches.config"
 
 const components = {
-  code: SyntaxHighlighter,
+  code: CodeBlock,
   h1: (props: any) => (
     <Heading
       as="h1"
