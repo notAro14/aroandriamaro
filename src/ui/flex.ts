@@ -4,14 +4,6 @@ import Box from "src/ui/box"
 const Flex = styled(Box, {
   display: "flex",
   variants: {
-    direction: {
-      column: {
-        flexDirection: "column",
-      },
-      row: {
-        flexDirection: "row",
-      },
-    },
     spacing: {
       xxs: {
         gap: "$xxs",
@@ -77,7 +69,6 @@ const Flex = styled(Box, {
   },
   defaultVariants: {
     spacing: "xxs",
-    direction: "row",
   },
 })
 
