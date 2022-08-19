@@ -1,17 +1,17 @@
 import { FC } from "react"
 
 import Footer from "src/components/footer"
-import Header from "src/components/header"
+import Navbar from "src/components/navbar"
 import { PageLayoutContainer, PageLayoutMain } from "./default-layout.styles"
 
-const PageLayout: FC = ({ children }) => {
+const DefaultLayout: FC = ({ children }) => {
   return (
     <PageLayoutContainer>
-      <Header />
+      <Navbar />
       <PageLayoutMain>{children}</PageLayoutMain>
       <Footer />
     </PageLayoutContainer>
   )
 }
 
-export default PageLayout
+export default DefaultLayout

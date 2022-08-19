@@ -8,6 +8,13 @@ const Link = styled("a", {
   "&:hover": {
     cursor: "pointer",
   },
+  variants: {
+    noUnderline: {
+      true: {
+        textDecoration: "none",
+      },
+    },
+  },
 })
 
 export default Link

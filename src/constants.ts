@@ -13,3 +13,4 @@ export const SOCIAL_LINKS = [
     href: "https://www.linkedin.com/in/notaro14/",
   },
 ] as const
+export const AVATAR_URL = "https://avatars.githubusercontent.com/u/47597252?v=4"
