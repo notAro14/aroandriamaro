@@ -13,7 +13,8 @@ import Emoji from "src/components/emoji"
 import Box from "src/ui/box"
 import Flex from "src/ui/flex"
 import Link from "src/ui/link"
-import { SOCIAL_LINKS } from "src/components/footer/footer"
+import { SOCIAL_LINKS, URL_TO_SPRITE } from "src/constants"
+import Svg from "src/ui/svg"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
@@ -73,7 +74,7 @@ const Header = () => {
           flexWrap: "wrap",
         }}
       >
-        {SOCIAL_LINKS.map(({ name, href, Component }) => {
+        {SOCIAL_LINKS.map(({ name, href }) => {
           return (
             <Flex
               as="li"
@@ -94,7 +95,9 @@ const Header = () => {
                 },
               }}
             >
-              <Component />
+              <Svg>
+                <use href={`${URL_TO_SPRITE}#${name}`} />
+              </Svg>
               <Link
                 href={href}
                 css={{

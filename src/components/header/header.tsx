@@ -11,6 +11,7 @@ const Header: FC = () => {
   return (
     <Flex
       as="nav"
+      align="center"
       css={{
         height: 75,
         position: "sticky",
@@ -22,8 +23,8 @@ const Header: FC = () => {
       }}
     >
       <Flex
+        align="center"
         css={{
-          alignItems: "center",
           justifyContent: "space-between",
           marginLeft: "auto",
           marginRight: "auto",
