@@ -13,13 +13,8 @@ import {
   olive,
   grassDark as grassDarkColor,
   oliveDark,
-  plumA,
-  plumDarkA,
-  skyA,
-  skyDarkA,
-  grassA,
-  grassDarkA,
 } from "@radix-ui/colors"
+import changeColorAlpha from "src/utils/change-color-alpha"
 
 const SHADOW_COLOR_KEY = "$colors$shadow"
 const shadows = {
@@ -44,12 +39,11 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
       ...plum,
-      ...plumA,
       ...mauve,
       ...whiteA,
 
       bg: "$plum1",
-      "bg-transparent": "$plumA1",
+      "bg-transparent": changeColorAlpha(plum.plum1, 0.5),
       "bg-subtle": "$plum2",
       ui: "$plum3",
       "ui-hovered": "$plum4",
@@ -140,14 +134,13 @@ const lightTheme = createTheme("light-theme", {
 const darkTheme = createTheme("dark-theme", {
   colors: {
     ...plumDark,
-    ...plumDarkA,
     ...mauveDark,
+    "bg-transparent": changeColorAlpha(plumDark.plum1, 0.5),
   },
 })
 
 const skySemantics = {
   bg: "$sky1",
-  "bg-transparent": "$skyA1",
   "bg-subtle": "$sky2",
   ui: "$sky3",
   "ui-hovered": "$sky4",
@@ -171,23 +164,22 @@ const skySemantics = {
 const skyTheme = createTheme("sky-theme", {
   colors: {
     ...skyColor,
-    ...skyA,
     ...slate,
     ...skySemantics,
+    "bg-transparent": changeColorAlpha(skyColor.sky1, 0.5),
   },
   shadows,
 })
 const skyDarkTheme = createTheme("sky-dark-theme", {
   colors: {
     ...skyDarkColor,
-    ...skyDarkA,
     ...slateDark,
     ...skySemantics,
+    "bg-transparent": changeColorAlpha(skyDarkColor.sky1, 0.5),
   },
 })
 const grassSemantics = {
   bg: "$grass1",
-  "bg-transparent": "$grassA1",
   "bg-subtle": "$grass2",
   ui: "$grass3",
   "ui-hovered": "$grass4",
@@ -213,16 +205,16 @@ const grassTheme = createTheme("grass-theme", {
     ...grassColor,
     ...olive,
     ...grassSemantics,
-    ...grassA,
+    "bg-transparent": changeColorAlpha(grassColor.grass1, 0.5),
   },
   shadows,
 })
 const grassDarkTheme = createTheme("grass-dark-theme", {
   colors: {
     ...grassDarkColor,
-    ...grassDarkA,
     ...oliveDark,
     ...grassSemantics,
+    "bg-transparent": changeColorAlpha(grassDarkColor.grass1, 0.5),
   },
 })
 
