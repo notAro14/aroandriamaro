@@ -9,19 +9,31 @@ import {
 import { createTheme } from "src/themes/stitches.config"
 import shadows from "src/themes/tokens/shadows"
 
+const computeColors = (
+  colors: Record<string, string>,
+  type: "brand" | "gray" | "accent"
+) =>
+  Object.keys(colors).reduce((acc, k, idx) => {
+    acc[`${type}${idx + 1}`] = colors[k]
+    return acc
+  }, {} as Record<string, string>)
+
+const brandColor = computeColors(blueColor, "brand")
+const brandDarkColor = computeColors(blueDarkColor, "brand")
+
 const semanticTokens = {
-  bg: "$blue1",
-  "bg-subtle": "$blue2",
-  ui: "$blue3",
-  "ui-hovered": "$blue4",
-  "ui-selected": "$blue5",
-  line: "$blue6",
-  border: "$blue7",
-  "border-hovered": "$blue8",
-  solid: "$blue9",
-  "solid-hovered": "$blue10",
-  "text-lo": "$blue11",
-  "text-hi": "$blue12",
+  bg: "$brand1",
+  "bg-subtle": "$brand2",
+  ui: "$brand3",
+  "ui-hovered": "$brand4",
+  "ui-selected": "$brand5",
+  line: "$brand6",
+  border: "$brand7",
+  "border-hovered": "$brand8",
+  solid: "$brand9",
+  "solid-hovered": "$brand10",
+  "text-lo": "$brand11",
+  "text-hi": "$brand12",
   "text-lo-gray": "$slate11",
   "text-hi-gray": "$slate12",
   shadow: "210deg 25% 63%",
@@ -34,20 +46,20 @@ const semanticTokens = {
 
 export const { className: lightClassName } = createTheme("grass-theme", {
   colors: {
-    ...blueColor,
+    ...brandColor,
     ...slateColor,
     ...semanticTokens,
-    "bg-transparent": changeColorAlpha(blueColor.blue1, 0.5),
+    "bg-transparent": changeColorAlpha(brandColor.brand1, 0.5),
   },
   shadows,
 })
 
 export const { className: darkClassName } = createTheme("grass-dark-theme", {
   colors: {
-    ...blueDarkColor,
+    ...brandDarkColor,
     ...slateDarkColor,
     ...semanticTokens,
-    "bg-transparent": changeColorAlpha(blueDarkColor.blue1, 0.5),
+    "bg-transparent": changeColorAlpha(brandDarkColor.brand1, 0.5),
   },
 })
 
