@@ -2,12 +2,12 @@ import { createStitches } from "@stitches/react"
 import { whiteA } from "@radix-ui/colors"
 
 import { semanticColors } from "./tokens/semantic-colors"
+import shadows from "src/themes/tokens/shadows"
 
 export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
       ...semanticColors,
-      shadow: "210deg 25% 63%",
 
       "text-functional": semanticColors["text-hi-gray"],
       "text-functional-low": semanticColors["text-lo-gray"],
@@ -69,6 +69,7 @@ export const { styled, getCssText, theme, createTheme } = createStitches({
       "10xl": "640px",
       "11xl": "768px",
     },
+    shadows,
   },
   media: {
     bp1: "(min-width: 640px)",

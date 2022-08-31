@@ -1,4 +1,4 @@
-import { styled } from "src/themes/stitches.config"
+import { styled, theme } from "src/themes/stitches.config"
 import Link from "src/ui/link"
 import Box from "src/ui/box"
 import Text from "src/ui/text"
@@ -11,28 +11,30 @@ export const ArticleLink = styled(Link, {
 })
 
 export const ArticleContainer = styled(Box, {
-  marginBottom: "$xl",
-  padding: "$md",
-  borderRadius: "$lg",
-  backgroundColor: "$ui",
+  marginBottom: theme.space.xl,
+  padding: theme.space.md,
+  borderRadius: theme.radii.lg,
+  backgroundColor: theme.colors.ui,
   "&:hover": {
-    backgroundColor: "$ui-hovered",
+    backgroundColor: theme.colors["ui-hovered"],
   },
-  boxShadow: "$low",
+  boxShadow: theme.shadows.low,
 })
 
 export const ArticleDate = styled(Text, {
-  marginBottom: "$xs",
-  color: "$text-hi-gray",
-  fontSize: "$xs",
+  marginBottom: theme.space.xs,
+  color: theme.colors["text-functional"],
+  fontSize: theme.fontSizes.xs,
 })
 
 export const ArticleTitle = styled(Heading, {
   fontWeight: 500,
-  marginBottom: "$xxs",
-  fontSize: "$2xl",
+  marginBottom: theme.space.xxs,
+  fontSize: theme.fontSizes["2xl"],
 })
 
-export const ArticleDescription = styled(Text, { marginBottom: "$xs" })
+export const ArticleDescription = styled(Text, { marginBottom: theme.space.xs })
 
-export const ArticleReadMore = styled(Text, { color: "$text-lo" })
+export const ArticleReadMore = styled(Text, {
+  color: theme.colors["text-vibrant-low"],
+})

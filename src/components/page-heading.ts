@@ -1,9 +1,9 @@
-import { styled } from "src/themes/stitches.config"
+import { styled, theme } from "src/themes/stitches.config"
 import Heading from "src/ui/heading"
 
 const PageHeading = styled(Heading, {
-  fontSize: "$2xl",
-  marginBottom: "$md",
+  fontSize: theme.fontSizes["2xl"],
+  marginBottom: theme.space.md,
 })
 
 export default PageHeading

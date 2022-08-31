@@ -14,6 +14,7 @@ export const { className: lightClassName } = createTheme("light", {
     ...brandColor,
     ...grayColor,
     brandA1: changeColorAlpha(brandColor.brand1, 0.5),
+    shadow: "210deg 25% 63%",
   },
   shadows,
 })

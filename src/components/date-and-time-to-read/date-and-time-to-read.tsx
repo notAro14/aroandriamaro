@@ -3,6 +3,7 @@ import type { FC } from "react"
 import { format } from "src/utils/date"
 import Flex from "src/ui/flex"
 import Emoji from "src/components/emoji"
+import { theme } from "src/themes/stitches.config"
 
 interface DateAndTimeToReadProps {
   date: string
@@ -20,19 +21,19 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
       align="center"
       justify="center"
       css={{
-        color: "$text-vibrant",
-        backgroundColor: "$ui",
-        padding: "$xs $xl",
-        borderRadius: "$lg",
-        fontSize: "$md",
-        boxShadow: "$low",
-        fontWeight: 100,
+        color: theme.colors["text-vibrant"],
+        backgroundColor: theme.colors.ui,
+        padding: `${theme.space.xs} ${theme.space.xl}`,
+        borderRadius: theme.radii.lg,
+        fontSize: theme.fontSizes.md,
+        boxShadow: theme.shadows.low,
+        fontWeight: theme.fontWeights.thin,
         width: "fit-content",
-        margin: "0 auto $2xl auto",
-        fontFamily: "$primary",
+        margin: `0 auto ${theme.space["2xl"]} auto`,
+        fontFamily: theme.fonts.primary,
         userSelect: "none",
         "&:hover": {
-          backgroundColor: "$ui-hovered",
+          backgroundColor: theme.colors["ui-hovered"],
         },
       }}
     >
