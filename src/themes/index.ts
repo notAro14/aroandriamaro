@@ -18,44 +18,19 @@ const brandDarkColor = computeColors(blueDark, "brand")
 const grayColor = computeColors(slate, "gray")
 const grayDarkColor = computeColors(slateDark, "gray")
 
-const semanticTokens = {
-  bg: "$brand1",
-  "bg-subtle": "$brand2",
-  ui: "$brand3",
-  "ui-hovered": "$brand4",
-  "ui-selected": "$brand5",
-  line: "$brand6",
-  border: "$brand7",
-  "border-hovered": "$brand8",
-  solid: "$brand9",
-  "solid-hovered": "$brand10",
-  "text-lo": "$brand11",
-  "text-hi": "$brand12",
-  "text-lo-gray": "$gray11",
-  "text-hi-gray": "$gray12",
-  shadow: "210deg 25% 63%",
-
-  "text-functional": "$text-hi-gray",
-  "text-functional-low": "$text-lo-gray",
-  "text-vibrant": "$text-hi",
-  "text-vibrant-low": "$text-lo",
-}
-
-export const { className: lightClassName } = createTheme("grass-theme", {
+export const { className: lightClassName } = createTheme("light", {
   colors: {
     ...brandColor,
     ...grayColor,
-    ...semanticTokens,
     "bg-transparent": changeColorAlpha(brandColor.brand1, 0.5),
   },
   shadows,
 })
 
-export const { className: darkClassName } = createTheme("grass-dark-theme", {
+export const { className: darkClassName } = createTheme("dark", {
   colors: {
     ...brandDarkColor,
     ...grayDarkColor,
-    ...semanticTokens,
     "bg-transparent": changeColorAlpha(brandDarkColor.brand1, 0.5),
   },
 })

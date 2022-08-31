@@ -4,8 +4,28 @@ import { whiteA } from "@radix-ui/colors"
 export const { styled, getCssText, theme, createTheme } = createStitches({
   theme: {
     colors: {
-      ...whiteA,
-      "text-fg-white": "$whiteA12",
+      bg: "$brand1",
+      "bg-subtle": "$brand2",
+      ui: "$brand3",
+      "ui-hovered": "$brand4",
+      "ui-selected": "$brand5",
+      line: "$brand6",
+      border: "$brand7",
+      "border-hovered": "$brand8",
+      solid: "$brand9",
+      "solid-hovered": "$brand10",
+      "text-lo": "$brand11",
+      "text-hi": "$brand12",
+      "text-lo-gray": "$gray11",
+      "text-hi-gray": "$gray12",
+      shadow: "210deg 25% 63%",
+
+      "text-functional": "$text-hi-gray",
+      "text-functional-low": "$text-lo-gray",
+      "text-vibrant": "$text-hi",
+      "text-vibrant-low": "$text-lo",
+
+      "text-fg-white": whiteA.whiteA12,
     },
     fonts: {
       sans: '"Metropolis"',
