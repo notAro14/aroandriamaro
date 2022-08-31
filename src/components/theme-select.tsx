@@ -18,16 +18,12 @@ import Select, {
   SelectScrollDownButton,
   SelectScrollUpButton,
   SelectLabel,
-  SelectSeparator,
   SelectGroup,
 } from "src/ui/select"
-import { themeValues } from "src/ui/stitches.config"
-
-const CLASSIC_THEMES = ["dark", "light", "system"]
 
 const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
   const [isEnable, enableOnce] = useEnableOnce()
-  const { theme, setTheme } = useTheme()
+  const { theme, setTheme, themes } = useTheme()
 
   useEffect(() => {
     enableOnce()
@@ -48,33 +44,19 @@ const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
         </SelectScrollUpButton>
         <SelectViewport>
           <SelectGroup>
-            <SelectLabel>Classic</SelectLabel>
-            {CLASSIC_THEMES.map((t) => (
-              <SelectItem key={t} value={t}>
-                <SelectItemIndicator>
-                  <SelectCheckIcon />
-                </SelectItemIndicator>
-                <SelectItemText>{t}</SelectItemText>
-              </SelectItem>
-            ))}
-          </SelectGroup>
-          <SelectSeparator />
-          <SelectGroup>
-            <SelectLabel>Other</SelectLabel>
-            {Object.keys(themeValues)
-              .filter((t) => CLASSIC_THEMES.includes(t) === false)
-              .map((t) => {
-                return (
-                  <Fragment key={t}>
-                    <SelectItem value={t}>
-                      <SelectItemIndicator>
-                        <SelectCheckIcon />
-                      </SelectItemIndicator>
-                      <SelectItemText>{t}</SelectItemText>
-                    </SelectItem>
-                  </Fragment>
-                )
-              })}
+            <SelectLabel>Change theme</SelectLabel>
+            {themes.map((t) => {
+              return (
+                <Fragment key={t}>
+                  <SelectItem value={t}>
+                    <SelectItemIndicator>
+                      <SelectCheckIcon />
+                    </SelectItemIndicator>
+                    <SelectItemText>{t}</SelectItemText>
+                  </SelectItem>
+                </Fragment>
+              )
+            })}
           </SelectGroup>
         </SelectViewport>
         <SelectScrollDownButton>
