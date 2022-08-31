@@ -1,6 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
-import { getCssText } from "src/ui/stitches.config"
+import { getCssText } from "src/themes/stitches.config"
 
 const FontPreload = () => {
   return (

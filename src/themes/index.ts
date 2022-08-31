@@ -6,7 +6,7 @@ import {
   slateDark as slateDarkColor,
 } from "@radix-ui/colors"
 
-import { createTheme } from "src/ui/stitches.config"
+import { createTheme } from "src/themes/stitches.config"
 import shadows from "src/themes/tokens/shadows"
 
 const semanticTokens = {

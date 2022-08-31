@@ -1,5 +1,5 @@
 import Text from "src/ui/text"
-import { styled } from "src/ui/stitches.config"
+import { styled } from "src/themes/stitches.config"
 import Link from "src/ui/link"
 
 export const FooterContainer = styled("footer", {

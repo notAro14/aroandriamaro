@@ -1,4 +1,4 @@
-import { styled } from "src/ui/stitches.config"
+import { styled } from "src/themes/stitches.config"
 
 const Pill = styled("span", {
   display: "flex",

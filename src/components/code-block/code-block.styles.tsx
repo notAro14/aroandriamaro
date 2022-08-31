@@ -1,5 +1,5 @@
 import Flex from "src/ui/flex"
-import { styled } from "src/ui/stitches.config"
+import { styled } from "src/themes/stitches.config"
 
 export const CodeBlockLanguage = styled(Flex, {
   alignSelf: "flex-start",

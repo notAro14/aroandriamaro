@@ -1,4 +1,4 @@
-import { styled } from "src/ui/stitches.config"
+import { styled } from "src/themes/stitches.config"
 
 export const NavbarContainer = styled("nav", {
   height: 75,
