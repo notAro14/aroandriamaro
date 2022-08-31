@@ -5,118 +5,11 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 import { ParsedUrlQuery } from "querystring"
 
-import { format } from "src/utils/date"
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
 import { NextPageWithLayout } from "src/types"
-
-import Flex from "src/ui/flex"
-import Heading from "src/ui/heading"
-import Link from "src/ui/link"
-import CodeBlock from "src/components/code-block"
-import Text from "src/ui/text"
-import Emoji from "src/components/emoji"
 import PageHeading from "src/components/page-heading"
-import List from "src/ui/list"
-
-const components = {
-  code: CodeBlock,
-  h1: (props: any) => (
-    <Heading
-      as="h1"
-      css={{
-        marginBottom: "$md",
-        marginTop: "$xl",
-        fontSize: "$2xl",
-      }}
-      {...props}
-    />
-  ),
-  h2: (props: any) => (
-    <Heading
-      as="h2"
-      css={{
-        marginBottom: "$md",
-        marginTop: "$xl",
-        fontSize: "$xl",
-        "@bp2": {
-          fontSize: "$2xl",
-        },
-      }}
-      {...props}
-    />
-  ),
-  h3: (props: any) => (
-    <Heading
-      as="h3"
-      css={{
-        marginBottom: "$md",
-        marginTop: "$xl",
-        fontSize: "$lg",
-        "@bp2": {
-          fontSize: "$xl",
-        },
-      }}
-      {...props}
-    />
-  ),
-  h4: (props: any) => (
-    <Heading
-      as="h4"
-      css={{
-        marginBottom: "$md",
-        marginTop: "$xl",
-        fontSize: "$lg",
-      }}
-      {...props}
-    />
-  ),
-  p: (props: any) => (
-    <Text
-      css={{
-        marginTop: "$md",
-        marginBottom: "$md",
-      }}
-      {...props}
-    />
-  ),
-  em: (props: any) => (
-    <Text
-      as="em"
-      css={{
-        color: "$text-lo",
-        fontFamily: "$primary",
-      }}
-      {...props}
-    />
-  ),
-  a: (props: any) => (
-    <Link
-      href={props.href}
-      css={{
-        color: "$text-lo",
-        fontWeight: 200,
-      }}
-      {...props}
-    />
-  ),
-  ul: (props: any) => (
-    <List
-      as="ul"
-      spacing="xs"
-      css={{
-        fontSize: "$lg",
-        fontFamily: "$primary",
-        fontWeight: 200,
-        listStyleType: "disc",
-        color: "$text-functional",
-        paddingLeft: "$md",
-        marginTop: "$md",
-        marginBottom: "$md",
-      }}
-      {...props}
-    />
-  ),
-}
+import { MARKDOWN_COMPONENTS } from "src/components/markdown-components"
+import DateAndTimeToRead from "src/components/date-and-time-to-read"
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>
@@ -160,44 +53,6 @@ const SEO: FC<SEOProps> = ({ title, description, keywords, pageUrl }) => {
   )
 }
 
-interface DateAndTimeToReadProps {
-  date: string
-  timeToRead: string
-}
-
-const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
-  date,
-  timeToRead,
-}) => {
-  return (
-    <Flex
-      as="p"
-      spacing="md"
-      align="center"
-      justify="center"
-      css={{
-        color: "$text-vibrant",
-        backgroundColor: "$ui",
-        padding: "$xs $xl",
-        borderRadius: "$lg",
-        fontSize: "$md",
-        boxShadow: "$low",
-        fontWeight: 100,
-        width: "fit-content",
-        margin: "0 auto $2xl auto",
-        fontFamily: "$primary",
-        userSelect: "none",
-        "&:hover": {
-          backgroundColor: "$ui-hovered",
-        },
-      }}
-    >
-      <Emoji symbol="📅" ariaLabel="calendar" />
-      {`${format(date, "MMMM do")}, ${format(date, "yyyy")} - ${timeToRead}`}
-    </Flex>
-  )
-}
-
 const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
   const { code, frontmatter, timeToRead } = post
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
@@ -213,7 +68,7 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
       />
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
       <PageHeading as="h1">{frontmatter.title}</PageHeading>
-      <MDXComponent components={components} />
+      <MDXComponent components={MARKDOWN_COMPONENTS} />
     </article>
   )
 }
