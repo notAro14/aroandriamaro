@@ -1,10 +1,5 @@
 import changeColorAlpha from "src/utils/change-color-alpha"
-import {
-  blue as blueColor,
-  slate as slateColor,
-  blueDark as blueDarkColor,
-  slateDark as slateDarkColor,
-} from "@radix-ui/colors"
+import { blue, slate, blueDark, slateDark } from "@radix-ui/colors"
 
 import { createTheme } from "src/themes/stitches.config"
 import shadows from "src/themes/tokens/shadows"
@@ -18,8 +13,10 @@ const computeColors = (
     return acc
   }, {} as Record<string, string>)
 
-const brandColor = computeColors(blueColor, "brand")
-const brandDarkColor = computeColors(blueDarkColor, "brand")
+const brandColor = computeColors(blue, "brand")
+const brandDarkColor = computeColors(blueDark, "brand")
+const grayColor = computeColors(slate, "gray")
+const grayDarkColor = computeColors(slateDark, "gray")
 
 const semanticTokens = {
   bg: "$brand1",
@@ -34,8 +31,8 @@ const semanticTokens = {
   "solid-hovered": "$brand10",
   "text-lo": "$brand11",
   "text-hi": "$brand12",
-  "text-lo-gray": "$slate11",
-  "text-hi-gray": "$slate12",
+  "text-lo-gray": "$gray11",
+  "text-hi-gray": "$gray12",
   shadow: "210deg 25% 63%",
 
   "text-functional": "$text-hi-gray",
@@ -47,7 +44,7 @@ const semanticTokens = {
 export const { className: lightClassName } = createTheme("grass-theme", {
   colors: {
     ...brandColor,
-    ...slateColor,
+    ...grayColor,
     ...semanticTokens,
     "bg-transparent": changeColorAlpha(brandColor.brand1, 0.5),
   },
@@ -57,7 +54,7 @@ export const { className: lightClassName } = createTheme("grass-theme", {
 export const { className: darkClassName } = createTheme("grass-dark-theme", {
   colors: {
     ...brandDarkColor,
-    ...slateDarkColor,
+    ...grayDarkColor,
     ...semanticTokens,
     "bg-transparent": changeColorAlpha(brandDarkColor.brand1, 0.5),
   },
