@@ -1,4 +1,4 @@
-const SHADOW_COLOR_KEY = "$colors$shadow"
+const SHADOW_COLOR_KEY = "var(--colors-shadow)"
 export const shadows = {
   low: `0.3px 0.5px 0.7px hsl(${SHADOW_COLOR_KEY} / 0.34),
   0.4px 0.8px 1px -1.2px hsl(${SHADOW_COLOR_KEY} / 0.34),
