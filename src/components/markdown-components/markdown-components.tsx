@@ -1,4 +1,3 @@
-import List from "src/ui/list"
 import Heading from "src/ui/heading"
 import Link from "src/ui/link"
 import CodeBlock from "src/components/code-block"
@@ -8,7 +7,6 @@ import { styled } from "src/themes/stitches.config"
 type HeadingProps = Parameters<typeof Heading>[0]
 type TextProps = Parameters<typeof Text>[0]
 type LinkProps = Parameters<typeof Link>[0]
-type ListProps = Parameters<typeof List>[0]
 
 const MDXHeading = styled(Heading, {
   marginBottom: "$md",
@@ -48,19 +46,19 @@ const MDXLink = styled(
   }
 )
 
-const MDXList = styled(
-  (props: ListProps) => <List as="ul" spacing="xs" {...props} />,
-  {
-    fontSize: "$lg",
-    fontFamily: "$primary",
-    fontWeight: 200,
-    listStyleType: "disc",
-    color: "$text-functional",
-    paddingLeft: "$md",
-    marginTop: "$md",
-    marginBottom: "$md",
-  }
-)
+const MDXList = styled("ul", {
+  display: "flex",
+  flexDirection: "column",
+  gap: "$xs",
+  fontSize: "$lg",
+  fontFamily: "$primary",
+  fontWeight: 200,
+  color: "$text-functional",
+  paddingLeft: "$md",
+  marginTop: "$md",
+  marginBottom: "$md",
+  listStyleType: "disc",
+})
 
 export const MARKDOWN_COMPONENTS = {
   code: CodeBlock,

@@ -31,6 +31,9 @@ const List = styled("ul", {
       none: {
         listStyleType: "none",
       },
+      disc: {
+        listStyleType: "disc",
+      },
     },
   },
   defaultVariants: {
