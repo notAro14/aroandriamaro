@@ -61,14 +61,12 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
           {/* umami analytics */}
-          {process.env.NODE_ENV === "production" ? (
-            <script
-              async
-              defer
-              data-website-id="adf5bced-1a27-4505-b0d1-cc6db19a4313"
-              src="https://umami-production-dae4.up.railway.app/umami.js"
-            ></script>
-          ) : null}
+          <script
+            async
+            defer
+            data-website-id="adf5bced-1a27-4505-b0d1-cc6db19a4313"
+            src="https://umami-production-dae4.up.railway.app/umami.js"
+          ></script>
         </Head>
         <body>
           <Main />
