@@ -10,15 +10,29 @@ export const ArticleLink = styled(Link, {
   color: "inherit",
 })
 
+export const ArticleReadMore = styled(Text, {
+  color: theme.colors["text-vibrant-low"],
+  display: "flex",
+  alignItems: "center",
+  gap: theme.space.xxs,
+  transition: "gap 200ms ease-in-out",
+})
+
 export const ArticleContainer = styled(Box, {
   marginBottom: theme.space.xl,
   padding: theme.space.md,
   borderRadius: theme.radii.lg,
   backgroundColor: theme.colors.ui,
+  boxShadow: theme.shadows.low,
+  transition: "all 200ms ease-in-out",
   "&:hover": {
     backgroundColor: theme.colors["ui-hovered"],
+    boxShadow: theme.shadows.medium,
+
+    [`& ${ArticleReadMore}`]: {
+      gap: theme.space.sm,
+    },
   },
-  boxShadow: theme.shadows.low,
 })
 
 export const ArticleDate = styled(Text, {
@@ -34,7 +48,3 @@ export const ArticleTitle = styled(Heading, {
 })
 
 export const ArticleDescription = styled(Text, { marginBottom: theme.space.xs })
-
-export const ArticleReadMore = styled(Text, {
-  color: theme.colors["text-vibrant-low"],
-})

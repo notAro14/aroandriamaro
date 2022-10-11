@@ -13,7 +13,7 @@ const FontPreload = () => {
       />
       <link
         rel="preload"
-        href="/fonts/metropolis/metropolis.medium.otf"
+        href="/fonts/luckiest-guy/luckiest-guy.regular.ttf"
         crossOrigin="true"
         as="font"
       />
@@ -61,12 +61,14 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
           {/* umami analytics */}
-          <script
-            async
-            defer
-            data-website-id="adf5bced-1a27-4505-b0d1-cc6db19a4313"
-            src="https://umami-production-dae4.up.railway.app/umami.js"
-          ></script>
+          {process.env.NODE_ENV === "production" ? (
+            <script
+              async
+              defer
+              data-website-id="adf5bced-1a27-4505-b0d1-cc6db19a4313"
+              src="https://umami-production-dae4.up.railway.app/umami.js"
+            ></script>
+          ) : null}
         </Head>
         <body>
           <Main />

@@ -3,11 +3,11 @@ import Heading from "src/ui/heading"
 import Link from "src/ui/link"
 import CodeBlock from "src/components/code-block"
 import Text from "src/ui/text"
-import { css } from "src/themes/stitches.config"
+import { css, theme } from "src/themes/stitches.config"
 
 export const MDXHeading = css(Heading, {
-  marginBottom: "$md",
-  marginTop: "$xl",
+  marginBottom: theme.space.xl,
+  marginTop: theme.space["2xl"],
   variants: {
     fontSize: {
       "2xl": {
@@ -24,8 +24,8 @@ export const MDXHeading = css(Heading, {
 })
 
 export const MDXParagraph = css(Text, {
-  marginTop: "$md",
-  marginBottom: "$md",
+  marginTop: theme.space.xl,
+  marginBottom: theme.space.xl,
 })
 
 export const MDXEm = css(
@@ -48,7 +48,7 @@ export const MDXLink = css(
 export const MDXList = css("ul", {
   display: "flex",
   flexDirection: "column",
-  gap: "$xs",
+  gap: theme.space.sm,
   fontSize: "$lg",
   fontFamily: "$primary",
   fontWeight: 200,
@@ -57,6 +57,9 @@ export const MDXList = css("ul", {
   marginTop: "$md",
   marginBottom: "$md",
   listStyleType: "disc",
+  "& > li": {
+    lineHeight: 1.3,
+  },
 })
 
 export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {

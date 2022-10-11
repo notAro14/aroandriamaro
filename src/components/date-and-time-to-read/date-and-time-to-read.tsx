@@ -32,8 +32,10 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
         margin: `0 auto ${theme.space["2xl"]} auto`,
         fontFamily: theme.fonts.primary,
         userSelect: "none",
+        transition: "all 200ms ease-in-out",
         "&:hover": {
           backgroundColor: theme.colors["ui-hovered"],
+          boxShadow: theme.shadows.medium,
         },
       }}
     >

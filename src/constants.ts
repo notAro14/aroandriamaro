@@ -1,9 +1,10 @@
 export const URL_TO_SPRITE = "/icons/sprite.svg"
+export const GITHUB = {
+  name: "github",
+  href: "https://github.com/notAro14",
+}
 export const SOCIAL_LINKS = [
-  {
-    name: "github",
-    href: "https://github.com/notAro14",
-  },
+  GITHUB,
   {
     name: "twitter",
     href: "https://twitter.com/notarodev",
@@ -13,4 +14,4 @@ export const SOCIAL_LINKS = [
     href: "https://www.linkedin.com/in/notaro14/",
   },
 ] as const
-export const AVATAR_URL = "https://avatars.githubusercontent.com/u/47597252?v=4"
+export const AVATAR_URL = "/images/avatar.jpeg"

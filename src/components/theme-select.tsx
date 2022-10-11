@@ -1,69 +1,45 @@
-import { useTheme } from "next-themes"
-import { useEffect, Fragment, FC } from "react"
+import { SunIcon, MoonIcon } from "@radix-ui/react-icons"
+import { FC } from "react"
 
-import useEnableOnce from "src/utils/hooks/use-enable-once"
+import useIsBrowser from "src/hooks/use-is-browser"
+import useThemeSwitcher from "src/hooks/use-theme-switcher"
+import useThemeSwitcherHotkeys from "src/hooks/use-theme-switcher-hotkeys"
+import { styled, theme } from "src/themes/stitches.config"
+import Flex from "src/ui/flex"
 
-import Select, {
-  SelectItem,
-  SelectItemText,
-  SelectItemIndicator,
-  SelectContent,
-  SelectTrigger,
-  SelectValue,
-  SelectIcon,
-  SelectCheckIcon,
-  SelectChevronDownIcon,
-  SelectChevronUpIcon,
-  SelectViewport,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  SelectLabel,
-  SelectGroup,
-} from "src/ui/select"
+const StyledButton = styled("button", {
+  border: "none",
+  backgroundColor: theme.colors.ui,
+  boxShadow: theme.shadows.low,
+  borderRadius: "50%",
+  padding: theme.space.xs,
+  transition: "all 200ms ease-in-out",
+  "&:hover": {
+    boxShadow: theme.shadows.medium,
+    cursor: "pointer",
+  },
+})
 
-const ThemeSelect: FC<{ className?: string }> = ({ className }) => {
-  const [isEnable, enableOnce] = useEnableOnce()
-  const { theme, setTheme, themes } = useTheme()
+const StyledKbd = styled("kbd", {
+  color: theme.colors["text-functional"],
+  fontFamily: theme.fonts.mono,
+  textTransform: "uppercase",
+})
 
-  useEffect(() => {
-    enableOnce()
-  }, [enableOnce])
-  if (isEnable === false) return null
+const ThemeSelect: FC = () => {
+  const key = useThemeSwitcherHotkeys()
+  const { resolvedTheme, switchTheme } = useThemeSwitcher()
+  const isBrowser = useIsBrowser()
+  if (isBrowser === false) return null
 
   return (
-    <Select onValueChange={(newValue) => setTheme(newValue)} value={theme}>
-      <SelectTrigger className={className} aria-label="Theme">
-        <SelectValue placeholder="Select a theme" />
-        <SelectIcon>
-          <SelectChevronDownIcon />
-        </SelectIcon>
-      </SelectTrigger>
-      <SelectContent>
-        <SelectScrollUpButton>
-          <SelectChevronUpIcon />
-        </SelectScrollUpButton>
-        <SelectViewport>
-          <SelectGroup>
-            <SelectLabel>Change theme</SelectLabel>
-            {themes.map((t) => {
-              return (
-                <Fragment key={t}>
-                  <SelectItem value={t}>
-                    <SelectItemIndicator>
-                      <SelectCheckIcon />
-                    </SelectItemIndicator>
-                    <SelectItemText>{t}</SelectItemText>
-                  </SelectItem>
-                </Fragment>
-              )
-            })}
-          </SelectGroup>
-        </SelectViewport>
-        <SelectScrollDownButton>
-          <SelectChevronDownIcon />
-        </SelectScrollDownButton>
-      </SelectContent>
-    </Select>
+    <Flex align="center" spacing="md">
+      <StyledKbd>{key}</StyledKbd>
+      <StyledButton aria-label="Toggle theme" onClick={switchTheme}>
+        {resolvedTheme === "light" && <SunIcon />}
+        {resolvedTheme === "dark" && <MoonIcon />}
+      </StyledButton>
+    </Flex>
   )
 }
 
