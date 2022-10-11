@@ -42,27 +42,11 @@ const getCompiledMDX = async (content: string) => {
       "esbuild"
     )
   }
-  // Add your remark and rehype plugins here
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const remarkPlugins = [] as any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const rehypePlugins = [] as any
 
   try {
-    return await bundleMDX(content, {
+    return await bundleMDX({
+      source: content,
       cwd: MDX_COMPONENTS_DIRECTORY,
-      xdmOptions(options) {
-        options.remarkPlugins = [
-          ...(options.remarkPlugins ?? []),
-          ...remarkPlugins,
-        ]
-        options.rehypePlugins = [
-          ...(options.rehypePlugins ?? []),
-          ...rehypePlugins,
-        ]
-
-        return options
-      },
     })
   } catch (error) {
     const errorMessage =

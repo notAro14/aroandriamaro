@@ -1,14 +1,11 @@
+import type { MDXContentProps } from "mdx-bundler/client"
 import Heading from "src/ui/heading"
 import Link from "src/ui/link"
 import CodeBlock from "src/components/code-block"
 import Text from "src/ui/text"
-import { styled } from "src/themes/stitches.config"
+import { css } from "src/themes/stitches.config"
 
-type HeadingProps = Parameters<typeof Heading>[0]
-type TextProps = Parameters<typeof Text>[0]
-type LinkProps = Parameters<typeof Link>[0]
-
-const MDXHeading = styled(Heading, {
+export const MDXHeading = css(Heading, {
   marginBottom: "$md",
   marginTop: "$xl",
   variants: {
@@ -26,18 +23,21 @@ const MDXHeading = styled(Heading, {
   },
 })
 
-const MDXParagraph = styled(Text, {
+export const MDXParagraph = css(Text, {
   marginTop: "$md",
   marginBottom: "$md",
 })
 
-const MDXEm = styled((props: TextProps) => <Text as="em" {...props} />, {
-  color: "$text-lo",
-  fontFamily: "$primary",
-})
+export const MDXEm = css(
+  (props: Parameters<typeof Text>[0]) => <Text as="em" {...props} />,
+  {
+    color: "$text-lo",
+    fontFamily: "$primary",
+  }
+)
 
-const MDXLink = styled(
-  (props: LinkProps) => (
+export const MDXLink = css(
+  (props: Parameters<typeof Link>[0]) => (
     <Link target="_blank" rel="noopener noreferrer" {...props} />
   ),
   {
@@ -45,8 +45,7 @@ const MDXLink = styled(
     fontWeight: 200,
   }
 )
-
-const MDXList = styled("ul", {
+export const MDXList = css("ul", {
   display: "flex",
   flexDirection: "column",
   gap: "$xs",
@@ -60,16 +59,44 @@ const MDXList = styled("ul", {
   listStyleType: "disc",
 })
 
-export const MARKDOWN_COMPONENTS = {
-  code: CodeBlock,
-  h1: (props: HeadingProps) => <MDXHeading as="h1" fontSize="2xl" {...props} />,
-  h2: (props: HeadingProps) => <MDXHeading as="h2" fontSize="xl" {...props} />,
-  h3: (props: HeadingProps) => <MDXHeading as="h3" fontSize="lg" {...props} />,
-  h4: (props: HeadingProps) => <MDXHeading as="h4" fontSize="lg" {...props} />,
-  p: MDXParagraph,
-  em: MDXEm,
-  a: MDXLink,
-  ul: MDXList,
+export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {
+  code: (props) => <CodeBlock {...props}>{props.children as string}</CodeBlock>,
+  h1: (props) => (
+    <h1
+      className={MDXHeading({
+        fontSize: "2xl",
+      })}
+      {...props}
+    />
+  ),
+  h2: (props) => (
+    <h2
+      className={MDXHeading({
+        fontSize: "xl",
+      })}
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <h3
+      className={MDXHeading({
+        fontSize: "lg",
+      })}
+      {...props}
+    />
+  ),
+  h4: (props) => (
+    <h4
+      className={MDXHeading({
+        fontSize: "lg",
+      })}
+      {...props}
+    />
+  ),
+  p: (props) => <p className={MDXParagraph()} {...props} />,
+  em: (props) => <em className={MDXEm()} {...props} />,
+  a: (props) => <a className={MDXLink()} {...props} />,
+  ul: (props) => <ul className={MDXList()} {...props} />,
 }
 
 export default MARKDOWN_COMPONENTS

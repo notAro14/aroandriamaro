@@ -4,7 +4,7 @@ import { whiteA } from "@radix-ui/colors"
 import { semanticColors } from "./tokens/semantic-colors"
 import shadows from "src/themes/tokens/shadows"
 
-export const { styled, getCssText, theme, createTheme } = createStitches({
+export const { styled, getCssText, theme, createTheme, css } = createStitches({
   theme: {
     colors: {
       ...semanticColors,
