@@ -39,14 +39,21 @@ const Footer: FC = () => {
             {new Date().getFullYear()}
           </span>
         </CopyrightContainer>
-        <HStack as="ul" spacing="lg" align="center">
+        <HStack
+          as="ul"
+          spacing="lg"
+          align="center"
+          css={{ listStyleType: "none" }}
+        >
           {SOCIAL_LINKS.map(({ name, href }) => {
             return (
-              <SocialLink aria-label={name} title={name} href={href} key={name}>
-                <Svg>
-                  <use href={`${URL_TO_SPRITE}#${name}`} />
-                </Svg>
-              </SocialLink>
+              <li key={name}>
+                <SocialLink aria-label={name} title={name} href={href}>
+                  <Svg>
+                    <use href={`${URL_TO_SPRITE}#${name}`} />
+                  </Svg>
+                </SocialLink>
+              </li>
             )
           })}
         </HStack>
