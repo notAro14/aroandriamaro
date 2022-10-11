@@ -1,13 +1,13 @@
 import { styled } from "src/themes/stitches.config"
 
 const Svg = styled("svg", {
-  fontSize: "$lg",
+  fontSize: "inherit",
   width: "1em",
   height: "1em",
   strokeLinecap: "round",
   strokeLinejoin: "round",
   strokeWidth: "1.5",
-  stroke: "$text-lo",
+  stroke: "currentColor",
   fill: "none",
 })
 

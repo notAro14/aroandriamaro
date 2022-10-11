@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useMemo, FC } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
 import { GetStaticPaths, GetStaticProps } from "next"
@@ -7,9 +6,9 @@ import { ParsedUrlQuery } from "querystring"
 
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
 import { NextPageWithLayout } from "src/types"
-import PageHeading from "src/components/page-heading"
 import { MARKDOWN_COMPONENTS } from "src/components/markdown-components"
 import DateAndTimeToRead from "src/components/date-and-time-to-read"
+import Heading from "src/ui/heading"
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>
@@ -67,7 +66,9 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
         pageUrl={pageUrl}
       />
       <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
-      <PageHeading as="h1">{frontmatter.title}</PageHeading>
+      <Heading as="h1" color="functional" size="2xl">
+        {frontmatter.title}
+      </Heading>
       <MDXComponent components={MARKDOWN_COMPONENTS} />
     </article>
   )

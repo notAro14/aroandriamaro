@@ -1,22 +1,42 @@
-import { styled } from "src/themes/stitches.config"
+import { styled, theme } from "src/themes/stitches.config"
 
 const Heading = styled("h2", {
-  lineHeight: 1,
-  fontWeight: "$medium",
-  fontFamily: "$secondary",
+  lineHeight: 1.3,
+  fontFamily: theme.fonts.secondary,
+  letterSpacing: 2,
   variants: {
     color: {
       functional: {
-        color: "$text-functional",
+        color: theme.colors["text-functional"],
       },
       "functional-low": {
-        color: "$text-functional-low",
+        color: theme.colors["text-functional-low"],
       },
       vibrant: {
-        color: "$text-vibrant",
+        color: theme.colors["text-vibrant"],
       },
       "vibrant-low": {
-        color: "$text-vibrant-low",
+        color: theme.colors["text-vibrant-low"],
+      },
+    },
+    size: {
+      md: {
+        fontSize: theme.fontSizes.md,
+      },
+      lg: {
+        fontSize: theme.fontSizes.lg,
+      },
+      xl: {
+        fontSize: theme.fontSizes.xl,
+      },
+      "2xl": {
+        fontSize: theme.fontSizes["2xl"],
+      },
+      "3xl": {
+        fontSize: theme.fontSizes["3xl"],
+      },
+      "4xl": {
+        fontSize: theme.fontSizes["4xl"],
       },
     },
   },

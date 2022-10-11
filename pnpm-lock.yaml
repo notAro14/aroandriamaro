@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@mantine/hooks': ^5.5.4
   '@radix-ui/colors': ^0.1.8
   '@radix-ui/react-avatar': ^1.0.0
   '@radix-ui/react-icons': ^1.1.1
@@ -36,6 +37,7 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
+  '@mantine/hooks': 5.5.4_react@18.2.0
   '@radix-ui/colors': 0.1.8
   '@radix-ui/react-avatar': 1.0.0_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
@@ -768,6 +770,14 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@mantine/hooks/5.5.4_react@18.2.0:
+    resolution: {integrity: sha512-4lPIcZgoMkq+GCILN8CDTVxYzsE/Gfi6ICjHhPZU1Ufmw0mftpjTQhLx3+TFMtBlqnamgBia2ZS1o2BpvTLazA==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@mdx-js/esbuild/2.1.4_esbuild@0.14.54:
     resolution: {integrity: sha512-1gT8vgW1HyidDzX+1VsPHQIQFRrjgAM1cW7wvmKPSuG7Nt7Em13damwjzufScUCUH3FoHYAe3lAyu1lsvgvrIA==}

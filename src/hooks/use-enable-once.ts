@@ -1,5 +1,7 @@
 import { useReducer } from "react"
 
-export default function useEnableOnce() {
+export function useEnableOnce() {
   return useReducer(() => true, false)
 }
+
+export default useEnableOnce

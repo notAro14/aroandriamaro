@@ -5,7 +5,10 @@ const Text = styled("p", {
   fontWeight: "$extra-light",
   fontSize: "$lg",
   fontFamily: "$primary",
-  lineHeight: 1.65,
+  lineHeight: 1.6,
+  "@bp1": {
+    lineHeight: 1.7,
+  },
 })
 
 export default Text

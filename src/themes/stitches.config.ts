@@ -8,6 +8,7 @@ export const { styled, getCssText, theme, createTheme, css } = createStitches({
   theme: {
     colors: {
       ...semanticColors,
+      ...whiteA,
 
       "text-functional": semanticColors["text-hi-gray"],
       "text-functional-low": semanticColors["text-lo-gray"],
@@ -21,7 +22,7 @@ export const { styled, getCssText, theme, createTheme, css } = createStitches({
       mono: '"Fira Code"',
 
       primary: "$sans",
-      secondary: "$sans",
+      secondary: '"Luckiest Guy"',
       tertiary: "$mono",
     },
     fontSizes: {

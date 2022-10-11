@@ -4,16 +4,14 @@ import Head from "next/head"
 import { getAllArticles } from "src/utils/mdx"
 import type { NextPageWithLayout } from "src/types"
 // components
-import PageHeading from "src/components/page-heading"
 import Text from "src/ui/text"
 import Emoji from "src/components/emoji"
 import Box from "src/ui/box"
-import Link from "src/ui/link"
-import { SOCIAL_LINKS, URL_TO_SPRITE } from "src/constants"
-import Svg from "src/ui/svg"
-import HStack from "src/ui/h-stack"
-import Pill from "src/ui/pill"
 import ListOfArticles from "src/components/list-of-articles"
+import Heading from "src/ui/heading"
+import Spacer from "src/components/spacer"
+import { theme, css } from "src/themes/stitches.config"
+import { FC, ReactNode } from "react"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
@@ -27,10 +25,10 @@ export const getStaticProps = () => {
 const SEO = () => {
   return (
     <Head>
-      <title>Aro Andriamaro</title>
+      <title>Aro&apos;s tech blog</title>
       <meta
         name="description"
-        content="Blog about tech and web developement. It focuses on React and frontend development."
+        content="Another tech blog about React and Frontend dev."
       />
       <meta
         name="keywords"
@@ -40,51 +38,39 @@ const SEO = () => {
   )
 }
 
+const StrikedText: FC<{ children: ReactNode; title?: string }> = ({
+  children,
+  title,
+}) => (
+  <Text as="span" css={{ textDecoration: "line-through" }} title={title}>
+    {children}
+  </Text>
+)
+
 const Header = () => {
   return (
-    <Box
-      as="header"
-      css={{
-        borderBottom: "1px solid",
-        borderBottomColor: "$line",
-        paddingBottom: "$lg",
-        marginBottom: "$lg",
-      }}
-    >
-      <PageHeading as="h1" color="vibrant-low">
-        Welcome, Bienvenue, Tongasoa{" "}
-        <Emoji symbol="👋🏼" ariaLabel="waving hand" />
-      </PageHeading>
-      <Text css={{ marginBottom: "$md" }}>
-        Welcome to my blog (yet another dev blog) . My name is Aro, I am a
-        Frontend Developer based in Lyon, France.
+    <Box as="header">
+      <Heading as="h1" color="functional" size="2xl">
+        <Emoji
+          className={css({ marginRight: theme.space.sm })()}
+          symbol="👋🏼"
+          ariaLabel="waving hand"
+        />
+        <span>Welcome, Bienvenue, Tongasoa</span>
+      </Heading>
+      <Spacer />
+      <Text>
+        Welcome to this <StrikedText>yet another</StrikedText> tech blog. My
+        name is Aro, I&apos;m a <StrikedText>zoomer Javascript</StrikedText>{" "}
+        Developer based in Lyon, France.
       </Text>
-      <Text css={{ marginBottom: "$md" }}>
-        This blog is my attempt to make the world a better place by sharing my
-        modest knowledge in Web development. I write mostly about Frontend dev
-        and React.
+      <Spacer />
+      <Text>
+        This blog is my attempt{" "}
+        <StrikedText>to build a personal branding</StrikedText> to make the
+        world a better place. I write mostly about{" "}
+        <StrikedText title="HAIL DAN !!!">React</StrikedText> Web Development.
       </Text>
-      <HStack as="ul" spacing="md">
-        {SOCIAL_LINKS.map(({ name, href }) => {
-          return (
-            <Pill as="li" key={name}>
-              <Svg>
-                <use href={`${URL_TO_SPRITE}#${name}`} />
-              </Svg>
-              <Link
-                href={href}
-                noUnderline
-                css={{
-                  fontSize: "$md",
-                  color: "$text-hi",
-                }}
-              >
-                {name}
-              </Link>
-            </Pill>
-          )
-        })}
-      </HStack>
     </Box>
   )
 }
@@ -97,6 +83,7 @@ const IndexPage: NextPageWithLayout<Props> = (props) => {
     <>
       <SEO />
       <Header />
+      <Spacer size="2xl" />
       <ListOfArticles articles={articles} />
     </>
   )

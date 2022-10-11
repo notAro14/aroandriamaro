@@ -1,5 +1,5 @@
 import Text from "src/ui/text"
-import { styled } from "src/themes/stitches.config"
+import { styled, theme } from "src/themes/stitches.config"
 import Link from "src/ui/link"
 
 export const FooterContainer = styled("footer", {
@@ -21,7 +21,7 @@ export const FooterMain = styled("div", {
   marginLeft: "auto",
   marginRight: "auto",
   fontWeight: 100,
-  fontSize: "$md",
+  fontSize: theme.fontSizes.md,
   "@bp2": {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -36,7 +36,12 @@ export const FooterMain = styled("div", {
   },
 })
 
-export const CopyrightContainer = styled(Text, { fontSize: "inherit" })
+export const CopyrightContainer = styled(Text, {
+  fontSize: "inherit",
+  display: "flex",
+  alignItems: "baseline",
+  gap: theme.space.xs,
+})
 export const CopyRightSymbol = styled(Text, {
   fontSize: "inherit",
   color: "$text-lo",
@@ -45,14 +50,17 @@ export const CopyRightSymbol = styled(Text, {
 export const SocialLinkContainer = styled("li", {
   color: "$text-functional",
   display: "flex",
+  alignItems: "center",
   gap: "$xs",
 })
 export const SocialLink = styled(Link, {
   textDecoration: "none",
-  fontSize: "inherit",
+  fontSize: theme.fontSizes.lg,
   color: "$text-functional",
-  fontWeight: 200,
+  textTransform: "capitalize",
+  transition: "color 150ms ease-in-out",
   "&:hover": {
     cursor: "pointer",
+    color: theme.colors["text-vibrant-low"],
   },
 })
