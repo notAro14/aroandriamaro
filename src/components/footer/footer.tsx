@@ -19,7 +19,7 @@ const Footer: FC = () => {
     <FooterContainer>
       <FooterMain>
         <CopyrightContainer>
-          <span>Made by a</span>
+          <span>Made by </span>
           <Link
             href={GITHUB.href}
             target="_blank"
@@ -32,7 +32,7 @@ const Footer: FC = () => {
               gap: theme.space.xxs,
             }}
           >
-            Zoomer <ExternalLinkIcon />
+            notAro14 <ExternalLinkIcon />
           </Link>
           <span>
             <CopyRightSymbol as="span">&copy;</CopyRightSymbol>

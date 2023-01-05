@@ -61,14 +61,13 @@ const Header = () => {
       <Spacer />
       <Text>
         Welcome to this <StrikedText>yet another</StrikedText> tech blog. My
-        name is Aro, I&apos;m a <StrikedText>zoomer Javascript</StrikedText>{" "}
-        Developer based in Lyon, France.
+        name is Aro, I&apos;m a Web Developer based in Lyon, France.
       </Text>
       <Spacer />
       <Text>
-        This blog is my attempt{" "}
-        <StrikedText>to build a personal branding</StrikedText> to make the
-        world a better place. I write mostly about{" "}
+        This blog is my attempt to{" "}
+        <StrikedText>build a personal branding</StrikedText> make the world a
+        better place. I write mostly about{" "}
         <StrikedText title="HAIL DAN !!!">React</StrikedText> Web Development.
       </Text>
     </Box>
