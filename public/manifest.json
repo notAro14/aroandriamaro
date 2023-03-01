@@ -1,0 +1,38 @@
+{
+  "name": "Aro Andriamaro's Personal Website",
+  "short_name": "Aro Andriamaro",
+  "theme_color": "#52a9ff",
+  "background_color": "#0f1720",
+  "display": "standalone",
+  "description": "Another tech blog about React and Frontend dev.",
+  "start_url": "https://www.aroandriamaro.com/",
+  "dir": "ltr",
+  "scope": "https://www.aroandriamaro.com/",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
