@@ -34,5 +34,17 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/1280x800-screenshot.png",
+      "sizes": "1280x800",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/750x1334-screenshot.png",
+      "sizes": "750x1334",
+      "type": "image/png"
+    }
   ]
 }
