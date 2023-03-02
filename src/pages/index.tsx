@@ -9,7 +9,7 @@ import Emoji from "src/components/emoji"
 import Box from "src/ui/box"
 import ListOfArticles from "src/components/list-of-articles"
 import Heading from "src/ui/heading"
-import Spacer from "src/components/spacer"
+import Spacer from "src/components/Spacer"
 import { theme, css } from "src/themes/stitches.config"
 import { FC, ReactNode } from "react"
 
