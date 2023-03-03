@@ -7,7 +7,7 @@
   "description": "Another tech blog about React and Frontend dev.",
   "start_url": "/",
   "dir": "ltr",
-  "scope": "https://www.aroandriamaro.com/",
+  "scope": "/",
   "lang": "en",
   "orientation": "any",
   "icons": [
