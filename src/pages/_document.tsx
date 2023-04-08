@@ -22,13 +22,13 @@ class MyDocument extends Document {
           <link
             rel="preload"
             href="/fonts/metropolis/metropolis.extra-light.otf"
-            crossOrigin="true"
+            crossOrigin="anonymous"
             as="font"
           />
           <link
             rel="preload"
             href="/fonts/luckiest-guy/luckiest-guy.regular.ttf"
-            crossOrigin="true"
+            crossOrigin="anonymous"
             as="font"
           />
           {/* PWA */}
