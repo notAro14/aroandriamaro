@@ -1,6 +1,6 @@
 import type { MDXContentProps } from "mdx-bundler/client"
 import Heading from "src/ui/heading"
-import Link from "src/ui/link"
+import link from "src/ui/link"
 import CodeBlock from "src/components/code-block"
 import Text from "src/ui/text"
 import { css, theme } from "src/themes/stitches.config"
@@ -36,15 +36,6 @@ export const MDXEm = css(
   }
 )
 
-export const MDXLink = css(
-  (props: Parameters<typeof Link>[0]) => (
-    <Link target="_blank" rel="noopener noreferrer" {...props} />
-  ),
-  {
-    color: "$text-lo",
-    fontWeight: 200,
-  }
-)
 export const MDXList = css("ul", {
   display: "flex",
   flexDirection: "column",
@@ -98,7 +89,20 @@ export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {
   ),
   p: (props) => <p className={MDXParagraph()} {...props} />,
   em: (props) => <em className={MDXEm()} {...props} />,
-  a: (props) => <a className={MDXLink()} {...props} />,
+  a: (props) => (
+    <a
+      className={link({
+        css: {
+          color: "$text-lo",
+          fontWeight: 200,
+        },
+      })}
+      href={props.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    />
+  ),
   ul: (props) => <ul className={MDXList()} {...props} />,
 }
 

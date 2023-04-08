@@ -1,14 +1,7 @@
 import { styled, theme } from "src/themes/stitches.config"
-import Link from "src/ui/link"
 import Box from "src/ui/box"
 import Text from "src/ui/text"
 import Heading from "src/ui/heading"
-
-export const ArticleLink = styled(Link, {
-  fontSize: "inherit",
-  textDecoration: "none",
-  color: "inherit",
-})
 
 export const ArticleReadMore = styled(Text, {
   color: theme.colors["text-vibrant-low"],

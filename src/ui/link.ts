@@ -1,6 +1,6 @@
-import { styled } from "src/themes/stitches.config"
+import { css } from "src/themes/stitches.config"
 
-const Link = styled("a", {
+const link = css("a", {
   fontWeight: 200,
   fontFamily: "$primary",
   fontSize: "$lg",
@@ -17,4 +17,4 @@ const Link = styled("a", {
   },
 })
 
-export default Link
+export default link

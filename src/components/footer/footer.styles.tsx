@@ -1,6 +1,5 @@
 import Text from "src/ui/text"
 import { styled, theme } from "src/themes/stitches.config"
-import Link from "src/ui/link"
 
 export const FooterContainer = styled("footer", {
   height: 100,
@@ -52,15 +51,4 @@ export const SocialLinkContainer = styled("li", {
   display: "flex",
   alignItems: "center",
   gap: "$xs",
-})
-export const SocialLink = styled(Link, {
-  textDecoration: "none",
-  fontSize: theme.fontSizes.lg,
-  color: "$text-functional",
-  textTransform: "capitalize",
-  transition: "color 150ms ease-in-out",
-  "&:hover": {
-    cursor: "pointer",
-    color: theme.colors["text-vibrant-low"],
-  },
 })
