@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document"
 
-import { getCssText } from "src/themes/stitches.config"
-
 class MyDocument extends Document {
   render() {
     return (
@@ -41,11 +39,6 @@ class MyDocument extends Document {
             href="/favicon-32x32.png"
           />
           <link rel="apple-touch-icon" href="/apple-icon-180.png" />
-          {/* Stitches */}
-          <style
-            id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssText() }}
-          />
         </Head>
         <body>
           <Main />

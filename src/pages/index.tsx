@@ -4,13 +4,11 @@ import Head from "next/head"
 import { getAllArticles } from "src/utils/mdx"
 import type { NextPageWithLayout } from "src/types"
 // components
-import Text from "src/ui/text"
-import Emoji from "src/components/emoji"
-import Box from "src/ui/box"
-import ListOfArticles from "src/components/list-of-articles"
-import Heading from "src/ui/heading"
-import Spacer from "src/components/Spacer"
-import { theme, css } from "src/themes/stitches.config"
+import Text from "src/component/Text"
+import Emoji from "src/component/emoji"
+import ArticleList from "src/component/ArticleList"
+import Heading from "src/component/Heading"
+import Spacer from "src/component/Spacer"
 import { FC, ReactNode } from "react"
 
 export const getStaticProps = () => {
@@ -25,7 +23,7 @@ export const getStaticProps = () => {
 const SEO = () => {
   return (
     <Head>
-      <title>Aro&apos;s tech blog</title>
+      <title>Aro Andriamaro</title>
       <meta
         name="description"
         content="Another tech blog about React and Frontend dev."
@@ -38,39 +36,33 @@ const SEO = () => {
   )
 }
 
-const StrikedText: FC<{ children: ReactNode; title?: string }> = ({
-  children,
-  title,
-}) => (
-  <Text as="span" css={{ textDecoration: "line-through" }} title={title}>
+const StrikedText: FC<{ children: ReactNode }> = ({ children }) => (
+  <Text as="span" decoration="line-through">
     {children}
   </Text>
 )
 
 const Header = () => {
   return (
-    <Box as="header">
+    <header>
       <Heading as="h1" color="functional" size="2xl">
-        <Emoji
-          className={css({ marginRight: theme.space.sm })()}
-          symbol="👋🏼"
-          ariaLabel="waving hand"
-        />
-        <span>Welcome, Bienvenue, Tongasoa</span>
+        <Emoji symbol="👋" ariaLabel="waving hand" />
+        <span> Yeahh buddyyy</span>
       </Heading>
-      <Spacer />
+      <Spacer size="lg" />
       <Text>
-        Welcome to this <StrikedText>yet another</StrikedText> tech blog. My
-        name is Aro, I&apos;m a Web Developer based in Lyon, France.
+        Welcome to <StrikedText>this yet another tech blog</StrikedText> my
+        personal website. My name is Aro, I&apos;m a Web Developer based in
+        Lyon, France.
       </Text>
       <Spacer />
       <Text>
-        This blog is my attempt to{" "}
+        This is my attempt to{" "}
         <StrikedText>build a personal branding</StrikedText> make the world a
-        better place. I write mostly about{" "}
-        <StrikedText title="HAIL DAN !!!">React</StrikedText> Web Development.
+        better place. I write mostly about <StrikedText>React</StrikedText> Web
+        Development.
       </Text>
-    </Box>
+    </header>
   )
 }
 
@@ -83,7 +75,7 @@ const IndexPage: NextPageWithLayout<Props> = (props) => {
       <SEO />
       <Header />
       <Spacer size="2xl" />
-      <ListOfArticles articles={articles} />
+      <ArticleList articles={articles} />
     </>
   )
 }

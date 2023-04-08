@@ -6,9 +6,9 @@ import { ParsedUrlQuery } from "querystring"
 
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
 import { NextPageWithLayout } from "src/types"
-import { MARKDOWN_COMPONENTS } from "src/components/markdown-components"
-import DateAndTimeToRead from "src/components/date-and-time-to-read"
-import Heading from "src/ui/heading"
+import { MARKDOWN_COMPONENTS } from "src/component/Mdx"
+import DateTimeToRead from "src/component/DateTimeToRead"
+import Heading from "src/component/Heading"
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>
@@ -65,7 +65,7 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
         keywords="javascript, typescript, react, react.js, next, next.js"
         pageUrl={pageUrl}
       />
-      <DateAndTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
+      <DateTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
       <Heading as="h1" color="functional" size="2xl">
         {frontmatter.title}
       </Heading>
