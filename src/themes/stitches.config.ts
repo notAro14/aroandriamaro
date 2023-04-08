@@ -16,6 +16,9 @@ export const { styled, getCssText, theme, createTheme, css } = createStitches({
       "text-vibrant-low": semanticColors["text-lo"],
 
       "text-fg-white": whiteA.whiteA12,
+
+      shadow: "",
+      brandA1: "",
     },
     fonts: {
       sans: '"Metropolis"',
