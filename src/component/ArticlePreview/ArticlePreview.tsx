@@ -1,8 +1,5 @@
 import { FC } from "react"
 
-import Text from "src/component/Text"
-import { flex } from "src/component/Flex/Flex.css"
-
 import { format } from "src/utils/date"
 import * as styles from "./ArticlePreview.css"
 
@@ -15,19 +12,17 @@ interface Props {
 
 const ArticlePreview: FC<Props> = ({ slug, title, description, date }) => {
   return (
-    <article className={flex({ direction: "column", gap: "sm" })}>
-      <div className={flex({ direction: "column" })}>
+    <article className={styles.container}>
+      <div className={styles.innerContainer}>
         <h2 className={styles.articleTitle}>
           <a className={styles.articleTitleLink} href={`/writing/${slug}`}>
             {" "}
             {title}
           </a>
         </h2>
-        <Text>{description}</Text>
+        <p className={styles.description}>{description}</p>
       </div>
-      <Text color="vibrant-low" as="small" size="sm">
-        {format(date, "MMMM do, yyyy")}
-      </Text>
+      <small className={styles.pubDate}>{format(date, "MMMM do, yyyy")}</small>
     </article>
   )
 }
