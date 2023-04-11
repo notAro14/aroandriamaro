@@ -59,6 +59,9 @@ const commonTokens = {
     "10xl": "640px",
     "11xl": "768px",
   },
+  ratio: {
+    widescreen: props.ratioWidescreen,
+  },
 }
 
 export const [dark, vars] = createTheme({

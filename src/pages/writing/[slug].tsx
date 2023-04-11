@@ -9,6 +9,7 @@ import { NextPageWithLayout } from "src/types"
 import { MARKDOWN_COMPONENTS } from "src/component/Mdx"
 import DateTimeToRead from "src/component/DateTimeToRead"
 import Heading from "src/component/Heading"
+import Cover from "src/component/Cover"
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>
@@ -54,6 +55,7 @@ const SEO: FC<SEOProps> = ({ title, description, keywords, pageUrl }) => {
 
 const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
   const { code, frontmatter, timeToRead } = post
+  const { coverAuthor, coverImage, coverAlt, coverUrl } = frontmatter
   const MDXComponent = useMemo(() => getMDXComponent(code), [code])
   const pageUrl = `https://aroandriamaro.com/writing/${slug}`
 
@@ -65,10 +67,18 @@ const Post: NextPageWithLayout<Props> = ({ post, slug }) => {
         keywords="javascript, typescript, react, react.js, next, next.js"
         pageUrl={pageUrl}
       />
-      <DateTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
+      {coverAuthor && coverImage && coverAlt && coverUrl && (
+        <Cover
+          src={coverImage}
+          alt={coverAlt}
+          author={coverAuthor}
+          originalUrl={coverUrl}
+        />
+      )}
       <Heading as="h1" color="functional" size="2xl">
         {frontmatter.title}
       </Heading>
+      <DateTimeToRead date={frontmatter.date} timeToRead={timeToRead.text} />
       <MDXComponent components={MARKDOWN_COMPONENTS} />
     </article>
   )

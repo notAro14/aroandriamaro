@@ -12,6 +12,7 @@ export const header = style({
   placeItems: "center",
   position: "sticky",
   top: 0,
+  zIndex: 1,
 })
 
 export const inner = style([

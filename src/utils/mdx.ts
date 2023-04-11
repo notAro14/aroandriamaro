@@ -15,6 +15,10 @@ export interface Frontmatter {
   description: string
   date: string
   emoji: string
+  coverAuthor?: string
+  coverUrl?: string
+  coverImage?: string
+  coverAlt?: string
 }
 
 export interface Article {
