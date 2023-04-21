@@ -1,4 +1,5 @@
 import { ThemeProvider } from "next-themes"
+import { Analytics } from "@vercel/analytics/react"
 
 import "src/styles/reset.css"
 
@@ -10,13 +11,16 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
     Component.getLayout ?? ((page) => <MainLayout>{page}</MainLayout>)
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      value={{ light, dark }}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeProvider>
+    <>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        value={{ light, dark }}
+      >
+        {getLayout(<Component {...pageProps} />)}
+      </ThemeProvider>
+      <Analytics />
+    </>
   )
 }
 export default MyApp
