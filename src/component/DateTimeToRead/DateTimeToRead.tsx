@@ -17,7 +17,9 @@ const DateAndTimeToRead: FC<DateAndTimeToReadProps> = ({
   return (
     <p className={styles.dateTimeToRead}>
       <Emoji symbol="📅" ariaLabel="calendar" />
-      {`${format(date, "MMMM do")}, ${format(date, "yyyy")} - ${timeToRead}`}
+      <span>
+        {`${format(date, "MMMM do")}, ${format(date, "yyyy")} - ${timeToRead}`}
+      </span>
     </p>
   )
 }

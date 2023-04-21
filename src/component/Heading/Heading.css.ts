@@ -5,6 +5,7 @@ export const heading = recipe({
   base: {
     lineHeight: 1.2,
     fontFamily: vars.fonts.heading,
+    fontWeight: vars.fontWeights.bold,
     letterSpacing: 2,
   },
   variants: {

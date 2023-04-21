@@ -5,6 +5,7 @@ export const anchor = recipe({
   base: {
     textDecoration: "none",
     fontFamily: vars.fonts.body,
+    fontWeight: vars.fontWeights["semi-bold"],
   },
   variants: {
     isExternal: {

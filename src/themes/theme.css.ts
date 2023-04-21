@@ -1,8 +1,6 @@
 import { createTheme } from "@vanilla-extract/css"
-import { blueDark, slateDark, blue, slate, whiteA } from "@radix-ui/colors"
 import props from "open-props"
 import changeAlpha from "src/utils/change-color-alpha"
-
 const shadowColor = "210deg 25% 63%"
 
 const commonTokens = {
@@ -67,30 +65,14 @@ const commonTokens = {
 export const [dark, vars] = createTheme({
   ...commonTokens,
   colors: {
-    ...whiteA,
-    bg: props.gray8,
-    "bg-transparent": changeAlpha(props.gray8, 0.5),
-    "bg-subtle": blueDark.blue2,
-    ui: blueDark.blue3,
-    "ui-hovered": blueDark.blue4,
-    "ui-selected": blueDark.blue5,
-    line: blueDark.blue6,
-    border: blueDark.blue7,
-    "border-hovered": blueDark.blue8,
-    solid: blueDark.blue9,
-    "solid-hovered": blueDark.blue10,
+    bg: props.gray9,
+    "bg-transparent": changeAlpha(props.gray9, 0.5),
 
-    "text-brand-low": blueDark.blue11,
-    "text-brand-high": blueDark.blue12,
-
-    "text-vibrant-low": blueDark.blue11,
-    "text-vibrant": blueDark.blue12,
-
-    "text-low": slateDark.slate11,
-    "text-high": slateDark.slate12,
+    "text-vibrant-low": props.yellow5,
+    "text-vibrant": props.yellow0,
 
     "text-functional-low": props.gray5,
-    "text-functional": props.gray3,
+    "text-functional": props.gray0,
   },
   shadows: {
     low: "unset",
@@ -102,30 +84,14 @@ export const [dark, vars] = createTheme({
 export const light = createTheme(vars, {
   ...commonTokens,
   colors: {
-    ...whiteA,
-    bg: props.gray0,
-    "bg-transparent": changeAlpha(props.gray0, 0.5),
-    "bg-subtle": blue.blue2,
-    ui: blue.blue3,
-    "ui-hovered": blue.blue4,
-    "ui-selected": blue.blue5,
-    line: blue.blue6,
-    border: blue.blue7,
-    "border-hovered": blue.blue8,
-    solid: blue.blue9,
-    "solid-hovered": blue.blue10,
+    bg: props.gray2,
+    "bg-transparent": changeAlpha(props.gray2, 0.5),
 
-    "text-brand-low": blue.blue11,
-    "text-brand-high": blue.blue12,
-
-    "text-vibrant-low": blue.blue11,
-    "text-vibrant": blue.blue12,
-
-    "text-low": slate.slate11,
-    "text-high": slate.slate12,
+    "text-vibrant-low": props.pink7,
+    "text-vibrant": props.pink12,
 
     "text-functional-low": props.gray7,
-    "text-functional": props.gray8,
+    "text-functional": props.gray12,
   },
   shadows: {
     low: `0.3px 0.5px 0.7px hsl(${shadowColor} / 0.34),

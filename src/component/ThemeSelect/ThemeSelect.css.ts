@@ -15,8 +15,6 @@ export const button = style([
   text({ size: "sm" }),
 ])
 
-export const kbd = style({
-  color: vars.colors["text-functional"],
-  fontFamily: vars.fonts.code,
-  textTransform: "uppercase",
+export const icon = style({
+  color: vars.colors["text-vibrant-low"],
 })
