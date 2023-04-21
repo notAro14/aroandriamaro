@@ -1,7 +1,6 @@
 import { ThemeProvider } from "next-themes"
 
 import "src/styles/reset.css"
-import "src/styles/fonts.css"
 
 import type { AppPropsWithLayout } from "src/types"
 import MainLayout from "src/component/MainLayout"

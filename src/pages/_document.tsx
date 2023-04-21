@@ -16,19 +16,6 @@ class MyDocument extends Document {
             media="(prefers-color-scheme: light)"
             content="#006adc"
           />
-          {/* Fonts */}
-          <link
-            rel="preload"
-            href="/fonts/metropolis/metropolis.extra-light.otf"
-            crossOrigin="anonymous"
-            as="font"
-          />
-          <link
-            rel="preload"
-            href="/fonts/luckiest-guy/luckiest-guy.regular.ttf"
-            crossOrigin="anonymous"
-            as="font"
-          />
           {/* PWA */}
           <link rel="manifest" href="/manifest.json" />
           {/* Favicon */}
