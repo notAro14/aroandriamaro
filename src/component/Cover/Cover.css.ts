@@ -10,7 +10,7 @@ export const imageContainer = style({
   marginBottom: vars.space["2xl"],
 })
 export const image = style({
-  borderRadius: vars.radii.lg,
+  borderRadius: vars.radii.md,
   objectFit: "cover",
 })
 export const figcaption = style([

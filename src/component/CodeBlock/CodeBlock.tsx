@@ -1,6 +1,6 @@
 import { FC } from "react"
 import Highlight, { defaultProps, Language } from "prism-react-renderer"
-import prismTheme from "prism-react-renderer/themes/vsDark"
+import prismTheme from "prism-react-renderer/themes/dracula"
 
 import Flex from "src/component/Flex"
 import * as styles from "./CodeBlock.css"
