@@ -5,7 +5,7 @@ import { text } from "src/component/Text/Text.css"
 import { flex } from "src/component/Flex/Flex.css"
 import { vars } from "src/themes/theme.css"
 
-export const articleTitle = heading({ size: "2xl" })
+export const articleTitle = heading({ size: "lg" })
 export const articleTitleLink = style([
   anchor({ color: "inherit" }),
   { fontWeight: vars.fontWeights.bold },

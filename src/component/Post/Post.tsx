@@ -34,7 +34,7 @@ export default function Post(props: Props) {
           originalUrl={cover.link}
         />
       )}
-      <Heading as="h1" color="functional" size="2xl">
+      <Heading as="h1" color="functional" size="xl">
         {title}
       </Heading>
       <DateTimeToRead date={pubDate} timeToRead={timeToRead} />

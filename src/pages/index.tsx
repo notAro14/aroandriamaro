@@ -45,7 +45,7 @@ const StrikedText: FC<{ children: ReactNode }> = ({ children }) => (
 const Header = () => {
   return (
     <header>
-      <Heading as="h1" color="functional" size="2xl">
+      <Heading as="h1" color="functional" size="xl">
         <Emoji symbol="👋" ariaLabel="waving hand" />
         <span> Yeahh buddyyy</span>
       </Heading>
