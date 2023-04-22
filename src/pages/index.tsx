@@ -5,11 +5,9 @@ import { getAllArticles } from "src/utils/mdx"
 import type { NextPageWithLayout } from "src/types"
 // components
 import Text from "src/component/Text"
-import Emoji from "src/component/emoji"
 import ArticleList from "src/component/ArticleList"
 import Heading from "src/component/Heading"
 import Spacer from "src/component/Spacer"
-import { FC, ReactNode } from "react"
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })
@@ -36,32 +34,16 @@ const SEO = () => {
   )
 }
 
-const StrikedText: FC<{ children: ReactNode }> = ({ children }) => (
-  <Text as="span" decoration="line-through">
-    {children}
-  </Text>
-)
-
 const Header = () => {
   return (
     <header>
       <Heading as="h1" color="functional" size="xl">
-        <Emoji symbol="👋" ariaLabel="waving hand" />
-        <span> Yeahh buddyyy</span>
+        Aro ANDRIAMARO
       </Heading>
+      <Text weigth="bold" color="vibrant-low" as="small" size="sm">
+        Full Stack Developer
+      </Text>
       <Spacer size="lg" />
-      <Text>
-        Welcome to <StrikedText>this yet another tech blog</StrikedText> my
-        personal website. My name is Aro, I&apos;m a Web Developer based in
-        Lyon, France.
-      </Text>
-      <Spacer />
-      <Text>
-        This is my attempt to{" "}
-        <StrikedText>build a personal branding</StrikedText> make the world a
-        better place. I write mostly about <StrikedText>React</StrikedText> Web
-        Development.
-      </Text>
     </header>
   )
 }

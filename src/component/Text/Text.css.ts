@@ -10,6 +10,9 @@ export const text = recipe({
       regular: {
         fontWeight: vars.fontWeights.regular,
       },
+      bold: {
+        fontWeight: vars.fontWeights.bold,
+      },
     },
     size: {
       inherit: {

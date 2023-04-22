@@ -12,7 +12,7 @@ const Header: FC = () => {
       <div className={styles.inner}>
         <Link href="/" className={styles.goToHome}>
           <Text family="secondary" lineHeight="1">
-            Aro Andriamaro
+            Aro&apos;s Blog
           </Text>
         </Link>
         <ThemeSelect />
