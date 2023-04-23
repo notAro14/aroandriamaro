@@ -84,8 +84,8 @@ export const [dark, vars] = createTheme({
 export const light = createTheme(vars, {
   ...commonTokens,
   colors: {
-    bg: props.gray2,
-    "bg-transparent": changeAlpha(props.gray2, 0.5),
+    bg: props.gray0,
+    "bg-transparent": changeAlpha(props.gray0, 0.5),
 
     "text-vibrant-low": props.pink7,
     "text-vibrant": props.pink12,
