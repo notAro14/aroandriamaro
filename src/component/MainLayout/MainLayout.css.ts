@@ -19,7 +19,7 @@ export const main = style({
   width: "100%",
   "@media": {
     "screen and (min-width: 500px)": {
-      width: "90ch",
+      maxWidth: "90ch",
     },
   },
 })
