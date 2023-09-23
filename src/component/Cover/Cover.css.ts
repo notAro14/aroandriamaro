@@ -4,7 +4,7 @@ import { text } from "../Text/Text.css"
 import { anchor } from "../Anchor/Anchor.css"
 
 export const imageContainer = style({
-  aspectRatio: vars.ratio.widescreen,
+  aspectRatio: "var(--ratio-widescreen)",
   display: "block",
   position: "relative",
   marginBottom: vars.space["2xl"],

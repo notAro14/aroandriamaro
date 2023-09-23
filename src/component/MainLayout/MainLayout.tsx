@@ -3,11 +3,11 @@ import { FC, ReactNode } from "react"
 import Footer from "src/component/Footer"
 import Header from "src/component/Header"
 import Spacer from "src/component/Spacer"
-import * as styles from "./MainLayout.css"
+import styles from "./MainLayout.module.scss"
 
 const MainLayout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <section className={styles.container}>
+    <section className={styles.root}>
       <Header />
       <Spacer size="lg" />
       <main className={styles.main}>{children}</main>
