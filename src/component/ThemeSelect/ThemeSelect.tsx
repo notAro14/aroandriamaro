@@ -3,7 +3,6 @@ import { FC } from "react"
 import useIsBrowser from "src/hooks/use-is-browser"
 import * as styles from "./ThemeSelect.css"
 import { useTheme } from "next-themes"
-import Emoji from "src/component/emoji"
 
 const ThemeSelect: FC = () => {
   const { theme, setTheme } = useTheme()
@@ -16,16 +15,9 @@ const ThemeSelect: FC = () => {
       value={theme}
       onChange={(evt) => setTheme(evt.target.value)}
     >
-      <option value="system">
-        <Emoji symbol="️💻" ariaLabel="System" /> System
-      </option>
-      <option value="light">
-        <Emoji symbol="☀️" ariaLabel="Sun" />
-        Light
-      </option>
-      <option value="dark">
-        <Emoji symbol="🌙" ariaLabel="Moon" /> Dark
-      </option>
+      <option value="system">System</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
     </select>
   )
 }
