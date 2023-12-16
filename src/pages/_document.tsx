@@ -6,16 +6,8 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* Theme color */}
-          <meta
-            name="theme-color"
-            media="(prefers-color-scheme: dark)"
-            content="#52a9ff"
-          />
-          <meta
-            name="theme-color"
-            media="(prefers-color-scheme: light)"
-            content="#006adc"
-          />
+          <meta name="theme-color" content="#333" />
+
           {/* PWA */}
           <link rel="manifest" href="/manifest.json" />
           {/* Favicon */}

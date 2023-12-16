@@ -1,8 +1,8 @@
 {
   "name": "Aro Andriamaro's Personal Website",
   "short_name": "AroAndriamaro",
-  "theme_color": "#52a9ff",
-  "background_color": "#0f1720",
+  "theme_color": "#333",
+  "background_color": "#333",
   "display": "standalone",
   "description": "Another tech blog about React and Frontend dev.",
   "start_url": "/",
