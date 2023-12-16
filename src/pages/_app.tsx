@@ -21,7 +21,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider attribute="class">
         <Theme accentColor={"amber"} panelBackground="translucent">
-          <Container size={"2"} p={"3"}>
+          <Container size={"2"} p={{ initial: "4", xs: "2" }}>
             <Flex direction={"column"} gap={"4"} asChild mb={"8"}>
               <header>
                 <Flex direction={"column"} gap={"1"}>
