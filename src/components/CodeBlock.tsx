@@ -2,9 +2,6 @@ import { FC } from "react"
 import Highlight, { defaultProps, Language } from "prism-react-renderer"
 import prismTheme from "prism-react-renderer/themes/dracula"
 
-import Flex from "src/components/Flex"
-import * as styles from "./CodeBlock.css"
-
 interface Props {
   children: string
   className?: string
@@ -25,18 +22,24 @@ const CodeBlock: FC<Props> = ({ children, className }) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (
-          <Flex direction="column">
-            <span className={styles.language}>{language}</span>
-            <pre className={styles.pre + " " + className} style={{ ...style }}>
-              {tokens.map((line, i) => (
-                <div key={i} {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ token, key })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
-          </Flex>
+          <pre
+            className={className}
+            style={{
+              ...style,
+              padding: "var(--space-4)",
+              borderRadius: "var(--radius-4)",
+              overflow: "auto",
+              margin: "var(--space-4) 0",
+            }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
         )
       }}
     </Highlight>
