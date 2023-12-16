@@ -1,7 +1,7 @@
 import type { MDXContentProps } from "mdx-bundler/client"
-import CodeBlock from "src/component/CodeBlock"
+import CodeBlock from "src/components/CodeBlock"
 import * as styles from "./Mdx.css"
-import Anchor from "src/component/Anchor"
+import Anchor from "src/components/Anchor"
 
 export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {
   code: (props) =>

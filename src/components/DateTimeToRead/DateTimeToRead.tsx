@@ -1,6 +1,6 @@
 import type { FC } from "react"
 
-import Emoji from "src/component/emoji"
+import Emoji from "src/components/emoji"
 
 import { format } from "src/utils/date"
 import * as styles from "./DateTimeToRead.css"

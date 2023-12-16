@@ -3,7 +3,7 @@ import Head from "next/head"
 
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
 import { NextPageWithLayout } from "src/types"
-import Post from "src/component/Post"
+import Post from "src/components/Post"
 
 interface Props {
   post: Awaited<ReturnType<typeof getSingleArticle>>

@@ -1,9 +1,9 @@
 import { useMemo } from "react"
 import { getMDXComponent } from "mdx-bundler/client"
-import Cover from "src/component/Cover"
-import DateTimeToRead from "src/component/DateTimeToRead"
-import Heading from "src/component/Heading"
-import { MARKDOWN_COMPONENTS } from "src/component/Mdx"
+import Cover from "src/components/Cover"
+import DateTimeToRead from "src/components/DateTimeToRead"
+import Heading from "src/components/Heading"
+import { MARKDOWN_COMPONENTS } from "src/components/Mdx"
 
 interface Props {
   mdxString: string

@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from "src/themes/theme.css"
 
-import { flex } from "src/component/Flex/Flex.css"
-import { text } from "src/component/Text/Text.css"
+import { flex } from "src/components/Flex/Flex.css"
+import { text } from "src/components/Text/Text.css"
 
 const base = style({
   marginBottom: vars.space.md,

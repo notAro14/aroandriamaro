@@ -1,8 +1,8 @@
 import { style } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { vars } from "src/themes/theme.css"
-import { heading } from "src/component/Heading/Heading.css"
-import { text } from "src/component/Text/Text.css"
+import { heading } from "src/components/Heading/Heading.css"
+import { text } from "src/components/Text/Text.css"
 
 const headingBase = style({
   marginTop: vars.space.lg,

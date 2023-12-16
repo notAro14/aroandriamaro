@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css"
 import { vars } from "src/themes/theme.css"
-import { flex } from "src/component/Flex/Flex.css"
+import { flex } from "src/components/Flex/Flex.css"
 
 export const language = style([
   flex(),
