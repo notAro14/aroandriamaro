@@ -22,7 +22,7 @@ export default function Page(
           content="Javascript, Typescript, React, Next, CSS, Frameworks"
         />
       </Head>
-      <Flex direction={"column"} gap={"6"}>
+      <Flex direction={"column"} gap={"8"}>
         {articles.map(
           ({
             frontmatter: {
