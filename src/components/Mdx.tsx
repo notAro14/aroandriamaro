@@ -7,12 +7,36 @@ export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {
     typeof props.children === "string" ? (
       <CodeBlock {...props}>{props.children}</CodeBlock>
     ) : null,
-  h1: ({ children }) => <Heading as="h1">{children}</Heading>,
-  h2: ({ children }) => <Heading as="h2">{children}</Heading>,
-  h3: ({ children }) => <Heading as="h3">{children}</Heading>,
-  h4: ({ children }) => <Heading as="h4">{children}</Heading>,
-  h5: ({ children }) => <Heading as="h5">{children}</Heading>,
-  h6: ({ children }) => <Heading as="h6">{children}</Heading>,
+  h1: ({ children }) => (
+    <Heading my={"6"} size={"8"} as="h1">
+      {children}
+    </Heading>
+  ),
+  h2: ({ children }) => (
+    <Heading my={"6"} size={"7"} as="h2">
+      {children}
+    </Heading>
+  ),
+  h3: ({ children }) => (
+    <Heading my={"6"} size={"7"} as="h3">
+      {children}
+    </Heading>
+  ),
+  h4: ({ children }) => (
+    <Heading my={"6"} size={"6"} as="h4">
+      {children}
+    </Heading>
+  ),
+  h5: ({ children }) => (
+    <Heading my={"6"} size={"6"} as="h5">
+      {children}
+    </Heading>
+  ),
+  h6: ({ children }) => (
+    <Heading my={"6"} size={"6"} as="h6">
+      {children}
+    </Heading>
+  ),
   p: ({ children }) => (
     <Text my={"4"} as="p">
       {children}
