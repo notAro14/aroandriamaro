@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import Head from "next/head"
 
 import { getAllArticles, getSingleArticle } from "src/utils/mdx"
-import { NextPageWithLayout } from "src/types"
 import Post from "src/components/Post"
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
   slug: string
 }
 
-const Page: NextPageWithLayout<Props> = ({ post, slug }) => {
+export default function Page({ post, slug }: Props) {
   const { code, frontmatter, timeToRead } = post
   const { coverAuthor, coverImage, coverAlt, coverUrl, title, description } =
     frontmatter
@@ -62,7 +61,6 @@ const Page: NextPageWithLayout<Props> = ({ post, slug }) => {
     </>
   )
 }
-export default Page
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug = context.params?.slug

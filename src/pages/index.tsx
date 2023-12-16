@@ -3,12 +3,11 @@ import Head from "next/head"
 import { Flex } from "@radix-ui/themes"
 
 import { getAllArticles } from "src/utils/mdx"
-import type { NextPageWithLayout } from "src/types"
 import ArticlePreview from "src/components/ArticlePreview"
 
-const IndexPage: NextPageWithLayout<
-  InferGetStaticPropsType<typeof getStaticProps>
-> = (props) => {
+export default function Page(
+  props: InferGetStaticPropsType<typeof getStaticProps>
+) {
   const { articles } = props
   return (
     <>
@@ -62,8 +61,6 @@ const IndexPage: NextPageWithLayout<
     </>
   )
 }
-
-export default IndexPage
 
 export const getStaticProps = () => {
   const articles = getAllArticles({ sorted: true })

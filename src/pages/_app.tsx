@@ -1,11 +1,10 @@
 import { ThemeProvider } from "next-themes"
 import { Analytics } from "@vercel/analytics/react"
 import NextLink from "next/link"
+import { AppProps } from "next/app"
 
 import "@radix-ui/themes/styles.css"
-import "src/themes/theme.scss"
 
-import type { AppPropsWithLayout } from "src/types"
 import {
   Container,
   Heading,
@@ -17,7 +16,7 @@ import {
 } from "@radix-ui/themes"
 import { Github, Linkedin } from "lucide-react"
 
-export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider attribute="class">
