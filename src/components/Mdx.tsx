@@ -45,13 +45,13 @@ export const MARKDOWN_COMPONENTS: MDXContentProps["components"] = {
   em: ({ children }) => <Em>{children}</Em>,
   b: ({ children }) => <Strong>{children}</Strong>,
   kbd: ({ children }) => <Kbd>{children}</Kbd>,
-  // li: ({ children }) => {
-  //   return (
-  //     <li>
-  //       <Text size={"4"}>{children}</Text>
-  //     </li>
-  //   )
-  // },
+  li: ({ children }) => {
+    return (
+      <li>
+        <Text size={"4"}>{children}</Text>
+      </li>
+    )
+  },
   a: ({ children, href }) => (
     <Link href={href} target="_blank" rel="noreferrer">
       {children}
