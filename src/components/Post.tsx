@@ -53,7 +53,7 @@ export default function Post(props: Props) {
             </Inset>
           )}
           <Flex direction={"column"} gap={"2"}>
-            <Heading size={{ initial: "6", xs: "8" }}>{title}</Heading>
+            <Heading size={"9"}>{title}</Heading>
             <Flex gap={"2"} align={"center"}>
               <Text size={"1"}>{`${format(date, "MMMM do")}, ${format(
                 date,

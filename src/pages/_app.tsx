@@ -21,10 +21,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <>
       <ThemeProvider attribute="class">
         <Theme accentColor={"amber"} panelBackground="translucent">
-          <Container size={"2"} p={{ initial: "4", xs: "2" }}>
+          <Container p={{ initial: "4", xs: "2" }}>
             <Flex direction={"column"} gap={"4"} asChild mb={"8"}>
               <header>
-                <Flex direction={"column"} gap={"1"}>
+                <Flex align={"start"} direction={"column"} gap={"1"}>
                   <Heading size={"8"}>
                     <Link asChild>
                       <NextLink href={"/"}>Aro Andriamaro</NextLink>
