@@ -1,22 +1,11 @@
 ---
-import Social from "./Social.astro";
+
 ---
 
-<style>
-  footer {
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-  }
-  .footer-inner {
-    display: flex;
-    gap: 1rem;
-  }
-</style>
-
-<footer>
-  <div class="footer-inner">
-    <Social platform="github" username="notAro14" />
-    <Social platform="linkedin" username="in/aroandria" />
+<footer class="grid place-items-center h-20">
+  <div class="flex gap-4">
+    <a href="https://www.github.com/notAro14">Github</a>
+    <a href="https://www.linkedin.com/in/aroandria">Linkedin</a>
+    <a href="/rss.xml">RSS</a>
   </div>
 </footer>
