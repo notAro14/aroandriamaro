@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import { isAfter, isBefore } from "date-fns";
+import BaseLayout from "../layouts/BaseLayout.astro";
+const allPosts = await getCollection("posts");
+---
+
+<BaseLayout pageTitle="Aro Andriamaro | Blog">
+  <h1>All posts</h1>
+  {
+    [...allPosts]
+      .sort((a, b) => {
+        if (isAfter(new Date(a.data.pubDate), new Date(b.data.pubDate)))
+          return -1;
+        if (isBefore(new Date(a.data.pubDate), new Date(b.data.pubDate)))
+          return 1;
+        return 0;
+      })
+      .map((post) => (
+        <li>
+          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+  }
+</BaseLayout>

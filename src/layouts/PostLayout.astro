@@ -1,0 +1,27 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+  <article>
+    <img
+      class="max-w-full mx-auto rounded-lg my-6"
+      src={frontmatter.image.url}
+      alt={frontmatter.image.alt}
+    />
+    <p>🗓️ {frontmatter.pubDate.toString().slice(0, 10)}</p>
+
+    <ul class="flex flex-wrap gap-2 not-prose">
+      {
+        frontmatter.tags.map((tag) => (
+          <p class="badge badge-primary">
+            <a href={`/tags/${tag}`}>{tag}</a>
+          </p>
+        ))
+      }
+    </ul>
+
+    <slot />
+  </article>
+</BaseLayout>

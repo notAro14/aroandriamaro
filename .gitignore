@@ -1,52 +1,21 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# build output
+dist/
+# generated types
+.astro/
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+node_modules/
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-# vercel
-.vercel
-
-# eslint
-.eslintcache
-
+# environment variables
 .env
-.env.local
+.env.production
 
-*.tsbuildinfo
-
-.vscode
-
-# next-pwa
-# service workers
-**/public/workbox-*.js
-**/public/workbox-*.js.map
-**/public/sw.js
-**/public/sw.js.map
-**/public/fallback-*.js
+# macOS-specific files
+.DS_Store
