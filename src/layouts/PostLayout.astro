@@ -1,4 +1,5 @@
 ---
+import { format } from "date-fns";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -10,7 +11,7 @@ const { frontmatter } = Astro.props;
       src={frontmatter.image.url}
       alt={frontmatter.image.alt}
     />
-    <p>🗓️ {frontmatter.pubDate.toString().slice(0, 10)}</p>
+    <p>🗓️ {format(new Date(frontmatter.pubDate), "MMM do, yyyy")}</p>
 
     <ul class="flex flex-wrap gap-2 not-prose">
       {
