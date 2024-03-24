@@ -11,16 +11,16 @@ export default defineConfig({
   integrations: [
     preact(),
     expressiveCode({
-      themes: ["github-dark-dimmed", "github-light"],
+      themes: ["material-theme", "material-theme-lighter"],
       plugins: [pluginLineNumbers()],
       defaultProps: {
         showLineNumbers: false,
       },
-      styleOverrides: {
-        frames: {
-          frameBoxShadowCssValue: "unset",
-        },
-      },
+      // styleOverrides: {
+      //   frames: {
+      //     frameBoxShadowCssValue: "unset",
+      //   },
+      // },
     }),
     tailwind(),
   ],
