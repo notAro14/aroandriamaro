@@ -21,6 +21,9 @@ const allPosts = await getCollection("posts");
         .map((post) => (
           <div class="card card-bordered shadow-sm card-compact">
             <div class="card-body">
+              <small>
+                🗓️ {format(new Date(post.data.pubDate), "MMM do, yyyy")}
+              </small>
               <h2 class="card-title">
                 <a href={`/posts/${post.slug}`}>{post.data.title}</a>
               </h2>
