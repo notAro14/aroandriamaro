@@ -11,7 +11,7 @@ export default defineConfig({
   integrations: [
     preact(),
     expressiveCode({
-      themes: ["material-theme", "material-theme-lighter"],
+      themes: ["nord"],
       plugins: [pluginLineNumbers()],
       defaultProps: {
         showLineNumbers: false,
