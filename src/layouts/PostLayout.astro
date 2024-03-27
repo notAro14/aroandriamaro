@@ -6,14 +6,19 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout pageTitle={frontmatter.title}>
   <article>
-    <img
-      class="max-w-full mx-auto rounded-lg my-6"
-      src={frontmatter.image.url}
-      alt={frontmatter.image.alt}
-    />
-    <p>🗓️ {format(new Date(frontmatter.pubDate), "MMM do, yyyy")}</p>
-
-    <ul class="flex flex-wrap gap-2 not-prose">
+    <figure class="flex flex-col items-center">
+      <img
+        class="max-w-full mx-auto rounded-lg my-6"
+        src={frontmatter.image.url}
+        alt={frontmatter.image.alt}
+      />
+      <figcaption class="-mt-2">
+        {frontmatter.image.caption ?? "Generated with AI"}
+      </figcaption>
+    </figure>
+    <small>🗓️ {format(new Date(frontmatter.pubDate), "MMM do, yyyy")}</small>
+    <h1>{frontmatter.title}</h1>
+    <ul class="flex flex-wrap gap-2 not-prose -mt-4">
       {
         frontmatter.tags.map((tag) => (
           <p class="badge badge-primary">
@@ -22,7 +27,6 @@ const { frontmatter } = Astro.props;
         ))
       }
     </ul>
-
     <slot />
   </article>
 </BaseLayout>
