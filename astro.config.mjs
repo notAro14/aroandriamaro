@@ -11,16 +11,16 @@ export default defineConfig({
   integrations: [
     preact(),
     expressiveCode({
-      themes: ["nord"],
+      themes: ["dracula"],
       plugins: [pluginLineNumbers()],
       defaultProps: {
         showLineNumbers: false,
       },
-      // styleOverrides: {
-      //   frames: {
-      //     frameBoxShadowCssValue: "unset",
-      //   },
-      // },
+      styleOverrides: {
+        frames: {
+          frameBoxShadowCssValue: "unset",
+        },
+      },
     }),
     tailwind(),
   ],

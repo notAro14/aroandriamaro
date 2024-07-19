@@ -3,19 +3,13 @@ import { format } from "date-fns";
 const { post } = Astro.props;
 ---
 
-<div class="card card-bordered shadow-sm card-compact">
-  <div class="card-body">
-    <small>
-      🗓️ {format(new Date(post.data.pubDate), "MMM do, yyyy")}
-    </small>
-    <h2 class="card-title">
-      <a href={`/posts/${post.slug}`}>{post.data.title}</a>
-    </h2>
-    <p>{post.data.description}</p>
-    <div class="card-actions justify-end">
-      <a class="btn btn-link btn-sm" href={`/posts/${post.slug}`}>
-        Read more
-      </a>
-    </div>
-  </div>
-</div>
+<article class="flex flex-col sm:flex-row sm:gap-4">
+  <time datetime={post.data.pubDate}>
+    {format(new Date(post.data.pubDate), "dd MMM, yyyy")}
+  </time>
+  <h2>
+    <a class="link link-primary" href={`/posts/${post.slug}`}
+      >{post.data.title}</a
+    >
+  </h2>
+</article>

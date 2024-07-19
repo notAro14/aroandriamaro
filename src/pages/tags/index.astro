@@ -11,8 +11,8 @@ const pageTitle = "Aro Andriamaro | All tags";
   <ul class="flex flex-wrap gap-2 not-prose">
     {
       tags.map((tag) => (
-        <li class="badge badge-primary">
-          <a href={`/tags/${tag}`}>{tag}</a>
+        <li class="badge badge-primary badge-outline">
+          <a href={`/tags/${tag}`}>#{tag}</a>
         </li>
       ))
     }

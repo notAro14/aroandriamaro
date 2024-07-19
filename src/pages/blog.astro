@@ -8,8 +8,8 @@ const allPosts = await getCollection("posts");
 ---
 
 <BaseLayout pageTitle="Aro Andriamaro | Blog">
-  <h1>All posts</h1>
-  <div class="flex flex-col not-prose gap-6">
+  <h1>Blog</h1>
+  <div class="flex flex-col not-prose gap-4">
     {
       [...allPosts]
         .sort((a, b) => {

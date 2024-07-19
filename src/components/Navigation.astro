@@ -2,30 +2,37 @@
 
 ---
 
-<div class="navbar not-prose mb-4">
-  <div class="flex-1 flex gap-4 items-center">
-    <a href="/">
-      <div class="avatar">
-        <div
-          class="rounded-full w-8 ring ring-primary ring-offset-base-100 ring-offset-2"
-        >
-          <img src="/avatar.png" />
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="flex-none">
-    <ul class="menu menu-horizontal not-prose">
-      <li>
-        <a href="/blog/">Blog</a>
-      </li>
+<style>
+  .aro {
+    color: var(--tw-prose-headings);
+    font-weight: 800;
+    font-size: 2.25em;
+    line-height: 1.1;
+    margin: 0;
+  }
+</style>
 
-      <li>
-        <a href="/tags/">Tags</a>
-      </li>
-      <!-- <li>
-        <a href="/about/">About</a>
-      </li> -->
-    </ul>
+<div class="flex gap-6 items-center">
+  <div class="not-prose flex gap-4 items-center">
+    <div class="avatar">
+      <div
+        class="rounded-full w-8 ring ring-primary ring-offset-base-100 ring-offset-2"
+      >
+        <img src="/avatar.png" />
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col">
+    <p class="aro">Aro Andriamaro</p>
+    <small>Software Developer</small>
   </div>
 </div>
+
+<nav class="py-4 not-prose gap-4 flex">
+  <a class="link link-primary link-hover" href="/">Home</a>
+  <a class="link link-primary link-hover" href="/blog/">Blog</a>
+  <a class="link link-primary link-hover" href="/tags/">Tags</a>
+  <!--
+        <a href="/about/">About</a>
+      -->
+</nav>
