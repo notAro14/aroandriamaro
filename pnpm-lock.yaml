@@ -23,6 +23,9 @@ importers:
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.35.3
         version: 0.35.3
+      '@vercel/speed-insights':
+        specifier: ^1.1.0
+        version: 1.1.0
       astro:
         specifier: ^4.12.1
         version: 4.12.1(@types/node@20.14.11)(typescript@5.5.3)
@@ -47,7 +50,7 @@ importers:
         version: 20.14.11
       daisyui:
         specifier: ^4.12.10
-        version: 4.12.10(postcss@8.4.38)
+        version: 4.12.10(postcss@8.4.39)
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
@@ -727,6 +730,29 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@vercel/speed-insights@1.1.0':
+    resolution: {integrity: sha512-rAXxuhhO4mlRGC9noa5F7HLMtGg8YF1zAN6Pjd1Ny4pII4cerhtwSG4vympbCl+pWkH7nBS9kVXRD4FAn54dlg==}
+    peerDependencies:
+      '@sveltejs/kit': ^1 || ^2
+      next: '>= 13'
+      react: ^18 || ^19 || ^19.0.0-rc
+      svelte: '>= 4'
+      vue: ^3
+      vue-router: ^4
+    peerDependenciesMeta:
+      '@sveltejs/kit':
+        optional: true
+      next:
+        optional: true
+      react:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
+      vue-router:
+        optional: true
 
   '@volar/kit@2.4.0-alpha.16':
     resolution: {integrity: sha512-jRPfMrxl8N53UkFINMoY777FBqG49RUqWkJt4yOlNEW8CmUS8fmUw4cz/jMv08KnQUyD3IeZWFtt3XZcQqe4Zw==}
@@ -3034,6 +3060,8 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
+  '@vercel/speed-insights@1.1.0': {}
+
   '@volar/kit@2.4.0-alpha.16(typescript@5.5.3)':
     dependencies:
       '@volar/language-service': 2.4.0-alpha.16
@@ -3389,12 +3417,12 @@ snapshots:
 
   culori@3.3.0: {}
 
-  daisyui@4.12.10(postcss@8.4.38):
+  daisyui@4.12.10(postcss@8.4.39):
     dependencies:
       css-selector-tokenizer: 0.8.0
       culori: 3.3.0
       picocolors: 1.0.1
-      postcss-js: 4.0.1(postcss@8.4.38)
+      postcss-js: 4.0.1(postcss@8.4.39)
     transitivePeerDependencies:
       - postcss
 
@@ -4387,11 +4415,6 @@ snapshots:
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.8
-
-  postcss-js@4.0.1(postcss@8.4.38):
-    dependencies:
-      camelcase-css: 2.0.1
-      postcss: 8.4.38
 
   postcss-js@4.0.1(postcss@8.4.39):
     dependencies:
