@@ -4,7 +4,7 @@ description: Je viens de finir Cairn, un jeu d'escalade français. Je vais l'ann
 author: Aro Andriamaro
 pubDate: 2026-03-15
 image:
-  url: /covers/cairn.webp
+  url: ../../assets/covers/cairn.webp
   alt: Aava fait une petite pause assise sur une falaise faisant face aux montages enneigées
   caption: Capture prise avec le mode photo
 tags: ["jeux"]

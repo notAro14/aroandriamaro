@@ -4,7 +4,7 @@ description: We are in May 2024, I just want to setup a simple Node project. But
 pubDate: 2024-05-07
 author: Aro Andriamaro
 image:
-  url: /covers/main.webp
+  url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
 tags: ["node", "typescript", "starter"]
 ---

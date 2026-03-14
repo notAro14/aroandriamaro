@@ -4,7 +4,7 @@ description: How to apply the SLA principle to improve React component code
 pubDate: 2022-04-16
 author: Aro Andriamaro
 image:
-  url: /covers/main.webp
+  url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
 tags: ["react", "clean code"]
 ---

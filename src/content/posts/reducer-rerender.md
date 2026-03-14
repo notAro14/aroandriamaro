@@ -4,7 +4,7 @@ description: Component re-rendering is not a problem per se, but we can easily a
 pubDate: 2022-04-09
 author: Aro Andriamaro
 image:
-  url: /covers/main.webp
+  url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
 tags: ["react", "rerender"]
 ---

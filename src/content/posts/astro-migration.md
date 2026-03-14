@@ -4,7 +4,7 @@ description: Migration of a Next SSG site to Astro
 author: Aro Andriamaro
 pubDate: 2024-03-27
 image:
-  url: /covers/astro.webp
+  url: ../../assets/covers/astro.webp
   alt: Astro static site generation
 tags: ["next.js", "astro", "SSG"]
 ---

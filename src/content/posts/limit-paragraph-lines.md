@@ -4,7 +4,7 @@ pubDate: 2022-04-23
 description: Truncate and limit long paragraph with this component
 author: "Aro Andriamaro"
 image:
-  url: "/covers/main.webp"
+  url: ../../assets/covers/main.webp
   alt: "Desk with computer desktop"
 tags: ["react", "css", "code snippet", "clamp"]
 ---

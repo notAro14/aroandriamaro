@@ -1,5 +1,6 @@
 ---
 import { format } from "date-fns";
+import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
@@ -12,7 +13,7 @@ const { frontmatter } = Astro.props;
     <h1>{frontmatter.title}</h1>
 
     <figure class="flex flex-col items-center">
-      <img
+      <Image
         class="max-w-full mx-auto rounded-lg my-6"
         src={frontmatter.image.url}
         alt={frontmatter.image.alt}

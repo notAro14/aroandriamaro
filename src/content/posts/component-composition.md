@@ -4,7 +4,7 @@ description: How to use composition in React
 pubDate: 2021-10-01
 author: Aro Andriamaro
 image:
-  url: /covers/main.webp
+  url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
 tags: ["react", "composition"]
 ---
