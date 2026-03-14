@@ -8,6 +8,7 @@ image:
   alt: Aava fait une petite pause assise sur une falaise faisant face aux montages enneigées
   caption: Capture prise avec le mode photo
 tags: ["jeux"]
+lang: fr
 ---
 
 Je viens de finir Cairn, un jeu d'escalade français. Je vais l'annoncer d'entrée de jeu : c'est mon deuxième meilleur jeu de tous les temps, après Outer Wilds. Rien que ça.

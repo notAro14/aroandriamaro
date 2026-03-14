@@ -14,6 +14,7 @@ const postsCollection = defineCollection({
       caption: z.string().optional(),
     }),
     tags: z.array(z.string()),
+    lang: z.string().optional(),
   }),
 });
 // Export a single `collections` object to register your collection(s)
