@@ -3,8 +3,9 @@ title: Single Level of Abstraction applied to React code
 description: How to apply the SLA principle to improve React component code
 pubDate: 2022-04-16
 image:
-  url: ../../assets/covers/main.webp
+  url: ../../assets/covers/react.jpg
   alt: Desk with computer desktop
+  caption: 'Photo by <a href="https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lautaro Andreani</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-UYsBCu9RP3Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 lang: en
 tags: ["react", "clean code"]
 ---

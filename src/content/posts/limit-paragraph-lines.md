@@ -3,8 +3,9 @@ title: Code snippet - limit paragraph lines
 pubDate: 2022-04-23
 description: Truncate and limit long paragraph with this component
 image:
-  url: ../../assets/covers/main.webp
+  url: ../../assets/covers/react.jpg
   alt: "Desk with computer desktop"
+  caption: 'Photo by <a href="https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lautaro Andreani</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-UYsBCu9RP3Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 lang: en
 tags: ["react", "css", "code snippet", "clamp"]
 ---

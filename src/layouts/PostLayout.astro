@@ -27,7 +27,7 @@ const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
       class="max-w-full mx-auto mt-6"
       src={frontmatter.image.url}
       alt={frontmatter.image.alt}
-      caption={frontmatter.image.caption ?? ""}
+      caption={frontmatter.image.caption ?? frontmatter.image.alt}
       loading="eager"
     />
 

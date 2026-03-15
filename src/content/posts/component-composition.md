@@ -3,8 +3,9 @@ title: Component composition in React
 description: How to use composition in React
 pubDate: 2021-10-01
 image:
-  url: ../../assets/covers/main.webp
+  url: ../../assets/covers/react.jpg
   alt: Desk with computer desktop
+  caption: 'Photo by <a href="https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lautaro Andreani</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-UYsBCu9RP3Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 lang: en
 tags: ["react", "composition"]
 ---

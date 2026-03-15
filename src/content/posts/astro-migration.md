@@ -3,8 +3,9 @@ title: So I migrated my blog from Next to Astro
 description: Migration of a Next SSG site to Astro
 pubDate: 2024-03-27
 image:
-  url: ../../assets/covers/astro.webp
+  url: ../../assets/covers/react.jpg
   alt: Astro static site generation
+  caption: 'Photo by <a href="https://unsplash.com/@lautaroandreani?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Lautaro Andreani</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-logo-on-it-UYsBCu9RP3Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 lang: en
 tags: ["next.js", "astro", "SSG"]
 ---

@@ -3,8 +3,9 @@ title: Setup a simple Node Typescript Project in 5 minutes - 2024 edition
 description: We are in May 2024, I just want to setup a simple Node project. But it’s so freaking hard. I tried every blog post in google’s first page results. None are working, at least as I want it.
 pubDate: 2024-05-07
 image:
-  url: ../../assets/covers/main.webp
+  url: ../../assets/covers/javascript.jpg
   alt: Desk with computer desktop
+  caption: 'Photo by <a href="https://unsplash.com/@growtika?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Growtika</a> on <a href="https://unsplash.com/photos/graphical-user-interface-qaedPly-Uro?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>'
 lang: en
 tags: ["node", "typescript", "starter"]
 ---
