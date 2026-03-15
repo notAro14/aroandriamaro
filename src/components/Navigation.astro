@@ -1,5 +1,6 @@
 ---
-
+import { Image } from 'astro:assets';
+import avatar from '../assets/avatar.png';
 ---
 
 <style>
@@ -18,7 +19,7 @@
       <div
         class="rounded-full w-8 ring ring-primary ring-offset-base-100 ring-offset-2"
       >
-        <img src="/avatar.png" alt="Aro Andriamaro avatar" />
+        <Image src={avatar} alt="Aro Andriamaro avatar" loading="eager" />
       </div>
     </div>
   </div>

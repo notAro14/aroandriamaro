@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import AppImage from "../components/AppImage.astro";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
 const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
@@ -23,16 +23,13 @@ const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
     >
     <h1>{frontmatter.title}</h1>
 
-    <figure class="flex flex-col items-center">
-      <Image
-        class="max-w-full mx-auto rounded-lg mt-6"
-        src={frontmatter.image.url}
-        alt={frontmatter.image.alt}
-      />
-      <figcaption class="self-end">
-        {frontmatter.image.caption ?? "Generated with AI"}
-      </figcaption>
-    </figure>
+    <AppImage
+      class="max-w-full mx-auto mt-6"
+      src={frontmatter.image.url}
+      alt={frontmatter.image.alt}
+      caption={frontmatter.image.caption ?? "Generated with AI"}
+      loading="eager"
+    />
 
     <slot />
     <ul class="flex flex-wrap gap-2 not-prose">
