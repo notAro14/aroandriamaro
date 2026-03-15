@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-  themes: corporate --default, forest --prefersdark;
+  themes: garden --default, abyss --prefersdark;
 }
+
+@custom-variant dark (&:where([data-theme=abyss], [data-theme=abyss] *));
