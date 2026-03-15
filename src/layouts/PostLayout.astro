@@ -2,9 +2,10 @@
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
+const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
 ---
 
-<BaseLayout pageTitle={frontmatter.title} lang={frontmatter.lang} description={frontmatter.description}>
+<BaseLayout pageTitle={frontmatter.title} lang={frontmatter.lang} description={frontmatter.description} ogImage={ogImage}>
   <article>
     <time class="text-xs" datetime={frontmatter.pubDate}
       >{new Date(frontmatter.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}</time
