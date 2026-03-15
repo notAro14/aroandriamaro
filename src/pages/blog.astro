@@ -7,11 +7,15 @@ const allPosts = await getCollection("posts");
 
 <BaseLayout pageTitle="Aro Andriamaro | Blog">
   <h1>Blog</h1>
-  <div class="flex flex-col not-prose gap-4">
-    {
-      [...allPosts]
-        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-        .map((post) => <PostCard post={post} />)
-    }
-  </div>
+  {allPosts.length === 0 ? (
+    <p>Aucun article pour le moment.</p>
+  ) : (
+    <div class="flex flex-col not-prose gap-4">
+      {
+        [...allPosts]
+          .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+          .map((post) => <PostCard post={post} />)
+      }
+    </div>
+  )}
 </BaseLayout>

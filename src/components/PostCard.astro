@@ -3,11 +3,11 @@ const { post } = Astro.props;
 ---
 
 <article class="flex flex-col sm:flex-row sm:gap-4">
-  <time class="shrink-0 sm:w-32" datetime={post.data.pubDate}>
+  <time class="shrink-0 sm:w-32 tabular-nums" datetime={post.data.pubDate}>
     {new Date(post.data.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}
   </time>
   <h2>
-    <a class="link link-primary" href={`/posts/${post.id}`}
+    <a class="link link-primary focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none rounded" href={`/posts/${post.id}`}
       >{post.data.title}</a
     >
   </h2>
