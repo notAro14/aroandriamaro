@@ -5,20 +5,31 @@ const { frontmatter } = Astro.props;
 const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
 ---
 
-<BaseLayout pageTitle={frontmatter.title} lang={frontmatter.lang} description={frontmatter.description} ogImage={ogImage}>
+<BaseLayout
+  pageTitle={frontmatter.title}
+  lang={frontmatter.lang}
+  description={frontmatter.description}
+  ogImage={ogImage}
+>
   <article>
     <time class="text-xs" datetime={frontmatter.pubDate}
-      >{new Date(frontmatter.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}</time
+      >{
+        new Date(frontmatter.pubDate).toLocaleDateString("fr-FR", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        })
+      }</time
     >
     <h1>{frontmatter.title}</h1>
 
     <figure class="flex flex-col items-center">
       <Image
-        class="max-w-full mx-auto rounded-lg my-6"
+        class="max-w-full mx-auto rounded-lg mt-6"
         src={frontmatter.image.url}
         alt={frontmatter.image.alt}
       />
-      <figcaption class="-mt-2">
+      <figcaption class="self-end">
         {frontmatter.image.caption ?? "Generated with AI"}
       </figcaption>
     </figure>
@@ -27,7 +38,7 @@ const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
     <ul class="flex flex-wrap gap-2 not-prose">
       {
         frontmatter.tags.map((tag) => (
-          <li class="badge badge-primary badge-outline">
+          <li class="badge badge-primary badge-ghost">
             <a href={`/tags/${tag}`}>#{tag}</a>
           </li>
         ))

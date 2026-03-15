@@ -7,7 +7,7 @@ const { post } = Astro.props;
     {new Date(post.data.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}
   </time>
   <h2>
-    <a class="link link-primary" href={`/posts/${post.slug}`}
+    <a class="link link-primary" href={`/posts/${post.id}`}
       >{post.data.title}</a
     >
   </h2>
