@@ -2,10 +2,10 @@
 title: Code snippet - limit paragraph lines
 pubDate: 2022-04-23
 description: Truncate and limit long paragraph with this component
-author: "Aro Andriamaro"
 image:
   url: ../../assets/covers/main.webp
   alt: "Desk with computer desktop"
+lang: en
 tags: ["react", "css", "code snippet", "clamp"]
 ---
 

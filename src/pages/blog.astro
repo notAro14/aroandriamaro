@@ -1,7 +1,5 @@
 ---
-import { format } from "date-fns";
 import { getCollection } from "astro:content";
-import { isAfter, isBefore } from "date-fns";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 const allPosts = await getCollection("posts");
@@ -12,13 +10,7 @@ const allPosts = await getCollection("posts");
   <div class="flex flex-col not-prose gap-4">
     {
       [...allPosts]
-        .sort((a, b) => {
-          if (isAfter(new Date(a.data.pubDate), new Date(b.data.pubDate)))
-            return -1;
-          if (isBefore(new Date(a.data.pubDate), new Date(b.data.pubDate)))
-            return 1;
-          return 0;
-        })
+        .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
         .map((post) => <PostCard post={post} />)
     }
   </div>

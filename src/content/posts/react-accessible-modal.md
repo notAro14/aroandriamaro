@@ -2,10 +2,10 @@
 title: How To Build An Accessible Modal
 pubDate: 2022-05-07
 description: Building an accessible modal is not an easy task, although it's a very common element. Let's see how to build one easily.
-author: "Astro Learner"
 image:
   url: ../../assets/covers/a11y.webp
   alt: "Accessibility in modal dialog"
+lang: en
 tags: ["react", "dialog", "modal", "headless component"]
 ---
 

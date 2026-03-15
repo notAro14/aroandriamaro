@@ -1,5 +1,4 @@
 ---
-import { format } from "date-fns";
 import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 const { frontmatter } = Astro.props;
@@ -8,7 +7,7 @@ const { frontmatter } = Astro.props;
 <BaseLayout pageTitle={frontmatter.title} lang={frontmatter.lang} description={frontmatter.description}>
   <article>
     <time class="text-xs" datetime={frontmatter.pubDate}
-      >{format(new Date(frontmatter.pubDate), "dd MMM, yyyy")}</time
+      >{new Date(frontmatter.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}</time
     >
     <h1>{frontmatter.title}</h1>
 

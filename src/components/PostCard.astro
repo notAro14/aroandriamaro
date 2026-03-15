@@ -1,11 +1,10 @@
 ---
-import { format } from "date-fns";
 const { post } = Astro.props;
 ---
 
 <article class="flex flex-col sm:flex-row sm:gap-4">
   <time datetime={post.data.pubDate}>
-    {format(new Date(post.data.pubDate), "dd MMM, yyyy")}
+    {new Date(post.data.pubDate).toLocaleDateString("fr-FR", { day: "2-digit", month: "short", year: "numeric" })}
   </time>
   <h2>
     <a class="link link-primary" href={`/posts/${post.slug}`}

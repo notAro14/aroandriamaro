@@ -2,10 +2,10 @@
 title: Component composition in React
 description: How to use composition in React
 pubDate: 2021-10-01
-author: Aro Andriamaro
 image:
   url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
+lang: en
 tags: ["react", "composition"]
 ---
 

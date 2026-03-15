@@ -3,11 +3,11 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 const allPosts = await getCollection("posts");
 const tags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
-const pageTitle = "Aro Andriamaro | All tags";
+const pageTitle = "Aro Andriamaro | Tous les tags";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h1>All tags</h1>
+  <h1>Tous les tags</h1>
   <ul class="flex flex-wrap gap-2 not-prose">
     {
       tags.map((tag) => (

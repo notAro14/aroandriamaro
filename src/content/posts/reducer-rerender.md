@@ -2,10 +2,10 @@
 title: Quick tip to reduce React component re-render
 description: Component re-rendering is not a problem per se, but we can easily avoid it in some cases
 pubDate: 2022-04-09
-author: Aro Andriamaro
 image:
   url: ../../assets/covers/main.webp
   alt: Desk with computer desktop
+lang: en
 tags: ["react", "rerender"]
 ---
 

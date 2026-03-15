@@ -1,7 +1,6 @@
 ---
 title: Cairn ou le plaisir de prendre son temps
 description: Je viens de finir Cairn, un jeu d'escalade français. Je vais l'annoncer d'entrée de jeu, c'est mon deuxième meilleur jeu de tous les temps, après Outer Wilds. Rien que ça.
-author: Aro Andriamaro
 pubDate: 2026-03-15
 image:
   url: ../../assets/covers/cairn.webp
