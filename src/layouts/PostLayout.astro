@@ -32,7 +32,7 @@ const ogImage = new URL(frontmatter.image.url.src, Astro.site).href;
     />
 
     <slot />
-    <ul class="flex flex-wrap gap-2 not-prose">
+    <ul class="flex flex-wrap gap-2 not-prose mt-12">
       {
         frontmatter.tags.map((tag) => (
           <li class="badge badge-primary badge-ghost">
