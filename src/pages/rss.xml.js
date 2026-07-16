@@ -5,6 +5,7 @@ export async function GET(context) {
   const posts = await getCollection("posts");
   return rss({
     stylesheet: "/styles/rss.xsl",
+    xmlns: { atom: "http://www.w3.org/2005/Atom" },
     title: "Aro Andriamaro | Blog",
     description: "Blog sur le développement web et d'autres trucs.",
     site: context.site,
@@ -16,6 +17,6 @@ export async function GET(context) {
       description: post.data.description,
       link: `/posts/${post.id}/`,
     })),
-    customData: `<language>fr</language>`,
+    customData: `<atom:link href="${new URL("rss.xml", context.site)}" rel="self" type="application/rss+xml"/><language>fr</language>`,
   });
 }
