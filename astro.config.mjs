@@ -7,7 +7,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://aroandriamaro.com",
+  site: "https://www.aroandriamaro.com",
   integrations: [expressiveCode({
     themes: ["dracula"],
     plugins: [pluginLineNumbers()],
